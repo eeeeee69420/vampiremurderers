@@ -7,11 +7,11 @@ public class EnemyMelee : MonoBehaviour
     public float attackCooldown;
     public float remainingCooldown;
     public float attackAnimationDuration;
-    public EnemyMovement enemyMovement;
+    public EnemyController enemyController;
     // Start is called before the first frame update
     void Start()
     {
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     // Update is called once per frame
@@ -22,18 +22,18 @@ public class EnemyMelee : MonoBehaviour
         else if (remainingCooldown <= 0)
         {
             remainingCooldown = 0;
-            if (enemyMovement.touchingPlayer)
+            if (enemyController.touchingPlayer)
                 StartCoroutine(AttackPlayer());
         }
     }
     IEnumerator AttackPlayer()
     {
-        enemyMovement.enemyAnimator.PlayAnimation("Attack");
+        enemyController.enemyAnimator.PlayAnimation("Attack");
         remainingCooldown = attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
-        if (enemyMovement.touchingPlayer)
+        if (enemyController.touchingPlayer)
         {
-            enemyMovement.controller.hitScreenAnim();
+            enemyController.controller.hitScreenAnim();
         }
     }
 }

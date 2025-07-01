@@ -5,15 +5,20 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour
 {
     public Animator animator;
-    public EnemyMovement enemyMovement;
+    public EnemyController enemyController;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyController = GetComponent<EnemyController>();
     }
-    // Update is called once per frame
+    private void Update()
+    {
+        if (enemyController.direction == Vector2.zero)
+            animator.SetBool("IsIdling", true);
+        else
+            animator.SetBool("IsIdling", false);
+    }
     public void PlayAnimation(string Animation)
     {
         animator.Play(Animation);

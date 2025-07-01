@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D enemyBody;
     public SpriteRenderer enemySprite;
     public EnemyAnimator enemyAnimator;
     public GameController controller;
-    public float targetDistance = 0;
+    public float closestDistance;
+    public float preferredDistance;
+    public float preferredDistanceRange;
     public int playerTarget;
     public Vector2 direction;
     public Vector2 targetPosition;
@@ -30,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float closestDistance = Mathf.Infinity;
+        closestDistance = Mathf.Infinity;
         for (int i = 0; i < controller.Players.Count; i++)
         {
             float dist = Vector2.Distance(enemyBody.position, controller.Players[i].GetComponent<PlayerController>().playerBody.position);
@@ -46,6 +48,11 @@ public class EnemyMovement : MonoBehaviour
             enemySprite.flipX = true;
         else if (direction.x > 0)
             enemySprite.flipX = false;
+        if (closestDistance < preferredDistance - preferredDistanceRange)
+            direction *= -1f;
+        else if (closestDistance > preferredDistance + preferredDistanceRange) { }
+        else
+            direction = Vector2.zero;
         enemyBody.MovePosition(enemyBody.position + speed * Time.fixedDeltaTime * direction);
 
     }
