@@ -21,6 +21,6 @@ public class EnemyAnimator : MonoBehaviour
     }
     public void PlayAnimation(string Animation)
     {
-        animator.Play(Animation);
+        animator.Play(Animation, 0);
     }
 }
