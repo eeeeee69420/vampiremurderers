@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public List<GameObject> Players = new();
+    public List<Image> Tools = new();
     public GameObject hitScreen;
     public Color hitScreenColor;
     void Start()
