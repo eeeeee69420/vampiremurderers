@@ -1,26 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-public class EnemyController : MonoBehaviour
+
+public class EnemyBase : MonoBehaviour
 {
-    public float speed;
     public Rigidbody2D enemyBody;
     public SpriteRenderer enemySprite;
     public EnemyAnimator enemyAnimator;
     public GameController controller;
+
+    public float speed;
     public float closestDistance;
-    public float preferredDistance;
-    public float preferredDistanceRange;
     public int playerTarget;
     public Vector2 direction;
     public Vector2 targetPosition;
     public bool touchingPlayer;
 
-
-
-    // Start is called before the first frame update
+    public float attackCooldown;
+    public float remainingCooldown;
+    public float attackAnimationDuration;
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
@@ -29,8 +27,17 @@ public class EnemyController : MonoBehaviour
         controller = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
+    {
+        if (remainingCooldown > 0)
+            remainingCooldown -= Time.fixedDeltaTime;
+        else if (remainingCooldown < 0)
+            remainingCooldown = 0;
+        Track();
+        Move();
+        TryAttack();
+    }
+    protected virtual void Track()
     {
         closestDistance = Mathf.Infinity;
         for (int i = 0; i < controller.Players.Count; i++)
@@ -44,17 +51,31 @@ public class EnemyController : MonoBehaviour
         }
         targetPosition = controller.Players[playerTarget].GetComponent<PlayerController>().playerBody.position;
         direction = (targetPosition - enemyBody.position).normalized;
+    }
+    protected virtual void Move()
+    {
         if (direction.x < 0)
             enemySprite.flipX = true;
         else if (direction.x > 0)
             enemySprite.flipX = false;
-        if (closestDistance < preferredDistance - preferredDistanceRange)
-            direction *= -1f;
-        else if (closestDistance > preferredDistance + preferredDistanceRange) { }
-        else
-            direction = Vector2.zero;
         enemyBody.MovePosition(enemyBody.position + speed * Time.fixedDeltaTime * direction);
+    }
+    protected virtual void TryAttack()
+    {
 
+        if (touchingPlayer && remainingCooldown <= 0)
+            StartCoroutine(AttackPlayer());
+
+    }
+    protected virtual IEnumerator AttackPlayer()
+    {
+        enemyAnimator.PlayAnimation("Attack");
+        remainingCooldown = attackCooldown;
+        yield return new WaitForSeconds(attackAnimationDuration);
+        if (touchingPlayer)
+        {
+            GameController.Instance.hitScreenAnim();
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

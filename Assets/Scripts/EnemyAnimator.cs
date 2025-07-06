@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour
 {
     public Animator animator;
-    public EnemyController enemyController;
+    public EnemyBase enemyController;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        enemyController = GetComponent<EnemyController>();
+        enemyController = GetComponent<EnemyBase>();
     }
     private void Update()
     {
