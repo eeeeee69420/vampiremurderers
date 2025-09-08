@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    public float speed;
+    public WeaponStats stats;
     public Rigidbody2D projectileBody;
     public new Transform transform;
     public Animator animator;
     public bool player;
-    public float despawnTime;
     void Start()
     {
         projectileBody = GetComponent<Rigidbody2D>();
@@ -21,13 +20,13 @@ public class ProjectileController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        despawnTime -= Time.fixedDeltaTime;
-        if (despawnTime < 0)
+        stats.duration -= Time.fixedDeltaTime;
+        if (stats.duration < 0)
             Despawn();
     }
     protected virtual void Move()
     {
-        projectileBody.position += (Vector2)(speed * Time.fixedDeltaTime * transform.up);
+        projectileBody.position += (Vector2)(stats.projectileSpeed * Time.fixedDeltaTime * transform.up);
     }
     protected virtual void Despawn()
     {
@@ -35,7 +34,16 @@ public class ProjectileController : MonoBehaviour
     }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.name == "Player")
-            GameController.Instance.hitScreenAnim();
+        if (!player && collision.gameObject.layer == 6)
+        {
+            collision.gameObject.GetComponent<PlayerController>().stats.hp -= stats.damage;
+            GameController.Instance.HitScreenAnim();
+            GameController.Instance.UpdateHPBar();
+        }
+        if (player && collision.gameObject.layer == 7)
+        {
+            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
+            collision.gameObject.GetComponent<EnemyBase>().hit();
+        }
     }
 }

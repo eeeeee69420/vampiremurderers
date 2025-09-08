@@ -81,6 +81,8 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   inputDirection: {x: 0, y: 0}
+  hp: 100
+  hpmax: 100
 --- !u!58 &2932803314723351064
 CircleCollider2D:
   m_ObjectHideFlags: 0

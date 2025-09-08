@@ -243,6 +243,7 @@ MonoBehaviour:
   attackCooldown: 5
   remainingCooldown: 0
   attackAnimationDuration: 0.4
+  damage: 10
   range: 6
   preferredDistance: 5.5
   preferredDistanceRange: 0.5

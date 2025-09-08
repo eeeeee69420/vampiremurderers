@@ -243,3 +243,4 @@ MonoBehaviour:
   attackCooldown: 5
   remainingCooldown: 0
   attackAnimationDuration: 0.4
+  damage: 10

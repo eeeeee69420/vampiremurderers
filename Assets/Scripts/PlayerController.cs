@@ -11,15 +11,20 @@ public class PlayerController : MonoBehaviour
     public float inputY;
     public Vector2 inputDirection = new Vector2();
 
-    // Start is called before the first frame update
+    public PlayerStats stats;
+
+    public GameObject WeaponGrid;
+    public List<Weapon> Weapons;
+    public GameObject PassiveGrid;
+
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
+        stats.hp = stats.hpmax;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         inputX = Input.GetAxis("Horizontal");

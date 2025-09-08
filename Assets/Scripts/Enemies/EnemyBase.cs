@@ -19,6 +19,9 @@ public class EnemyBase : MonoBehaviour
     public float attackCooldown;
     public float remainingCooldown;
     public float attackAnimationDuration;
+    public float damage;
+    public float hp;
+    public bool dead;
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
@@ -29,13 +32,16 @@ public class EnemyBase : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (remainingCooldown > 0)
-            remainingCooldown -= Time.fixedDeltaTime;
-        else if (remainingCooldown < 0)
-            remainingCooldown = 0;
-        Track();
-        Move();
-        TryAttack();
+        if (!dead)
+        {
+            if (remainingCooldown > 0)
+                remainingCooldown -= Time.fixedDeltaTime;
+            else if (remainingCooldown < 0)
+                remainingCooldown = 0;
+            Track();
+            Move();
+            TryAttack();
+        }
     }
     protected virtual void Track()
     {
@@ -74,7 +80,9 @@ public class EnemyBase : MonoBehaviour
         yield return new WaitForSeconds(attackAnimationDuration);
         if (touchingPlayer)
         {
-            GameController.Instance.hitScreenAnim();
+            GameController.Instance.HitScreenAnim();
+            GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().stats.hp -= damage;
+            GameController.Instance.UpdateHPBar();
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -88,5 +96,18 @@ public class EnemyBase : MonoBehaviour
         {
             touchingPlayer = false;
         }
+    }
+    public void hit()
+    {
+        if (hp < 0)
+        {
+            dead = true;
+            hp = 0;
+            enemyAnimator.PlayAnimation("Death");
+        }
+    }
+    public void death()
+    {
+        Destroy(gameObject);
     }
 }

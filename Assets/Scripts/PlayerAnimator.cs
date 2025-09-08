@@ -6,7 +6,6 @@ public class PlayerAnimator : MonoBehaviour
 {
     public Animator animator;
     public PlayerController playerController;
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -19,7 +18,6 @@ public class PlayerAnimator : MonoBehaviour
         else
             animator.SetBool("isMoving", false);
     }
-    // Update is called once per frame
     public void PlayAnimation(string Animation)
     {
         animator.Play(Animation);

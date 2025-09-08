@@ -9,7 +9,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 394785942296353561, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 394785942296353561, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
       propertyPath: despawnTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 394785942296353561, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
+      propertyPath: stats.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 394785942296353561, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
+      propertyPath: stats.duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 394785942296353561, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
+      propertyPath: stats.projectileSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1271738001792338962, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
