@@ -20,6 +20,22 @@ public class WeaponStats
     public float criticalChance;
     public float criticalDamage;
     public int pierce;
+    public WeaponStats Clone()
+    {
+        return new WeaponStats
+        {
+            level = this.level,
+            damage = this.damage,
+            projectileSpeed = this.projectileSpeed,
+            cooldown = this.cooldown,
+            area = this.area,
+            duration = this.duration,
+            amount = this.amount,
+            criticalChance = this.criticalChance,
+            criticalDamage = this.criticalDamage,
+            pierce = this.pierce
+        };
+    }
 }
 [System.Serializable]
 public class PlayerStats
@@ -43,4 +59,5 @@ public class PlayerStats
     public float criticalChance = 0.15f;
     public float criticalDamage = 1.5f;
     public int pierce = 0;
+
 }
