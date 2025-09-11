@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
@@ -13,9 +14,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerStats stats;
 
-    public GameObject WeaponGrid;
     public List<Weapon> Weapons;
-    public GameObject PassiveGrid;
+    public List<Image> WeaponIcons;
+    public List<Image> PassiveIcons;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
         stats.hp = stats.hpmax;
+        NewWeapon(gameObject.GetComponent<Weapon>());
     }
 
     void FixedUpdate()
@@ -37,5 +39,22 @@ public class PlayerController : MonoBehaviour
         else if (inputDirection.x > 0)
             playerSprite.flipX = false;
         playerBody.MovePosition(playerBody.position + inputDirection * speed * Time.fixedDeltaTime);
+    }
+    void NewWeapon(Weapon weapon)
+    {
+        bool added = false;
+        for (int i = 0; i < Weapons.Count; i++)
+        {
+            if (Weapons[i] == null)
+            {
+                Weapons[i] = weapon;
+                added = true;
+                break;
+            }
+        }
+        if (!added)
+            Weapons.Add(weapon);
+        WeaponIcons[Weapons.IndexOf(weapon)].sprite = weapon.icon;
+        weapon.RefreshStats();
     }
 }

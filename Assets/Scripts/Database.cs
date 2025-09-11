@@ -20,7 +20,6 @@ public class WeaponStats
     public float criticalChance;
     public float criticalDamage;
     public int pierce;
-
 }
 [System.Serializable]
 public class PlayerStats
@@ -44,14 +43,4 @@ public class PlayerStats
     public float criticalChance = 0.15f;
     public float criticalDamage = 1.5f;
     public int pierce = 0;
-}
-[System.Serializable]
-public class WeaponLevelStats
-{
-    public int level;
-    public float damage;
-    public float attackSpeed;
-    public float range;
-    public float cooldown;
-    // add more as needed
 }
