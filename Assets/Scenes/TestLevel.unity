@@ -963,7 +963,7 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
   playerController: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   projectile: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
   spawnedObjects: []
   target: {fileID: 0}
@@ -1008,7 +1008,7 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
   playerController: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
   shield: {fileID: 0}
   shieldPrefab: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}
   holdDistance: 1.5
@@ -22399,7 +22399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: Weapons.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: WeaponIcons.Array.size

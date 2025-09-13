@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
         stats.hp = stats.hpmax;
-        NewWeapon(gameObject.GetComponent<Weapon>());
     }
 
     void FixedUpdate()
@@ -40,20 +39,12 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = false;
         playerBody.MovePosition(playerBody.position + inputDirection * speed * Time.fixedDeltaTime);
     }
-    void NewWeapon(Weapon weapon)
+    public void UpdateWeapons()
     {
-        bool added = false;
+        Weapons = new List<Weapon>(GetComponents<Weapon>());
         for (int i = 0; i < Weapons.Count; i++)
         {
-            if (Weapons[i] == null)
-            {
-                Weapons[i] = weapon;
-                added = true;
-                break;
-            }
+            WeaponIcons[i].sprite = Weapons[i].icon;
         }
-        if (!added)
-            Weapons.Add(weapon);
-        WeaponIcons[Weapons.IndexOf(weapon)].sprite = weapon.icon;
     }
 }
