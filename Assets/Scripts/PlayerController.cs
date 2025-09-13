@@ -55,6 +55,5 @@ public class PlayerController : MonoBehaviour
         if (!added)
             Weapons.Add(weapon);
         WeaponIcons[Weapons.IndexOf(weapon)].sprite = weapon.icon;
-        weapon.RefreshStats();
     }
 }

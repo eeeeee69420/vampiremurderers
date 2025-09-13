@@ -144,7 +144,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.015541742, y: 0.11747763}
@@ -183,7 +183,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd56181c05ff464aaf5094bbe64e887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  stats:
+    level: 0
+    damage: 0
+    projectileSpeed: 0
+    cooldown: 0
+    area: 0
+    duration: 0
+    amount: 0
+    criticalChance: 0
+    criticalDamage: 0
+    pierce: 0
   projectileBody: {fileID: 0}
   transform: {fileID: 0}
   animator: {fileID: 3101007448580274205}

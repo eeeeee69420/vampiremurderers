@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     {
         hitScreen = GameObject.Find("HitScreen");
     }
-
+    [SerializeField]
     public void HitScreenAnim()
     {
         if (hitScreen != null)

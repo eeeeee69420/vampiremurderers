@@ -22,6 +22,8 @@ public class EnemyBase : MonoBehaviour
     public float damage;
     public float hp;
     public bool dead;
+    public float freezeTimer;
+
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
@@ -32,7 +34,7 @@ public class EnemyBase : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!dead)
+        if (!dead && freezeTimer == 0)
         {
             if (remainingCooldown > 0)
                 remainingCooldown -= Time.fixedDeltaTime;
@@ -42,6 +44,10 @@ public class EnemyBase : MonoBehaviour
             Move();
             TryAttack();
         }
+        else if (freezeTimer > 0)
+            freezeTimer -= Time.fixedDeltaTime;
+        else if (freezeTimer < 0)
+            freezeTimer = 0;
     }
     protected virtual void Track()
     {

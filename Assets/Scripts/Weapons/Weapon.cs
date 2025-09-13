@@ -40,6 +40,9 @@ public class Weapon : MonoBehaviour
     }
     public virtual void RefreshStats()
     {
+        Debug.Log(baseStats.damage);
+        Debug.Log(buffStats.damage);
+        Debug.Log(playerController.stats.damage);
         buffStats.damage = baseStats.damage * playerController.stats.damage;
         buffStats.projectileSpeed = baseStats.projectileSpeed * playerController.stats.projectileSpeed;
         buffStats.cooldown = baseStats.cooldown / playerController.stats.cooldown;
