@@ -34,7 +34,7 @@ public class ProjectileController : MonoBehaviour
         if (stats.pierce == 0)
             Despawn();
     }
-    protected virtual void Despawn()
+    public virtual void Despawn()
     {
         Destroy(gameObject);
     }
@@ -56,7 +56,6 @@ public class ProjectileController : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             Pierce();
-            Debug.Log(gameObject.name + "hit" + collision.gameObject.name);
             hitObjects.Add(collision.gameObject);
         }
     }

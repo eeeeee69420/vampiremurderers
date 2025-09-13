@@ -1010,8 +1010,10 @@ MonoBehaviour:
   playerController: {fileID: 0}
   icon: {fileID: 0}
   shield: {fileID: 0}
-  shieldPrefab: {fileID: 0}
-  holdDistance: 0
+  shieldPrefab: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}
+  holdDistance: 1.5
+  angle: 0
+  rotationSpeed: 180
 --- !u!1 &659982445
 GameObject:
   m_ObjectHideFlags: 3
@@ -22275,6 +22277,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1467062198173580627, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2932803314723351064, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: m_Radius
       value: 0.99662924
