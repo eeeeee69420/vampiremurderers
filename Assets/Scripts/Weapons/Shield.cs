@@ -24,4 +24,20 @@ public class Sheild : Weapon
         shield.transform.rotation = Quaternion.RotateTowards(shield.transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f), rotationSpeed * Time.fixedDeltaTime);
         yield return null;
     }
+    public override void RefreshStats()
+    {
+        Debug.Log(baseStats.damage);
+        Debug.Log(buffStats.damage);
+        Debug.Log(playerController.stats.damage);
+        buffStats.damage = baseStats.damage * playerController.stats.damage * playerController.stats.moveSpeed;
+        buffStats.projectileSpeed = baseStats.projectileSpeed * playerController.stats.projectileSpeed;
+        buffStats.cooldown = baseStats.cooldown / playerController.stats.cooldown;
+        buffStats.area = baseStats.area * playerController.stats.area;
+        buffStats.duration = baseStats.duration * playerController.stats.duration;
+        buffStats.amount = baseStats.amount + playerController.stats.amount;
+        buffStats.criticalChance = Mathf.Min(1f, baseStats.criticalChance + playerController.stats.criticalChance);
+        buffStats.criticalDamage = baseStats.criticalDamage + playerController.stats.criticalDamage;
+        buffStats.pierce = baseStats.pierce + playerController.stats.pierce;
+        range = buffStats.projectileSpeed * buffStats.duration;
+    }
 }

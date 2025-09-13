@@ -10,7 +10,7 @@ public class ShieldProjectile : ProjectileController
     }
     protected override void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (player && collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
             collision.gameObject.GetComponent<EnemyBase>().hit();
@@ -20,6 +20,16 @@ public class ShieldProjectile : ProjectileController
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
         {
             collision.gameObject.GetComponent<ProjectileController>().Despawn();
+        }
+    }
+    protected virtual void OnTriggerStay2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage * Time.deltaTime * 2;
+            collision.gameObject.GetComponent<EnemyBase>().hit();
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed * Time.deltaTime;
+            collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
         }
     }
 }
