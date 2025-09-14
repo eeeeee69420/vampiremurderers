@@ -42,9 +42,15 @@ public class PlayerController : MonoBehaviour
     public void UpdateWeapons()
     {
         Weapons = new List<Weapon>(GetComponents<Weapon>());
-        for (int i = 0; i < Weapons.Count; i++)
+        for (int i = 0; i < WeaponIcons.Count; i++)
         {
-            WeaponIcons[i].sprite = Weapons[i].icon;
+            if (i < Weapons.Count && Weapons[i] != null)
+            {
+                WeaponIcons[i].sprite = Weapons[i].icon;
+                WeaponIcons[i].color = Color.white;
+            }
+            else
+                WeaponIcons[i].color = Color.clear;
         }
     }
 }

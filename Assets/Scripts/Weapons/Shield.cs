@@ -26,9 +26,6 @@ public class Sheild : Weapon
     }
     public override void RefreshStats()
     {
-        Debug.Log(baseStats.damage);
-        Debug.Log(buffStats.damage);
-        Debug.Log(playerController.stats.damage);
         buffStats.damage = baseStats.damage * playerController.stats.damage * playerController.stats.moveSpeed;
         buffStats.projectileSpeed = baseStats.projectileSpeed * playerController.stats.projectileSpeed;
         buffStats.cooldown = baseStats.cooldown / playerController.stats.cooldown;
