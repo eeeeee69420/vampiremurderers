@@ -59,5 +59,63 @@ public class PlayerStats
     public float criticalChance = 0.15f;
     public float criticalDamage = 1.5f;
     public int pierce = 0;
+    public PlayerStats Clone()
+    {
+        return new PlayerStats
+        {
+            level = this.level,
+            hpmax = this.hpmax,
+            hp = this.hp,
+            hpregen = this.hpregen,
+            armor = this.armor,
+            moveSpeed = this.moveSpeed,
+            damage = this.damage,
+            cooldown = this.cooldown,
+            area = this.area,
+            duration = this.duration,
+            projectileSpeed = this.projectileSpeed,
+            amount = this.amount,
+            growth = this.growth,
+            revives = this.revives,
+            greed = this.greed,
+            luck = this.luck,
+            criticalChance = this.criticalChance,
+            criticalDamage = this.criticalDamage,
+            pierce = this.pierce
+        };
+    }
+}
+public enum StatType
+{
+    HpMax,
+    HpRegen,
+    Armor,
+    MoveSpeed,
+    Damage,
+    Cooldown,
+    Area,
+    Duration,
+    ProjectileSpeed,
+    Amount,
+    Growth,
+    Revives,
+    Greed,
+    Luck,
+    CriticalChance,
+    CriticalDamage,
+    Pierce
+}
 
+[System.Serializable]
+public class Passive
+{
+    public PassiveData data;
+    public int level = 0;
+}
+
+[System.Serializable]
+public class StatIncrease
+{
+    public StatType stat;
+    public float amount;
 }

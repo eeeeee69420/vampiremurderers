@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sheild : Weapon
+public class Shield : Weapon
 {
     public GameObject shield;
     public GameObject shieldPrefab;
@@ -13,8 +13,8 @@ public class Sheild : Weapon
     void Start()
     {
         playerController = GetComponent<PlayerController>();
-        RefreshStats();
         shield = Instantiate(shieldPrefab, playerController.transform);
+        RefreshStats();
     }
     protected override IEnumerator ActivateWeapon()
     {
@@ -36,5 +36,7 @@ public class Sheild : Weapon
         buffStats.criticalDamage = baseStats.criticalDamage + playerController.stats.criticalDamage;
         buffStats.pierce = baseStats.pierce + playerController.stats.pierce;
         range = buffStats.projectileSpeed * buffStats.duration;
+        shield.GetComponentInChildren<ProjectileController>().stats = buffStats.Clone();
+        shield.transform.localScale *= shield.GetComponentInChildren<ProjectileController>().stats.area;
     }
 }
