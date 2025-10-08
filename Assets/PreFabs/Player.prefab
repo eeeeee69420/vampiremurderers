@@ -81,8 +81,31 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   inputDirection: {x: 0, y: 0}
-  hp: 100
-  hpmax: 100
+  characterData: {fileID: 0}
+  stats:
+    level: 0
+    hpmax: 100
+    hp: 100
+    hpregen: 0
+    armor: 0
+    moveSpeed: 1
+    damage: 1
+    cooldown: 1
+    area: 1
+    duration: 1
+    projectileSpeed: 1
+    amount: 0
+    growth: 1
+    revives: 0
+    greed: 1
+    luck: 0
+    criticalChance: 0.15
+    criticalDamage: 1.5
+    pierce: 0
+  Weapons: []
+  Passives: []
+  WeaponIcons: []
+  PassiveIcons: []
 --- !u!58 &2932803314723351064
 CircleCollider2D:
   m_ObjectHideFlags: 0

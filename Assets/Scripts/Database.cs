@@ -105,6 +105,24 @@ public enum StatType
     CriticalDamage,
     Pierce
 }
+public enum targetting
+{
+    None,
+    Random,
+    Closest,
+    Farthest,
+    Strongest,
+    Weakest
+}
+public enum weaponBehaviors
+{
+    Shield,
+    SpreadProjectile,
+    BurstProjectile,
+    RadialProjectile,
+    OrbittingProjectile,
+
+}
 
 [System.Serializable]
 public class Passive

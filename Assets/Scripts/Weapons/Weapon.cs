@@ -5,7 +5,7 @@ public class Weapon : MonoBehaviour
 {
     public float remainingCooldown;
     public float range;
-    public WeaponStats baseStats;
+    public WeaponData weaponData;
     public WeaponStats buffStats;
 
     public PlayerController playerController;
@@ -32,7 +32,13 @@ public class Weapon : MonoBehaviour
     }
     protected virtual void FindTarget()
     {
+        switch (weaponData.targetting)
+        {
+            case weaponData.targetting.None:
+                {
 
+                }
+        }
     }
     public virtual void LevelStats(int level)
     {
