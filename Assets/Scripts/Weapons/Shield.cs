@@ -26,15 +26,15 @@ public class Shield : Weapon
     }
     public override void RefreshStats()
     {
-        buffStats.damage = baseStats.damage * playerController.stats.damage * playerController.stats.moveSpeed;
-        buffStats.projectileSpeed = baseStats.projectileSpeed * playerController.stats.projectileSpeed;
-        buffStats.cooldown = baseStats.cooldown / playerController.stats.cooldown;
-        buffStats.area = baseStats.area * playerController.stats.area;
-        buffStats.duration = baseStats.duration * playerController.stats.duration;
-        buffStats.amount = baseStats.amount + playerController.stats.amount;
-        buffStats.criticalChance = Mathf.Min(1f, baseStats.criticalChance + playerController.stats.criticalChance);
-        buffStats.criticalDamage = baseStats.criticalDamage + playerController.stats.criticalDamage;
-        buffStats.pierce = baseStats.pierce + playerController.stats.pierce;
+        buffStats.damage = weaponData.baseStats.damage * playerController.stats.damage * playerController.stats.moveSpeed;
+        buffStats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.projectileSpeed;
+        buffStats.cooldown = weaponData.baseStats.cooldown / playerController.stats.cooldown;
+        buffStats.area = weaponData.baseStats.area * playerController.stats.area;
+        buffStats.duration = weaponData.baseStats.duration * playerController.stats.duration;
+        buffStats.amount = weaponData.baseStats.amount + playerController.stats.amount;
+        buffStats.criticalChance = Mathf.Min(1f, weaponData.baseStats.criticalChance + playerController.stats.criticalChance);
+        buffStats.criticalDamage = weaponData.baseStats.criticalDamage + playerController.stats.criticalDamage;
+        buffStats.pierce = weaponData.baseStats.pierce + playerController.stats.pierce;
         range = buffStats.projectileSpeed * buffStats.duration;
         shield.GetComponentInChildren<ProjectileController>().stats = buffStats.Clone();
         shield.transform.localScale *= shield.GetComponentInChildren<ProjectileController>().stats.area;

@@ -34,10 +34,10 @@ public class Weapon : MonoBehaviour
     {
         switch (weaponData.targetting)
         {
-            case weaponData.targetting.None:
-                {
-
-                }
+            case targetting.None:
+                break;
+            case targetting.Random:
+                break;
         }
     }
     public virtual void LevelStats(int level)
@@ -46,15 +46,15 @@ public class Weapon : MonoBehaviour
     }
     public virtual void RefreshStats()
     {
-        buffStats.damage = baseStats.damage * playerController.stats.damage;
-        buffStats.projectileSpeed = baseStats.projectileSpeed * playerController.stats.projectileSpeed;
-        buffStats.cooldown = baseStats.cooldown / playerController.stats.cooldown;
-        buffStats.area = baseStats.area * playerController.stats.area;
-        buffStats.duration = baseStats.duration * playerController.stats.duration;
-        buffStats.amount = baseStats.amount + playerController.stats.amount;
-        buffStats.criticalChance = Mathf.Min(1f, baseStats.criticalChance + playerController.stats.criticalChance);
-        buffStats.criticalDamage = baseStats.criticalDamage + playerController.stats.criticalDamage;
-        buffStats.pierce = baseStats.pierce + playerController.stats.pierce;
+        buffStats.damage = weaponData.baseStats.damage * playerController.stats.damage;
+        buffStats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.projectileSpeed;
+        buffStats.cooldown = weaponData.baseStats.cooldown / playerController.stats.cooldown;
+        buffStats.area = weaponData.baseStats.area * playerController.stats.area;
+        buffStats.duration = weaponData.baseStats.duration * playerController.stats.duration;
+        buffStats.amount = weaponData.baseStats.amount + playerController.stats.amount;
+        buffStats.criticalChance = Mathf.Min(1f, weaponData.baseStats.criticalChance + playerController.stats.criticalChance);
+        buffStats.criticalDamage = weaponData.baseStats.criticalDamage + playerController.stats.criticalDamage;
+        buffStats.pierce = weaponData.baseStats.pierce + playerController.stats.pierce;
         range = buffStats.projectileSpeed * buffStats.duration;
     }
 }
