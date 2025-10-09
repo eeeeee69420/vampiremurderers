@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewCharacter", menuName = "Game/Character")]
-public class CharacterData : ScriptableObject
+public class EnemyData : ScriptableObject
 {
-    public string characterName;
+    public string enemyName;
     public Sprite icon;
     public string description;
 
-    public weaponBehaviors weaponBehavior;
+    public string weapon;
     public string ability;
     public PlayerStats stats;
 }

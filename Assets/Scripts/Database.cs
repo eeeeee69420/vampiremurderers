@@ -45,7 +45,7 @@ public class PlayerStats
     public float hp = 100;
     public float hpregen = 0;
     public int armor = 0;
-    public float moveSpeed = 1;
+    public float moveSpeed = 5;
     public float damage = 1;
     public float cooldown = 1;
     public float area = 1;
@@ -122,6 +122,11 @@ public enum weaponBehaviors
     RadialProjectile,
     OrbittingProjectile,
 
+}
+public enum enemyBehaviors
+{
+    Melee,
+    Ranged
 }
 
 [System.Serializable]

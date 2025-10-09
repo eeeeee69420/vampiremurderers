@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<PlayerAnimator>();
         stats.hp = stats.hpmax;
         UpdatePassives();
-        var weaponType = System.Type.GetType(characterData.weapon);
-        gameObject.AddComponent(weaponType);
     }
 
     void FixedUpdate()
@@ -43,6 +41,10 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = false;
         playerBody.MovePosition(playerBody.position + inputDirection * stats.moveSpeed * Time.fixedDeltaTime);
     }
+    public void AddWeapon()
+    {
+
+    }
     public void UpdateWeapons()
     {
         Weapons = new List<Weapon>(GetComponents<Weapon>());
@@ -56,6 +58,12 @@ public class PlayerController : MonoBehaviour
             else
                 WeaponIcons[i].color = Color.clear;
         }
+    }
+    public void TakeDamage(float damage)
+    {
+        GameController.Instance.HitScreenAnim();
+        GameController.Instance.UpdateHPBar();
+        stats.hp -= (damage - stats.armor);
     }
     public void UpdatePassives()
     {

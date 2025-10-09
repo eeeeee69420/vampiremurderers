@@ -85,11 +85,7 @@ public class EnemyBase : MonoBehaviour
         remainingCooldown = attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         if (touchingPlayer)
-        {
-            GameController.Instance.HitScreenAnim();
-            GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().stats.hp -= damage;
-            GameController.Instance.UpdateHPBar();
-        }
+            GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().TakeDamage(damage);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -99,9 +95,7 @@ public class EnemyBase : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Player")
-        {
             touchingPlayer = false;
-        }
     }
     public void hit()
     {
