@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : Weapon
+public class Shield : ProjectileWeapon
 {
-    public GameObject shield;
-    public GameObject shieldPrefab;
+    GameObject shield;
     public float holdDistance;
-    public float angle;
+    float angle;
     public float rotationSpeed;
 
     void Start()
     {
         playerController = GetComponent<PlayerController>();
-        shield = Instantiate(shieldPrefab, playerController.transform);
+        shield = Instantiate(projectile, playerController.transform);
         RefreshStats();
     }
     protected override IEnumerator ActivateWeapon()

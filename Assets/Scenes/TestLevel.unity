@@ -926,51 +926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   playerController: {fileID: 0}
---- !u!114 &659444386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530773870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99034e4ba06007c44a0d8db32c21fa5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  remainingCooldown: 0
-  range: 0
-  baseStats:
-    level: 0
-    damage: 5
-    projectileSpeed: 7.5
-    cooldown: 5
-    area: 1
-    duration: 5
-    amount: 2
-    criticalChance: 0
-    criticalDamage: 0
-    pierce: 1
-  buffStats:
-    level: 0
-    damage: 0
-    projectileSpeed: 0
-    cooldown: 0
-    area: 0
-    duration: 0
-    amount: 0
-    criticalChance: 0
-    criticalDamage: 0
-    pierce: 0
-  playerController: {fileID: 0}
-  icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
-  projectile: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
-  spawnedObjects: []
-  target: {fileID: 0}
-  targets: []
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &659444390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,17 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingCooldown: 0
   range: 0
-  baseStats:
-    level: 0
-    damage: 10
-    projectileSpeed: 15
-    cooldown: 0
-    area: 2
-    duration: 99999
-    amount: 1
-    criticalChance: 0
-    criticalDamage: 0
-    pierce: 0
+  weaponData: {fileID: 0}
   buffStats:
     level: 0
     damage: 0
@@ -1008,11 +953,14 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
   playerController: {fileID: 0}
-  icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
-  shield: {fileID: 0}
-  shieldPrefab: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}
+  projectile: {fileID: 0}
+  spawnedObjects: []
+  target: {fileID: 0}
+  targets: []
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 256
   holdDistance: 1.5
-  angle: 0
   rotationSpeed: 180
 --- !u!1 &659982445
 GameObject:
@@ -22479,13 +22427,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4699791826738643260, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 659444382}
     - targetCorrespondingSourceObject: {fileID: 4699791826738643260, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 659444386}
-    - targetCorrespondingSourceObject: {fileID: 4699791826738643260, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 659444390}
   m_SourcePrefab: {fileID: 100100000, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
 --- !u!1660057539 &9223372036854775807

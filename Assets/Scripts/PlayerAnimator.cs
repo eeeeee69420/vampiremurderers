@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    public Animator animator;
-    public PlayerController playerController;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public PlayerController playerController;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();

@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody2D playerBody;
-    public SpriteRenderer playerSprite;
-    public PlayerAnimator playerAnimator;
-    public float inputX;
-    public float inputY;
-    public Vector2 inputDirection = new Vector2();
+    [HideInInspector] public Rigidbody2D playerBody;
+    [HideInInspector] public SpriteRenderer playerSprite;
+    [HideInInspector] public PlayerAnimator playerAnimator;
+    [HideInInspector] public float inputX;
+    [HideInInspector] public float inputY;
+    [HideInInspector] public Vector2 inputDirection = new Vector2();
 
     public CharacterData characterData;
-    public PlayerStats stats;
+    [HideInInspector] public PlayerStats stats;
 
-    public List<Weapon> Weapons;
-    public List<Passive> Passives;
+    [HideInInspector] public List<Weapon> Weapons;
+    [HideInInspector] public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
 
@@ -42,7 +41,7 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = true;
         else if (inputDirection.x > 0)
             playerSprite.flipX = false;
-        playerBody.MovePosition(playerBody.position + inputDirection * speed * Time.fixedDeltaTime);
+        playerBody.MovePosition(playerBody.position + inputDirection * stats.moveSpeed * Time.fixedDeltaTime);
     }
     public void UpdateWeapons()
     {
@@ -51,7 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             if (i < Weapons.Count && Weapons[i] != null)
             {
-                WeaponIcons[i].sprite = Weapons[i].icon;
+                WeaponIcons[i].sprite = Weapons[i].weaponData.icon;
                 WeaponIcons[i].color = Color.white;
             }
             else

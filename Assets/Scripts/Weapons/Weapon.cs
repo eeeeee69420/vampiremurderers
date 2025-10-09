@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Weapon : MonoBehaviour
 {
-    public float remainingCooldown;
-    public float range;
+    [HideInInspector] public float remainingCooldown;
+    [HideInInspector] public float range;
     public WeaponData weaponData;
-    public WeaponStats buffStats;
+    [HideInInspector] public WeaponStats buffStats;
 
-    public PlayerController playerController;
-    public Sprite icon;
+    [HideInInspector] public PlayerController playerController;
 
     void Start()
     {
@@ -26,19 +25,14 @@ public class Weapon : MonoBehaviour
     }
     protected virtual IEnumerator ActivateWeapon()
     {
-        FindTarget();
+        if (weaponData.targetting != targetting.None)
+            FindTarget();
         remainingCooldown = buffStats.cooldown;
         yield return new WaitForSeconds(.1f);
     }
     protected virtual void FindTarget()
     {
-        switch (weaponData.targetting)
-        {
-            case targetting.None:
-                break;
-            case targetting.Random:
-                break;
-        }
+
     }
     public virtual void LevelStats(int level)
     {

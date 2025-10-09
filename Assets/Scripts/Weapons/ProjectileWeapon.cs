@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
@@ -7,11 +8,55 @@ using UnityEngine.InputSystem.XR;
 public class ProjectileWeapon : Weapon
 {
     public GameObject projectile;
-    public List<GameObject> spawnedObjects = new();
-    public Collider2D target;
-    public Collider2D[] targets;
+    [HideInInspector] public List<GameObject> spawnedObjects = new();
+    [HideInInspector] public Collider2D target;
+    [HideInInspector] public Collider2D[] targets;
     public LayerMask enemyMask;
-
+    protected override void FindTarget()
+    {
+        targets = Physics2D.OverlapCircleAll(transform.position, buffStats.duration * buffStats.projectileSpeed * buffStats.duration, enemyMask);
+        switch (weaponData.targetting)
+        {
+            case targetting.Closest:
+                float nearestDist = Mathf.Infinity;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    if (targets[i] == null) continue;
+                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<EnemyBase>().transform.position);
+                    if (dist < nearestDist)
+                    {
+                        nearestDist = dist;
+                        target = targets[i];
+                    }
+                }
+                break;
+            case targetting.Farthest:
+                float farthestDist = 0;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    if (targets[i] == null) continue;
+                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<EnemyBase>().transform.position);
+                    if (dist < farthestDist)
+                    {
+                        farthestDist = dist;
+                        target = targets[i];
+                    }
+                }
+                break;
+            case targetting.Random:
+                int targetIndex = Random.Range(0, targets.Length - 1);
+                target = targets[targetIndex];
+                break;
+            case targetting.Weakest:
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                target = targets[0];
+                break;
+            case targetting.Strongest:
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                target = targets[0];
+                break;
+        }
+    }
 
     protected override IEnumerator ActivateWeapon()
     {

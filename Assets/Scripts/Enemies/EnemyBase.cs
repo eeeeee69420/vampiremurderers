@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public Rigidbody2D enemyBody;
-    public SpriteRenderer enemySprite;
-    public EnemyAnimator enemyAnimator;
-    public GameController controller;
+    [HideInInspector] public Rigidbody2D enemyBody;
+    [HideInInspector] public SpriteRenderer enemySprite;
+    [HideInInspector] public EnemyAnimator enemyAnimator;
+    [HideInInspector] public GameController controller;
 
     public float speed;
-    public float closestDistance;
-    public int playerTarget;
-    public Vector2 direction;
-    public Vector2 targetPosition;
-    public bool touchingPlayer;
+    [HideInInspector] public float closestDistance;
+    [HideInInspector] public int playerTarget;
+    [HideInInspector] public Vector2 direction;
+    [HideInInspector] public Vector2 targetPosition;
+    [HideInInspector] public bool touchingPlayer;
 
     public float attackCooldown;
-    public float remainingCooldown;
+    [HideInInspector] public float remainingCooldown;
     public float attackAnimationDuration;
     public float damage;
     public float hp;
-    public bool dead;
-    public float freezeTimer;
+    [HideInInspector] public bool dead;
+    [HideInInspector] public float freezeTimer;
 
     void Start()
     {
