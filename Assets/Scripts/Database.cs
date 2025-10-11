@@ -137,7 +137,6 @@ public enum ElementType
 }
 public static class ElementalChart
 {
-    // Attacker -> set of defender elements that attacker is strong against
     public static readonly Dictionary<ElementType, HashSet<ElementType>> StrongAgainst =
         new()
         {
@@ -153,16 +152,13 @@ public static class ElementalChart
             { ElementType.Light,   new HashSet<ElementType> { ElementType.Dark } },
         };
 
-    // Returns damage multiplier: 1 = normal, >1 = super effective, <1 = not effective
     public static float GetEffectiveness(ElementType attacker, ElementType defender)
     {
         if (attacker == defender) return 1f;
 
-        // attacker strong against defender -> super effective
         if (StrongAgainst.TryGetValue(attacker, out var attackerSet) && attackerSet.Contains(defender))
             return 1.5f;
 
-        // defender strong against attacker -> not effective
         if (StrongAgainst.TryGetValue(defender, out var defenderSet) && defenderSet.Contains(attacker))
             return 0.5f;
 
