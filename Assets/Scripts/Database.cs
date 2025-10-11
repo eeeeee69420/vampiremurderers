@@ -135,7 +135,7 @@ public enum ElementType
     Light,
     Dark
 }
-public enum enemyBehaviors
+public enum EnemyBehavior
 {
     Melee,
     Ranged
