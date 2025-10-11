@@ -135,36 +135,6 @@ public enum ElementType
     Light,
     Dark
 }
-public static class ElementalChart
-{
-    public static readonly Dictionary<ElementType, HashSet<ElementType>> StrongAgainst =
-        new()
-        {
-            { ElementType.Fire,    new HashSet<ElementType> { ElementType.Grass, ElementType.Ice } },
-            { ElementType.Water,   new HashSet<ElementType> { ElementType.Fire, ElementType.Earth } },
-            { ElementType.Earth,   new HashSet<ElementType> { ElementType.Fire, ElementType.Thunder } },
-            { ElementType.Thunder, new HashSet<ElementType> { ElementType.Water, ElementType.Ice } },
-            { ElementType.Air,     new HashSet<ElementType> { ElementType.Earth, ElementType.Poison } },
-            { ElementType.Ice,     new HashSet<ElementType> { ElementType.Air, ElementType.Grass } },
-            { ElementType.Grass,   new HashSet<ElementType> { ElementType.Water, ElementType.Earth } },
-            { ElementType.Poison,  new HashSet<ElementType> { ElementType.Grass, ElementType.Air } },
-            { ElementType.Dark,    new HashSet<ElementType> { ElementType.Light } },
-            { ElementType.Light,   new HashSet<ElementType> { ElementType.Dark } },
-        };
-
-    public static float GetEffectiveness(ElementType attacker, ElementType defender)
-    {
-        if (attacker == defender) return 1f;
-
-        if (StrongAgainst.TryGetValue(attacker, out var attackerSet) && attackerSet.Contains(defender))
-            return 1.5f;
-
-        if (StrongAgainst.TryGetValue(defender, out var defenderSet) && defenderSet.Contains(attacker))
-            return 0.5f;
-
-        return 1f;
-    }
-}
 public enum enemyBehaviors
 {
     Melee,
