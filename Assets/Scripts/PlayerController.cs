@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
@@ -41,10 +42,16 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = false;
         playerBody.MovePosition(playerBody.position + inputDirection * stats.moveSpeed * Time.fixedDeltaTime);
     }
-    public void AddWeapon()
+    public void AddWeapon(WeaponData weaponData)
     {
-
+        Weapon newWeapon = WeaponBehaviors.AddBehaviorTo(gameObject, weaponData.weaponBehavior);
+        if (newWeapon != null)
+        {
+            Weapons.Add(newWeapon);
+            Debug.Log($"{weaponData.weaponBehavior} added to player!");
+        }
     }
+
     public void UpdateWeapons()
     {
         Weapons = new List<Weapon>(GetComponents<Weapon>());

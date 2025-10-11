@@ -9,9 +9,7 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
 
     public List<GameObject> Players = new();
-    public List<Image> Tools = new();
-    public GameObject hitScreen;
-    public Color hitScreenColor;
+    GameObject hitScreen;
     public Image hpbar;
 
     void Awake()

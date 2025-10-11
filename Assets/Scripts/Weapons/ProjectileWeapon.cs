@@ -17,7 +17,7 @@ public class ProjectileWeapon : Weapon
         targets = Physics2D.OverlapCircleAll(transform.position, buffStats.duration * buffStats.projectileSpeed * buffStats.duration, enemyMask);
         switch (weaponData.targetting)
         {
-            case targetting.Closest:
+            case TargettingType.Closest:
                 float nearestDist = Mathf.Infinity;
                 for (int i = 0; i < targets.Length; i++)
                 {
@@ -30,7 +30,7 @@ public class ProjectileWeapon : Weapon
                     }
                 }
                 break;
-            case targetting.Farthest:
+            case TargettingType.Farthest:
                 float farthestDist = 0;
                 for (int i = 0; i < targets.Length; i++)
                 {
@@ -43,15 +43,15 @@ public class ProjectileWeapon : Weapon
                     }
                 }
                 break;
-            case targetting.Random:
+            case TargettingType.Random:
                 int targetIndex = Random.Range(0, targets.Length - 1);
                 target = targets[targetIndex];
                 break;
-            case targetting.Weakest:
+            case TargettingType.Weakest:
                 targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
                 target = targets[0];
                 break;
-            case targetting.Strongest:
+            case TargettingType.Strongest:
                 targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
                 target = targets[0];
                 break;

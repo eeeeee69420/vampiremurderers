@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     }
     protected virtual IEnumerator ActivateWeapon()
     {
-        if (weaponData.targetting != targetting.None)
+        if (weaponData.targetting != TargettingType.None)
             FindTarget();
         remainingCooldown = buffStats.cooldown;
         yield return new WaitForSeconds(.1f);

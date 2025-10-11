@@ -9,7 +9,7 @@ public class CharacterData : ScriptableObject
     public Sprite icon;
     public string description;
 
-    public weaponBehaviors weaponBehavior;
+    public WeaponData weaponData;
     public string ability;
     public PlayerStats stats;
 }

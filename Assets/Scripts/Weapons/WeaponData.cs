@@ -9,7 +9,7 @@ public class WeaponData : ScriptableObject
     public List<List<StatIncrease>> LevelStats;
     public int maxLevel;
     public Sprite icon;
-    public weaponBehaviors weaponBehavior;
-    public targetting targetting;
+    public WeaponBehavior weaponBehavior;
+    public TargettingType targetting;
     public GameObject projectile;
 }
