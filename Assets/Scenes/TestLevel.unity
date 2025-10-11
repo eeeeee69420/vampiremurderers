@@ -552,9 +552,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - {fileID: 530773870}
-  Tools: []
-  hitScreen: {fileID: 0}
-  hitScreenColor: {r: 0, g: 0, b: 0, a: 0}
   hpbar: {fileID: 688932694}
 --- !u!4 &254850253
 Transform:
