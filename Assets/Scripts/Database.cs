@@ -105,7 +105,7 @@ public enum StatType
     CriticalDamage,
     Pierce
 }
-public enum TargettingType
+public enum targetting
 {
     None,
     Random,
@@ -114,28 +114,16 @@ public enum TargettingType
     Strongest,
     Weakest
 }
-public enum WeaponBehavior
+public enum weaponBehaviors
 {
     Shield,
     SpreadProjectile,
     BurstProjectile,
     RadialProjectile,
-    OrbittingProjectile
+    OrbittingProjectile,
+
 }
-public enum ElementType
-{
-    Water,
-    Fire,
-    Grass,
-    Earth,
-    Thunder,
-    Air,
-    Ice,
-    Poison,
-    Light,
-    Dark
-}
-public enum EnemyBehavior
+public enum enemyBehaviors
 {
     Melee,
     Ranged
