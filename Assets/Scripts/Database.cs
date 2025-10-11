@@ -105,7 +105,7 @@ public enum StatType
     CriticalDamage,
     Pierce
 }
-public enum targetting
+public enum TargettingType
 {
     None,
     Random,
@@ -114,14 +114,60 @@ public enum targetting
     Strongest,
     Weakest
 }
-public enum weaponBehaviors
+public enum WeaponBehavior
 {
     Shield,
     SpreadProjectile,
     BurstProjectile,
     RadialProjectile,
-    OrbittingProjectile,
+    OrbittingProjectile
+}
+public enum ElementType
+{
+    Water,
+    Fire,
+    Grass,
+    Earth,
+    Thunder,
+    Air,
+    Ice,
+    Poison,
+    Light,
+    Dark
+}
+public static class ElementalChart
+{
+    // Attacker -> set of defender elements that attacker is strong against
+    public static readonly Dictionary<ElementType, HashSet<ElementType>> StrongAgainst =
+        new()
+        {
+            { ElementType.Fire,    new HashSet<ElementType> { ElementType.Grass, ElementType.Ice } },
+            { ElementType.Water,   new HashSet<ElementType> { ElementType.Fire, ElementType.Earth } },
+            { ElementType.Earth,   new HashSet<ElementType> { ElementType.Fire, ElementType.Thunder } },
+            { ElementType.Thunder, new HashSet<ElementType> { ElementType.Water, ElementType.Ice } },
+            { ElementType.Air,     new HashSet<ElementType> { ElementType.Earth, ElementType.Poison } },
+            { ElementType.Ice,     new HashSet<ElementType> { ElementType.Air, ElementType.Grass } },
+            { ElementType.Grass,   new HashSet<ElementType> { ElementType.Water, ElementType.Earth } },
+            { ElementType.Poison,  new HashSet<ElementType> { ElementType.Grass, ElementType.Air } },
+            { ElementType.Dark,    new HashSet<ElementType> { ElementType.Light } },
+            { ElementType.Light,   new HashSet<ElementType> { ElementType.Dark } },
+        };
 
+    // Returns damage multiplier: 1 = normal, >1 = super effective, <1 = not effective
+    public static float GetEffectiveness(ElementType attacker, ElementType defender)
+    {
+        if (attacker == defender) return 1f;
+
+        // attacker strong against defender -> super effective
+        if (StrongAgainst.TryGetValue(attacker, out var attackerSet) && attackerSet.Contains(defender))
+            return 1.5f;
+
+        // defender strong against attacker -> not effective
+        if (StrongAgainst.TryGetValue(defender, out var defenderSet) && defenderSet.Contains(attacker))
+            return 0.5f;
+
+        return 1f;
+    }
 }
 public enum enemyBehaviors
 {
