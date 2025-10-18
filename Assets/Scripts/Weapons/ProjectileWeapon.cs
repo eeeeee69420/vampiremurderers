@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.XR;
 
 public class ProjectileWeapon : Weapon
 {
-    public GameObject projectile;
     [HideInInspector] public List<GameObject> spawnedObjects = new();
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
@@ -65,7 +64,7 @@ public class ProjectileWeapon : Weapon
         {
             FindTarget();
             Vector3 direction = target.transform.position - transform.position;
-            spawnedObjects.Add(Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
+            spawnedObjects.Add(Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
             spawnedObjects[^1].GetComponent<ProjectileController>().stats = buffStats.Clone();
             spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
             spawnedObjects[^1].GetComponent<ProjectileController>().player = true;

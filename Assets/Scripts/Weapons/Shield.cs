@@ -9,10 +9,11 @@ public class Shield : ProjectileWeapon
     float angle;
     public float rotationSpeed;
 
-    void Start()
+    public override void Initiate()
     {
         playerController = GetComponent<PlayerController>();
-        shield = Instantiate(projectile, playerController.transform);
+        playerController.UpdateWeapons();
+        shield = Instantiate(weaponData.projectile, playerController.transform);
         RefreshStats();
     }
     protected override IEnumerator ActivateWeapon()

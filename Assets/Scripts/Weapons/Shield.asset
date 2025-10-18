@@ -27,4 +27,4 @@ MonoBehaviour:
   icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
   weaponBehavior: 0
   targetting: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}

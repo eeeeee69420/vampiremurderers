@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 public class Weapon : MonoBehaviour
 {
     [HideInInspector] public float remainingCooldown;
     [HideInInspector] public float range;
     public WeaponData weaponData;
-    [HideInInspector] public WeaponStats buffStats;
+    [HideInInspector] public WeaponStats buffStats = new WeaponStats();
 
     [HideInInspector] public PlayerController playerController;
 
-    void Start()
+    public virtual void Initiate()
     {
         playerController = GetComponent<PlayerController>();
         playerController.UpdateWeapons();
         RefreshStats();
     }
-
     void FixedUpdate()
     {
         remainingCooldown -= Time.fixedDeltaTime;

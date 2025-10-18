@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
         stats.hp = stats.hpmax;
-        UpdatePassives();
+        AddWeapon(characterData.weaponData);
     }
 
     void FixedUpdate()
@@ -44,12 +45,11 @@ public class PlayerController : MonoBehaviour
     }
     public void AddWeapon(WeaponData weaponData)
     {
-        Weapon newWeapon = WeaponBehaviors.AddBehaviorTo(gameObject, weaponData.weaponBehavior);
-        if (newWeapon != null)
-        {
-            Weapons.Add(newWeapon);
-            Debug.Log($"{weaponData.weaponBehavior} added to player!");
-        }
+        Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
+        Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
+        Weapons.Add(newWeapon);
+        newWeapon.weaponData = weaponData;
+        newWeapon.Initiate();
     }
 
     public void UpdateWeapons()

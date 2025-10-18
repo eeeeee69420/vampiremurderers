@@ -127,23 +127,11 @@ public enum WeaponBehavior
 }
 public static class WeaponBehaviors
 {
-    // Dictionary: enum → MonoBehaviour Type
     public static readonly Dictionary<WeaponBehavior, Type> behaviorMap = new()
     {
         { WeaponBehavior.Shield, typeof(Shield) },
         { WeaponBehavior.Projectile, typeof(ProjectileWeapon) },
     };
-
-    public static Weapon AddBehaviorTo(GameObject owner, WeaponBehavior behaviorType)
-    {
-        if (behaviorMap.TryGetValue(behaviorType, out var type))
-        {
-            return (Weapon)owner.AddComponent(type);
-        }
-
-        Debug.LogWarning($"No weapon found for behavior {behaviorType}");
-        return null;
-    }
 }
 public enum ElementType
 {
