@@ -21,11 +21,6 @@ public class PlayerController : MonoBehaviour
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
 
-    [HideInInspector] public float xp;
-    public float xpMax;
-    public float xpScaling;
-    public int level;
-
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();

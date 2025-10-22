@@ -29,7 +29,6 @@ public class GameController : MonoBehaviour
     {
         hitScreen = GameObject.Find("HitScreen");
         UpdateHPBar();
-        UpdateXPBar();
     }
     [SerializeField]
     public void HitScreenAnim()
@@ -45,16 +44,5 @@ public class GameController : MonoBehaviour
         if (Players[0].GetComponent<PlayerController>().stats.hp < 0)
         {
         }
-    }
-    public void UpdateXPBar()
-    {
-        PlayerController playerController = Players[0].GetComponent<PlayerController>();
-        if (playerController.xp > playerController.xpMax)
-        {
-            playerController.level += 1;
-            playerController.xp -= playerController.xpMax;
-            playerController.xpMax *= playerController.xpScaling;
-        }
-        xpbar.fillAmount = playerController.xp / playerController.xpMax;
     }
 }
