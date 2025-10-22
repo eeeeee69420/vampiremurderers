@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public List<GameObject> Players = new();
     GameObject hitScreen;
     public Image hpbar;
+    public Image xpbar;
 
     void Awake()
     {
@@ -27,6 +28,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         hitScreen = GameObject.Find("HitScreen");
+        UpdateHPBar();
+        UpdateXPBar();
     }
     [SerializeField]
     public void HitScreenAnim()
@@ -42,5 +45,16 @@ public class GameController : MonoBehaviour
         if (Players[0].GetComponent<PlayerController>().stats.hp < 0)
         {
         }
+    }
+    public void UpdateXPBar()
+    {
+        PlayerController playerController = Players[0].GetComponent<PlayerController>();
+        if (playerController.xp > playerController.xpMax)
+        {
+            playerController.level += 1;
+            playerController.xp -= playerController.xpMax;
+            playerController.xpMax *= playerController.xpScaling;
+        }
+        xpbar.fillAmount = playerController.xp / playerController.xpMax;
     }
 }

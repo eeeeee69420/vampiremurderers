@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
 
+    [HideInInspector] public float xp;
+    public float xpMax;
+    public float xpScaling;
+    public int level;
+
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
@@ -41,7 +46,7 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = true;
         else if (inputDirection.x > 0)
             playerSprite.flipX = false;
-        playerBody.MovePosition(playerBody.position + inputDirection * stats.moveSpeed * Time.fixedDeltaTime);
+        playerBody.MovePosition(playerBody.position + stats.moveSpeed * Time.fixedDeltaTime * inputDirection);
     }
     public void AddWeapon(WeaponData weaponData)
     {
