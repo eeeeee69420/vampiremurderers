@@ -81,26 +81,26 @@ public class PlayerController : MonoBehaviour
             {
                 PassiveIcons[i].sprite = Passives[i].data.icon;
                 PassiveIcons[i].color = Color.white;
-                float totalBonus = Passives[i].data.bonusPerLevel * Passives[i].level;
+                float passiveBonus = Passives[i].data.bonusPerLevel * Passives[i].level;
                 switch (Passives[i].data.affectedStat)
                 {
-                    case StatType.HpMax: stats.hpmax += totalBonus; break;
-                    case StatType.HpRegen: stats.hpregen += totalBonus; break;
-                    case StatType.Armor: stats.armor += (int)totalBonus; break;
-                    case StatType.MoveSpeed: stats.moveSpeed += totalBonus; break;
-                    case StatType.Damage: stats.damage += totalBonus; break;
-                    case StatType.Cooldown: stats.cooldown -= totalBonus; break;
-                    case StatType.Area: stats.area += totalBonus; break;
-                    case StatType.Duration: stats.duration += totalBonus; break;
-                    case StatType.ProjectileSpeed: stats.projectileSpeed += totalBonus; break;
-                    case StatType.Amount: stats.amount += (int)totalBonus; break;
-                    case StatType.Growth: stats.growth += totalBonus; break;
-                    case StatType.Revives: stats.revives += (int)totalBonus; break;
-                    case StatType.Greed: stats.greed += totalBonus; break;
-                    case StatType.Luck: stats.luck += totalBonus; break;
-                    case StatType.CriticalChance: stats.criticalChance += totalBonus; break;
-                    case StatType.CriticalDamage: stats.criticalDamage += totalBonus; break;
-                    case StatType.Pierce: stats.pierce += (int)totalBonus; break;
+                    case StatType.HpMax: stats.hpmax += passiveBonus; break;
+                    case StatType.HpRegen: stats.hpregen += passiveBonus; break;
+                    case StatType.Armor: stats.armor += (int)passiveBonus; break;
+                    case StatType.MoveSpeed: stats.moveSpeed += passiveBonus; break;
+                    case StatType.Damage: stats.damage += passiveBonus; break;
+                    case StatType.Cooldown: stats.cooldown -= passiveBonus; break;
+                    case StatType.Area: stats.area += passiveBonus; break;
+                    case StatType.Duration: stats.duration += passiveBonus; break;
+                    case StatType.ProjectileSpeed: stats.projectileSpeed += passiveBonus; break;
+                    case StatType.Amount: stats.amount += (int)passiveBonus; break;
+                    case StatType.Growth: stats.growth += passiveBonus; break;
+                    case StatType.Revives: stats.revives += (int)passiveBonus; break;
+                    case StatType.Greed: stats.greed += passiveBonus; break;
+                    case StatType.Luck: stats.luck += passiveBonus; break;
+                    case StatType.CriticalChance: stats.criticalChance += passiveBonus; break;
+                    case StatType.CriticalDamage: stats.criticalDamage += passiveBonus; break;
+                    case StatType.Pierce: stats.pierce += (int)passiveBonus; break;
                 }
             }
             else

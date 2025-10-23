@@ -60,6 +60,7 @@ public class PlayerStats
     public float criticalChance = 0.15f;
     public float criticalDamage = 1.5f;
     public int pierce = 0;
+    public float lifesteal = 0;
     public PlayerStats Clone()
     {
         return new PlayerStats
@@ -82,7 +83,8 @@ public class PlayerStats
             luck = this.luck,
             criticalChance = this.criticalChance,
             criticalDamage = this.criticalDamage,
-            pierce = this.pierce
+            pierce = this.pierce,
+            lifesteal = this.lifesteal
         };
     }
 }
@@ -104,7 +106,8 @@ public enum StatType
     Luck,
     CriticalChance,
     CriticalDamage,
-    Pierce
+    Pierce,
+    Lifesteal
 }
 public enum TargettingType
 {

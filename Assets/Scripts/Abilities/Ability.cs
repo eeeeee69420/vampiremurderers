@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+            StartCoroutine(ActivateAbility());
     }
-
-    // Update is called once per frame
-    void Update()
+    protected virtual IEnumerator ActivateAbility()
     {
-        
+        return null;
     }
 }
