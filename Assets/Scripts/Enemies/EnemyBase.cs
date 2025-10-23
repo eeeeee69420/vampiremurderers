@@ -82,7 +82,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual IEnumerator AttackPlayer()
     {
         enemyAnimator.PlayAnimation("Attack");
-        remainingCooldown = attackCooldown;
+        remainingCooldown += attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         if (touchingPlayer)
             GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().TakeDamage(damage);

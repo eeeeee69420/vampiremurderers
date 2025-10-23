@@ -59,7 +59,7 @@ public class ProjectileWeapon : Weapon
 
     protected override IEnumerator ActivateWeapon()
     {
-        remainingCooldown = buffStats.cooldown;
+        remainingCooldown += buffStats.cooldown;
         for (int i = 0; i < buffStats.amount; i++)
         {
             FindTarget();

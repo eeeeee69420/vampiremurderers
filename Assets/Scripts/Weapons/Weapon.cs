@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
     {
         if (weaponData.targetting != TargettingType.None)
             FindTarget();
-        remainingCooldown = buffStats.cooldown;
+        remainingCooldown += buffStats.cooldown;
         yield return new WaitForSeconds(.1f);
     }
     protected virtual void FindTarget()

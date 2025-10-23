@@ -27,7 +27,7 @@ public class EnemyRanged : EnemyBase
     protected override IEnumerator AttackPlayer()
     {
         enemyAnimator.animator.SetTrigger("IsThrowing");
-        remainingCooldown = attackCooldown;
+        remainingCooldown += attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         Vector3 direction = (Vector3)(Vector2)controller.Players[playerTarget].GetComponent<PlayerController>().playerBody.position - transform.position;
         Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
