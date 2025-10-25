@@ -172,7 +172,7 @@ public static class EnemyBehaviors
 {
     public static readonly Dictionary<EnemyBehavior, Type> behaviorMap = new()
     {
-        { EnemyBehavior.Melee, typeof(Shield) },
-        { EnemyBehavior.RangedHold, typeof(ProjectileWeapon) },
+        { EnemyBehavior.Melee, typeof(EnemyBase) },
+        { EnemyBehavior.RangedHold, typeof(EnemyRangedHold) },
     };
 }
