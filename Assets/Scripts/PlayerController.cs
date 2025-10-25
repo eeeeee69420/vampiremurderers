@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 inputDirection = new Vector2();
 
     public CharacterData characterData;
-    [HideInInspector] public PlayerStats stats;
+    [HideInInspector] public CharacterStats stats;
 
     [HideInInspector] public List<Weapon> Weapons;
     [HideInInspector] public List<Passive> Passives;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
+        stats = characterData.stats.Clone();
         stats.hp = stats.hpmax;
         AddWeapon(characterData.weaponData);
     }
@@ -72,6 +74,14 @@ public class PlayerController : MonoBehaviour
         GameController.Instance.UpdateHPBar();
         stats.hp -= (damage - stats.armor);
     }
+    public void LifeSteal()
+    {
+        int lifesteal = UnityEngine.Random.Range(1, 100);
+        if (lifesteal <= stats.lifesteal)
+        {
+            stats.hp += 1;
+        }
+    }
     public void UpdatePassives()
     {
         stats = characterData.stats.Clone();
@@ -101,6 +111,7 @@ public class PlayerController : MonoBehaviour
                     case StatType.CriticalChance: stats.criticalChance += passiveBonus; break;
                     case StatType.CriticalDamage: stats.criticalDamage += passiveBonus; break;
                     case StatType.Pierce: stats.pierce += (int)passiveBonus; break;
+                    case StatType.Lifesteal: stats.lifesteal += passiveBonus; break;
                 }
             }
             else

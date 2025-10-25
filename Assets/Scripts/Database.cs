@@ -39,7 +39,21 @@ public class WeaponStats
     }
 }
 [System.Serializable]
-public class PlayerStats
+public class Passive
+{
+    public PassiveData data;
+    public int level = 0;
+}
+
+[System.Serializable]
+public class StatIncrease
+{
+    public StatType stat;
+    public float amount;
+}
+
+[System.Serializable]
+public class CharacterStats
 {
     public int level = 0;
     public float hpmax = 100;
@@ -61,9 +75,9 @@ public class PlayerStats
     public float criticalDamage = 1.5f;
     public int pierce = 0;
     public float lifesteal = 0;
-    public PlayerStats Clone()
+    public CharacterStats Clone()
     {
-        return new PlayerStats
+        return new CharacterStats
         {
             level = this.level,
             hpmax = this.hpmax,
@@ -152,19 +166,13 @@ public enum ElementType
 public enum EnemyBehavior
 {
     Melee,
-    Ranged
+    RangedHold
 }
-
-[System.Serializable]
-public class Passive
+public static class EnemyBehaviors
 {
-    public PassiveData data;
-    public int level = 0;
-}
-
-[System.Serializable]
-public class StatIncrease
-{
-    public StatType stat;
-    public float amount;
+    public static readonly Dictionary<EnemyBehavior, Type> behaviorMap = new()
+    {
+        { EnemyBehavior.Melee, typeof(Shield) },
+        { EnemyBehavior.RangedHold, typeof(ProjectileWeapon) },
+    };
 }

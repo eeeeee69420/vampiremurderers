@@ -11,5 +11,5 @@ public class CharacterData : ScriptableObject
 
     public WeaponData weaponData;
     public string ability;
-    public PlayerStats stats;
+    public CharacterStats stats;
 }

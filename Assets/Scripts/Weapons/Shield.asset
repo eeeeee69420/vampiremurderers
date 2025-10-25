@@ -15,7 +15,7 @@ MonoBehaviour:
   baseStats:
     level: 0
     damage: 10
-    projectileSpeed: 5
+    projectileSpeed: 15
     cooldown: 2
     area: 1.1
     duration: 1e+10

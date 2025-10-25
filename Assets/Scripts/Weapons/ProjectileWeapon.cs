@@ -47,11 +47,11 @@ public class ProjectileWeapon : Weapon
                 target = targets[targetIndex];
                 break;
             case TargettingType.Weakest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().enemyData.stats.hp).ToArray();
                 target = targets[0];
                 break;
             case TargettingType.Strongest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().enemyData.stats.hp).ToArray();
                 target = targets[0];
                 break;
         }
@@ -68,6 +68,7 @@ public class ProjectileWeapon : Weapon
             spawnedObjects[^1].GetComponent<ProjectileController>().stats = buffStats.Clone();
             spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
             spawnedObjects[^1].GetComponent<ProjectileController>().player = true;
+            spawnedObjects[^1].GetComponent<ProjectileController>().owner = gameObject;
             yield return new WaitForSeconds(.1f);
         }
     }

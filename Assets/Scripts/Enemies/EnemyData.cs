@@ -8,7 +8,7 @@ public class EnemyData : ScriptableObject
     public Sprite icon;
     public string description;
 
-    public string weapon;
-    public string ability;
-    public PlayerStats stats;
+    public GameObject projectile;
+    public CharacterStats stats;
+    public EnemyBehavior behavior;
 }

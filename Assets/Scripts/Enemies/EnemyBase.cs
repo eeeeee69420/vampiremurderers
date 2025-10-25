@@ -19,8 +19,7 @@ public class EnemyBase : MonoBehaviour
     public float attackCooldown;
     [HideInInspector] public float remainingCooldown;
     public float attackAnimationDuration;
-    public float damage;
-    public float hp;
+    public EnemyData enemyData;
     [HideInInspector] public bool dead;
     [HideInInspector] public float freezeTimer;
 
@@ -85,7 +84,7 @@ public class EnemyBase : MonoBehaviour
         remainingCooldown += attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         if (touchingPlayer)
-            GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().TakeDamage(damage);
+            GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().TakeDamage(enemyData.stats.damage);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -99,10 +98,10 @@ public class EnemyBase : MonoBehaviour
     }
     public void hit()
     {
-        if (hp < 0)
+        if (enemyData.stats.hp < 0)
         {
             dead = true;
-            hp = 0;
+            enemyData.stats.hp = 0;
             enemyAnimator.PlayAnimation("Death");
         }
     }

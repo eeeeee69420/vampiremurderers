@@ -20,8 +20,10 @@ public class Shield : ProjectileWeapon
     {
         Vector2 dir = playerController.inputDirection;
         if (dir.magnitude > 0)
+        {
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        shield.transform.rotation = Quaternion.RotateTowards(shield.transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f), rotationSpeed * Time.fixedDeltaTime);
+            shield.transform.rotation = Quaternion.RotateTowards(shield.transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f), rotationSpeed * Time.fixedDeltaTime);
+        }
         yield return null;
     }
     public override void RefreshStats()
