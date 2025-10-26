@@ -170,9 +170,9 @@ public enum EnemyBehavior
 }
 public static class EnemyBehaviors
 {
-    public static readonly Dictionary<EnemyBehavior, Type> behaviorMap = new()
+    public static readonly Dictionary<EnemyBehavior, (Type behavior, RuntimeAnimatorController controller)> behaviorMap = new()
     {
-        { EnemyBehavior.Melee, typeof(EnemyBase) },
-        { EnemyBehavior.RangedHold, typeof(EnemyRangedHold) },
+        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("Assets/Animations/Enemies/Controllers/MeleeEnemy.controller")) },
+        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("Assets/Animations/Enemies/Controllers/RangedEnemyHold.controller")) },
     };
 }

@@ -28,6 +28,7 @@ public class EnemyBase : MonoBehaviour
         enemyBody = GetComponent<Rigidbody2D>();
         enemySprite = GetComponentInChildren<SpriteRenderer>();
         enemyAnimator = GetComponent<EnemyAnimator>();
+        enemyAnimator.animator.runtimeAnimatorController = EnemyBehaviors.behaviorMap[enemyData.behavior].controller;
         controller = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
@@ -108,5 +109,9 @@ public class EnemyBase : MonoBehaviour
     public void death()
     {
         Destroy(gameObject);
+    }
+    public virtual void Intialize()
+    {
+
     }
 }
