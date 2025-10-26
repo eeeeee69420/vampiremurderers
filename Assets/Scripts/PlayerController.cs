@@ -74,9 +74,13 @@ public class PlayerController : MonoBehaviour
         GameController.Instance.UpdateHPBar();
         stats.hp -= (damage - stats.armor);
     }
-    public void LifeSteal(float lifesteal, float damage)
+    public void LifeSteal()
     {
-        stats.hp += lifesteal * damage;
+        int lifesteal = UnityEngine.Random.Range(1, 100);
+        if (lifesteal <= stats.lifesteal)
+        {
+            stats.hp += 1;
+        }
     }
     public void UpdatePassives()
     {

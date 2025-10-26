@@ -13,10 +13,9 @@ public class ShieldProjectile : ProjectileController
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<EnemyBase>().enemyData.stats.hp -= stats.damage;
-            collision.gameObject.GetComponent<EnemyBase>().Hit();
+            collision.gameObject.GetComponent<EnemyBase>().hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
-            owner.GetComponent<PlayerController>().LifeSteal(stats.lifesteal, stats.damage);
         }
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
         {
@@ -28,10 +27,9 @@ public class ShieldProjectile : ProjectileController
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<EnemyBase>().enemyData.stats.hp -= stats.damage * Time.deltaTime * 2;
-            collision.gameObject.GetComponent<EnemyBase>().Hit();
+            collision.gameObject.GetComponent<EnemyBase>().hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
-            owner.GetComponent<PlayerController>().LifeSteal(stats.lifesteal, stats.damage * Time.deltaTime * 2);
         }
     }
 }

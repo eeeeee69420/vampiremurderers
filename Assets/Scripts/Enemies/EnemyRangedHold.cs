@@ -22,12 +22,12 @@ public class EnemyRangedHold : EnemyBase
         else if (closestDistance > preferredDistance + preferredDistanceRange) { }
         else
             direction = Vector2.zero;
-        enemyBody.MovePosition(enemyBody.position + enemyData.stats.moveSpeed * Time.fixedDeltaTime * direction);
+        enemyBody.MovePosition(enemyBody.position + speed * Time.fixedDeltaTime * direction);
     }
     protected override IEnumerator AttackPlayer()
     {
         enemyAnimator.animator.SetTrigger("IsThrowing");
-        remainingCooldown += enemyData.stats.cooldown;
+        remainingCooldown += attackCooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         Vector3 direction = (Vector3)(Vector2)controller.Players[playerTarget].GetComponent<PlayerController>().playerBody.position - transform.position;
         Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
