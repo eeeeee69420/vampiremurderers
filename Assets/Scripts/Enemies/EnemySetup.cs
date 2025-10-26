@@ -9,14 +9,12 @@ public class EnemySetup : MonoBehaviour
     public EnemyBase enemyBehavior;
     void Start()
     {
-        if (enemyData != null)
-            Initialize();
+        
     }
     public void Initialize()
     {
-        Type behaviorType = EnemyBehaviors.behaviorMap[enemyData.behavior].behavior;
+        Type behaviorType = EnemyBehaviors.behaviorMap[enemyData.behavior];
         enemyBehavior = (EnemyBase)gameObject.AddComponent(behaviorType);
         enemyBehavior.enemyData = enemyData;
-        enemyBehavior.Intialize();
     }
 }

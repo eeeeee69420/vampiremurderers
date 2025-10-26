@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9e01a10a7c12a4581d86eebc98988d, type: 3}
   m_Name: SmallZombie
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Small Zombie
   icon: {fileID: 0}
   description: 
   projectile: {fileID: 0}
@@ -23,7 +23,7 @@ MonoBehaviour:
     hpregen: 0
     armor: 0
     moveSpeed: 5
-    damage: 1
+    damage: 10
     cooldown: 1
     area: 1
     duration: 1

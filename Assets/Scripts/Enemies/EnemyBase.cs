@@ -9,14 +9,12 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector] public EnemyAnimator enemyAnimator;
     [HideInInspector] public GameController controller;
 
-    public float speed;
     [HideInInspector] public float closestDistance;
     [HideInInspector] public int playerTarget;
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public Vector2 targetPosition;
     [HideInInspector] public bool touchingPlayer;
 
-    public float attackCooldown;
     [HideInInspector] public float remainingCooldown;
     public float attackAnimationDuration;
     public EnemyData enemyData;
@@ -28,7 +26,6 @@ public class EnemyBase : MonoBehaviour
         enemyBody = GetComponent<Rigidbody2D>();
         enemySprite = GetComponentInChildren<SpriteRenderer>();
         enemyAnimator = GetComponent<EnemyAnimator>();
-        enemyAnimator.animator.runtimeAnimatorController = EnemyBehaviors.behaviorMap[enemyData.behavior].controller;
         controller = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
@@ -70,7 +67,7 @@ public class EnemyBase : MonoBehaviour
             enemySprite.flipX = true;
         else if (direction.x > 0)
             enemySprite.flipX = false;
-        enemyBody.MovePosition(enemyBody.position + speed * Time.fixedDeltaTime * direction);
+        enemyBody.MovePosition(enemyBody.position + enemyData.stats.moveSpeed * Time.fixedDeltaTime * direction);
     }
     protected virtual void TryAttack()
     {
@@ -82,7 +79,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual IEnumerator AttackPlayer()
     {
         enemyAnimator.PlayAnimation("Attack");
-        remainingCooldown += attackCooldown;
+        remainingCooldown += enemyData.stats.cooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         if (touchingPlayer)
             GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().TakeDamage(enemyData.stats.damage);
@@ -97,7 +94,7 @@ public class EnemyBase : MonoBehaviour
         if (collision.gameObject.name == "Player")
             touchingPlayer = false;
     }
-    public void hit()
+    public void Hit()
     {
         if (enemyData.stats.hp < 0)
         {
@@ -106,12 +103,8 @@ public class EnemyBase : MonoBehaviour
             enemyAnimator.PlayAnimation("Death");
         }
     }
-    public void death()
+    public void Death()
     {
         Destroy(gameObject);
-    }
-    public virtual void Intialize()
-    {
-
     }
 }

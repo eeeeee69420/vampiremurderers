@@ -21,6 +21,7 @@ public class WeaponStats
     public float criticalChance;
     public float criticalDamage;
     public int pierce;
+    public float lifesteal;
     public WeaponStats Clone()
     {
         return new WeaponStats
@@ -34,7 +35,8 @@ public class WeaponStats
             amount = this.amount,
             criticalChance = this.criticalChance,
             criticalDamage = this.criticalDamage,
-            pierce = this.pierce
+            pierce = this.pierce,
+            lifesteal = this.lifesteal
         };
     }
 }
@@ -170,9 +172,9 @@ public enum EnemyBehavior
 }
 public static class EnemyBehaviors
 {
-    public static readonly Dictionary<EnemyBehavior, (Type behavior, RuntimeAnimatorController controller)> behaviorMap = new()
+    public static readonly Dictionary<EnemyBehavior, Type> behaviorMap = new()
     {
-        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("Assets/Animations/Enemies/Controllers/MeleeEnemy.controller")) },
-        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("Assets/Animations/Enemies/Controllers/RangedEnemyHold.controller")) },
+        { EnemyBehavior.Melee, typeof(EnemyBase) },
+        { EnemyBehavior.RangedHold, typeof(EnemyRangedHold) },
     };
 }
