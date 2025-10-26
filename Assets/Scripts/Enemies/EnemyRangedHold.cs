@@ -6,7 +6,7 @@ public class EnemyRangedHold : EnemyBase
 {
     public float range;
     public float preferredDistance;
-    public float preferredDistanceRange;
+    public float preferredDistanceRange = .5f;
     public GameObject projectile;
 
 
@@ -31,5 +31,13 @@ public class EnemyRangedHold : EnemyBase
         yield return new WaitForSeconds(attackAnimationDuration);
         Vector3 direction = (Vector3)(Vector2)controller.Players[playerTarget].GetComponent<PlayerController>().playerBody.position - transform.position;
         Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
+    }
+    public override void Intialize()
+    {
+        enemyBody = GetComponent<Rigidbody2D>();
+        enemySprite = GetComponentInChildren<SpriteRenderer>();
+        controller = GameObject.Find("GameController").GetComponent<GameController>();
+        range = enemyData.stats.projectileSpeed * enemyData.stats.duration;
+        preferredDistance = range / 2;
     }
 }
