@@ -12,8 +12,8 @@ public class ShieldProjectile : ProjectileController
     {
         if (collision.gameObject.layer == 8)
         {
-            collision.gameObject.GetComponent<EnemyBase>().enemyData.stats.hp -= stats.damage;
-            collision.gameObject.GetComponent<EnemyBase>().hit();
+            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
+            collision.gameObject.GetComponent<EnemyBase>().Hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
         }
@@ -26,8 +26,8 @@ public class ShieldProjectile : ProjectileController
     {
         if (collision.gameObject.layer == 8)
         {
-            collision.gameObject.GetComponent<EnemyBase>().enemyData.stats.hp -= stats.damage * Time.deltaTime * 2;
-            collision.gameObject.GetComponent<EnemyBase>().hit();
+            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage * Time.deltaTime * 2;
+            collision.gameObject.GetComponent<EnemyBase>().Hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
         }

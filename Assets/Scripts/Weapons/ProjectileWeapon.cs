@@ -47,11 +47,11 @@ public class ProjectileWeapon : Weapon
                 target = targets[targetIndex];
                 break;
             case TargettingType.Weakest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().enemyData.stats.hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
                 target = targets[0];
                 break;
             case TargettingType.Strongest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().enemyData.stats.hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
                 target = targets[0];
                 break;
         }

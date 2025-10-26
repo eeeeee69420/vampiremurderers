@@ -12,10 +12,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public PlayerAnimator playerAnimator;
     [HideInInspector] public float inputX;
     [HideInInspector] public float inputY;
-    [HideInInspector] public Vector2 inputDirection = new Vector2();
+    [HideInInspector] public Vector2 inputDirection = new();
 
     public CharacterData characterData;
     [HideInInspector] public CharacterStats stats;
+    [HideInInspector] public CharacterStats buffs;
+    [HideInInspector] public int level;
+    [HideInInspector] public float hp;
 
     [HideInInspector] public List<Weapon> Weapons;
     [HideInInspector] public List<Passive> Passives;
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         playerAnimator = GetComponent<PlayerAnimator>();
         stats = characterData.stats.Clone();
-        stats.hp = stats.hpmax;
+        hp = stats.hpmax;
         AddWeapon(characterData.weaponData);
     }
 
@@ -72,14 +75,14 @@ public class PlayerController : MonoBehaviour
     {
         GameController.Instance.HitScreenAnim();
         GameController.Instance.UpdateHPBar();
-        stats.hp -= (damage - stats.armor);
+        hp -= (damage - stats.armor);
     }
     public void LifeSteal()
     {
         int lifesteal = UnityEngine.Random.Range(1, 100);
         if (lifesteal <= stats.lifesteal)
         {
-            stats.hp += 1;
+            hp += 1;
         }
     }
     public void UpdatePassives()
@@ -91,28 +94,6 @@ public class PlayerController : MonoBehaviour
             {
                 PassiveIcons[i].sprite = Passives[i].data.icon;
                 PassiveIcons[i].color = Color.white;
-                float passiveBonus = Passives[i].data.bonusPerLevel * Passives[i].level;
-                switch (Passives[i].data.affectedStat)
-                {
-                    case StatType.HpMax: stats.hpmax += passiveBonus; break;
-                    case StatType.HpRegen: stats.hpregen += passiveBonus; break;
-                    case StatType.Armor: stats.armor += (int)passiveBonus; break;
-                    case StatType.MoveSpeed: stats.moveSpeed += passiveBonus; break;
-                    case StatType.Damage: stats.damage += passiveBonus; break;
-                    case StatType.Cooldown: stats.cooldown -= passiveBonus; break;
-                    case StatType.Area: stats.area += passiveBonus; break;
-                    case StatType.Duration: stats.duration += passiveBonus; break;
-                    case StatType.ProjectileSpeed: stats.projectileSpeed += passiveBonus; break;
-                    case StatType.Amount: stats.amount += (int)passiveBonus; break;
-                    case StatType.Growth: stats.growth += passiveBonus; break;
-                    case StatType.Revives: stats.revives += (int)passiveBonus; break;
-                    case StatType.Greed: stats.greed += passiveBonus; break;
-                    case StatType.Luck: stats.luck += passiveBonus; break;
-                    case StatType.CriticalChance: stats.criticalChance += passiveBonus; break;
-                    case StatType.CriticalDamage: stats.criticalDamage += passiveBonus; break;
-                    case StatType.Pierce: stats.pierce += (int)passiveBonus; break;
-                    case StatType.Lifesteal: stats.lifesteal += passiveBonus; break;
-                }
             }
             else
                 PassiveIcons[i].color = Color.clear;

@@ -26,7 +26,7 @@ public class Shield : ProjectileWeapon
         }
         yield return null;
     }
-    public override void RefreshStats()
+    public void ApplyStats()
     {
         buffStats.damage = weaponData.baseStats.damage * playerController.stats.damage * playerController.stats.moveSpeed;
         buffStats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.projectileSpeed;

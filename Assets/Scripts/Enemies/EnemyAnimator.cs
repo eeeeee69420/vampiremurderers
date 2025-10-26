@@ -11,6 +11,7 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         enemyController = GetComponent<EnemyBase>();
+        enemyController.enemyAnimator = this;
     }
     private void Update()
     {

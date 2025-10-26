@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    public WeaponStats stats;
+    public CharacterStats stats;
     public Rigidbody2D projectileBody;
     public Animator animator;
     public bool player;
@@ -44,7 +44,7 @@ public class ProjectileController : MonoBehaviour
 
         if (!player && collision.gameObject.layer == 6 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<PlayerController>().stats.hp -= stats.damage;
+            collision.gameObject.GetComponent<PlayerController>().hp -= stats.damage;
             GameController.Instance.HitScreenAnim();
             GameController.Instance.UpdateHPBar();
             Pierce();
@@ -52,8 +52,8 @@ public class ProjectileController : MonoBehaviour
         }
         else if (player && collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<EnemyBase>().enemyData.stats.hp -= stats.damage;
-            collision.gameObject.GetComponent<EnemyBase>().hit();
+            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
+            collision.gameObject.GetComponent<EnemyBase>().Hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             owner.GetComponent<PlayerController>().LifeSteal();

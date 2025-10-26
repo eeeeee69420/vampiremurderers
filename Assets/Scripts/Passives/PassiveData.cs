@@ -6,7 +6,6 @@ public class PassiveData : ScriptableObject
 {
     public string passiveName;
     public Sprite icon;
-    public string description;
 
     public StatType affectedStat;
     public float bonusPerLevel;

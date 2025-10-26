@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 public class Weapon : MonoBehaviour
@@ -7,9 +11,12 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public float remainingCooldown;
     [HideInInspector] public float range;
     public WeaponData weaponData;
-    [HideInInspector] public WeaponStats buffStats = new WeaponStats();
+    [HideInInspector] public CharacterStats buffStats = new();
+    [HideInInspector] public int level;
 
     [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public Type StatType = typeof(CharacterStats);
+
 
     public virtual void Initiate()
     {
@@ -40,15 +47,14 @@ public class Weapon : MonoBehaviour
     }
     public virtual void RefreshStats()
     {
-        buffStats.damage = weaponData.baseStats.damage * playerController.stats.damage;
-        buffStats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.projectileSpeed;
-        buffStats.cooldown = weaponData.baseStats.cooldown / playerController.stats.cooldown;
-        buffStats.area = weaponData.baseStats.area * playerController.stats.area;
-        buffStats.duration = weaponData.baseStats.duration * playerController.stats.duration;
-        buffStats.amount = weaponData.baseStats.amount + playerController.stats.amount;
-        buffStats.criticalChance = Mathf.Min(1f, weaponData.baseStats.criticalChance + playerController.stats.criticalChance);
-        buffStats.criticalDamage = weaponData.baseStats.criticalDamage + playerController.stats.criticalDamage;
-        buffStats.pierce = weaponData.baseStats.pierce + playerController.stats.pierce;
-        range = buffStats.projectileSpeed * buffStats.duration;
+        buffStats = weaponData.baseStats.Clone();
+        for (int i = 0; i < level; i++)
+        {
+            for (int k = 0; k < weaponData.LevelStats[i].Count; k++)
+            {
+                buffStats.ApplyBuff(weaponData.LevelStats[i][k].stat, weaponData.LevelStats[i][k].amount);
+            }
+        }
+        buffStats = buffStats.ApplyBuffs(playerController.buffs);
     }
 }

@@ -40,8 +40,8 @@ public class GameController : MonoBehaviour
     }
     public void UpdateHPBar()
     {
-        hpbar.fillAmount = Players[0].GetComponent<PlayerController>().stats.hp / Players[0].GetComponent<PlayerController>().stats.hpmax;
-        if (Players[0].GetComponent<PlayerController>().stats.hp < 0)
+        hpbar.fillAmount = Players[0].GetComponent<PlayerController>().hp / Players[0].GetComponent<PlayerController>().stats.hpmax;
+        if (Players[0].GetComponent<PlayerController>().hp < 0)
         {
         }
     }

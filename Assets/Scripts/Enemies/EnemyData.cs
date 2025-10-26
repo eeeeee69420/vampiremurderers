@@ -6,8 +6,6 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
-    public Sprite icon;
-    public string description;
 
     public GameObject projectile;
     public CharacterStats stats;

@@ -12,17 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9e01a10a7c12a4581d86eebc98988d, type: 3}
   m_Name: SmallZombie
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
-  description: 
+  enemyName: Small Zombie
   projectile: {fileID: 0}
   stats:
-    level: 0
     hpmax: 100
-    hp: 100
     hpregen: 0
     armor: 0
-    moveSpeed: 5
+    moveSpeed: 2
     damage: 1
     cooldown: 1
     area: 1

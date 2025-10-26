@@ -14,7 +14,10 @@ public class EnemySetup : MonoBehaviour
     }
     public void Initialize()
     {
-        Type behaviorType = EnemyBehaviors.behaviorMap[enemyData.behavior].behavior;
+        var controller = Resources.Load<RuntimeAnimatorController>("Animations/Enemies/Controllers/MeleeEnemy");
+        if (controller == null)
+            Debug.LogError("Animator controller not found at path!");
+        Type behaviorType = EnemyBehaviors.behaviorMap[enemyData.behavior];
         enemyBehavior = (EnemyBase)gameObject.AddComponent(behaviorType);
         enemyBehavior.enemyData = enemyData;
         enemyBehavior.Intialize();
