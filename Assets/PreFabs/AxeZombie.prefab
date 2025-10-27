@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 2624788152494666456}
   - component: {fileID: 5064431878111178178}
   - component: {fileID: 6578213094593480450}
-  - component: {fileID: 6277674373769163097}
   m_Layer: 0
   m_Name: AxeZombie
   m_TagString: Untagged
@@ -218,33 +217,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   enemyController: {fileID: 0}
---- !u!114 &6277674373769163097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3441334104679630566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423f301e517c3ba4197549c6a3173258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBody: {fileID: 0}
-  enemySprite: {fileID: 0}
-  enemyAnimator: {fileID: 0}
-  controller: {fileID: 0}
-  speed: 2
-  closestDistance: 0
-  playerTarget: 0
-  direction: {x: 0, y: 0}
-  targetPosition: {x: 0, y: 0}
-  touchingPlayer: 0
-  attackCooldown: 5
-  remainingCooldown: 0
-  attackAnimationDuration: 0.4
-  damage: 10
-  range: 6
-  preferredDistance: 5.5
-  preferredDistanceRange: 0.5
-  projectile: {fileID: 0}

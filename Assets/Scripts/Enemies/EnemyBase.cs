@@ -7,7 +7,6 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector] public Rigidbody2D enemyBody;
     [HideInInspector] public SpriteRenderer enemySprite;
     [HideInInspector] public EnemyAnimator enemyAnimator;
-    [HideInInspector] public GameController controller;
 
     [HideInInspector] public float closestDistance;
     [HideInInspector] public int playerTarget;
@@ -21,7 +20,13 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector] public float hp;
     [HideInInspector] public bool dead;
     [HideInInspector] public float freezeTimer;
-
+    private void Start()
+    {
+        enemyBody = GetComponent<Rigidbody2D>();
+        enemySprite = GetComponentInChildren<SpriteRenderer>();
+        enemyAnimator = GetComponent<EnemyAnimator>();
+        enemyAnimator.enemyController = this;
+    }
     void FixedUpdate()
     {
         if (!dead && freezeTimer == 0)
@@ -42,16 +47,16 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Track()
     {
         closestDistance = Mathf.Infinity;
-        for (int i = 0; i < controller.Players.Count; i++)
+        for (int i = 0; i < GameController.Instance.Players.Count; i++)
         {
-            float dist = Vector2.Distance(enemyBody.position, controller.Players[i].GetComponent<PlayerController>().playerBody.position);
+            float dist = Vector2.Distance(enemyBody.position, GameController.Instance.Players[i].GetComponent<PlayerController>().playerBody.position);
             if (dist < closestDistance)
             {
                 closestDistance = dist;
                 playerTarget = i;
             }
         }
-        targetPosition = controller.Players[playerTarget].GetComponent<PlayerController>().playerBody.position;
+        targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().playerBody.position;
         direction = (targetPosition - enemyBody.position).normalized;
     }
     protected virtual void Move()
@@ -100,10 +105,8 @@ public class EnemyBase : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public virtual void Intialize()
+    public virtual void Initialize()
     {
-        enemyBody = GetComponent<Rigidbody2D>();
-        enemySprite = GetComponentInChildren<SpriteRenderer>();
-        controller = GameObject.Find("GameController").GetComponent<GameController>();
+
     }
 }

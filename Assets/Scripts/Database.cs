@@ -241,7 +241,7 @@ public static class EnemyBehaviors
 {
     public static readonly Dictionary<EnemyBehavior, (Type behavior, RuntimeAnimatorController controller)> behaviorMap = new()
     {
-        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("Animations/Enemies/Controllers/MeleeEnemy")) },
-        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("Animations/Enemies/Controllers/RangedEnemyHold")) },
+        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("Controllers/MeleeEnemy")) },
+        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("Controllers/RangedEnemyHold")) },
     };
 }

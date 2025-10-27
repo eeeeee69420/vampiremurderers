@@ -10,8 +10,6 @@ public class EnemyAnimator : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        enemyController = GetComponent<EnemyBase>();
-        enemyController.enemyAnimator = this;
     }
     private void Update()
     {
