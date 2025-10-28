@@ -13,16 +13,24 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   baseStats:
-    level: 0
+    hpmax: 100
+    hpregen: 0
+    armor: 0
+    moveSpeed: 1
     damage: 10
-    projectileSpeed: 15
     cooldown: 2
     area: 1.1
     duration: 1e+10
+    projectileSpeed: 5
     amount: 1
+    growth: 1
+    revives: 0
+    greed: 1
+    luck: 0
     criticalChance: 0
     criticalDamage: 0
     pierce: 0
+    lifesteal: 0
   maxLevel: 5
   icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
   weaponBehavior: 0

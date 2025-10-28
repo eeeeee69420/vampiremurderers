@@ -7,12 +7,6 @@ public class EnemyRangedHold : EnemyBase
     public float range;
     public float preferredDistance;
     public float preferredDistanceRange = .5f;
-    public GameObject projectile;
-
-    private void Start()
-    {
-
-    }
     protected override void TryAttack()
     {
         if (closestDistance <= range && remainingCooldown <= 0)
@@ -25,6 +19,10 @@ public class EnemyRangedHold : EnemyBase
         else if (closestDistance > preferredDistance + preferredDistanceRange) { }
         else
             direction = Vector2.zero;
+        if (direction.x < 0)
+            enemySprite.flipX = true;
+        else if (direction.x > 0)
+            enemySprite.flipX = false;
         enemyBody.MovePosition(enemyBody.position + enemyData.stats.moveSpeed * Time.fixedDeltaTime * direction);
     }
     protected override IEnumerator AttackPlayer()
@@ -33,7 +31,7 @@ public class EnemyRangedHold : EnemyBase
         remainingCooldown += enemyData.stats.cooldown;
         yield return new WaitForSeconds(attackAnimationDuration);
         Vector3 direction = (Vector3)(Vector2)GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().playerBody.position - transform.position;
-        Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
+        Instantiate(enemyData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
     }
     public override void Initialize()
     {

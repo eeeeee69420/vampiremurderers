@@ -138,7 +138,7 @@ public class CharacterStats
             case StatType.Amount: amount += (int)buffValue; break;
             case StatType.Growth: growth *= buffValue; break;
             case StatType.Revives: revives += (int)buffValue; break;
-            case StatType.Greed: greed += buffValue; break;
+            case StatType.Greed: greed += buffValue - 1; break;
             case StatType.Luck: luck += buffValue; break;
             case StatType.CriticalChance: criticalChance += buffValue; break;
             case StatType.CriticalDamage: criticalDamage += buffValue; break;
@@ -153,19 +153,19 @@ public class CharacterStats
             hpmax = buffs1.hpmax + buffs2.hpmax,
             hpregen = buffs1.hpregen + buffs2.hpregen,
             armor = buffs1.armor + buffs2.armor,
-            moveSpeed = buffs1.moveSpeed + buffs2.moveSpeed,
-            damage = buffs1.damage + buffs2.damage,
-            cooldown = buffs1.cooldown + buffs2.cooldown,
-            area = buffs1.area + buffs2.area,
-            duration = buffs1.duration + buffs2.duration,
-            projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed,
+            moveSpeed = buffs1.moveSpeed + buffs2.moveSpeed - 1,
+            damage = buffs1.damage + buffs2.damage - 1,
+            cooldown = buffs1.cooldown + buffs2.cooldown - 1,
+            area = buffs1.area + buffs2.area - 1,
+            duration = buffs1.duration + buffs2.duration - 1,
+            projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed - 1,
             amount = buffs1.amount + buffs2.amount,
-            growth = buffs1.growth + buffs2.growth,
+            growth = buffs1.growth + buffs2.growth - 1,
             revives = buffs1.revives + buffs2.revives,
-            greed = buffs1.greed + buffs2.greed,
+            greed = buffs1.greed + buffs2.greed - 1,
             luck = buffs1.luck + buffs2.luck,
-            criticalChance = buffs1.criticalChance + buffs2.criticalChance,
-            criticalDamage = buffs1.criticalDamage + buffs2.criticalDamage,
+            criticalChance = buffs1.criticalChance + buffs2.criticalChance - .15f,
+            criticalDamage = buffs1.criticalDamage + buffs2.criticalDamage - 1.5f,
             pierce = buffs1.pierce + buffs2.pierce,
             lifesteal = buffs1.lifesteal + buffs2.lifesteal
         };
@@ -241,7 +241,7 @@ public static class EnemyBehaviors
 {
     public static readonly Dictionary<EnemyBehavior, (Type behavior, RuntimeAnimatorController controller)> behaviorMap = new()
     {
-        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("Controllers/MeleeEnemy")) },
-        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("Controllers/RangedEnemyHold")) },
+        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("MeleeEnemy")) },
+        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("RangedEnemyHold")) },
     };
 }

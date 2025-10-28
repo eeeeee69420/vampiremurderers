@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -15,7 +16,7 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector] public bool touchingPlayer;
 
     [HideInInspector] public float remainingCooldown;
-    public float attackAnimationDuration;
+    [HideInInspector] public float attackAnimationDuration;
     public EnemyData enemyData;
     [HideInInspector] public float hp;
     [HideInInspector] public bool dead;
@@ -25,7 +26,16 @@ public class EnemyBase : MonoBehaviour
         enemyBody = GetComponent<Rigidbody2D>();
         enemySprite = GetComponentInChildren<SpriteRenderer>();
         enemyAnimator = GetComponent<EnemyAnimator>();
+        enemyAnimator.animator.runtimeAnimatorController = EnemyBehaviors.behaviorMap[enemyData.behavior].controller;
         enemyAnimator.enemyController = this;
+        hp = enemyData.stats.hpmax;
+        foreach (var clip in EnemyBehaviors.behaviorMap[enemyData.behavior].controller.animationClips)
+        {
+            if (clip.name == "Attack")
+            {
+                attackAnimationDuration = clip.length/2;
+            }
+        }
     }
     void FixedUpdate()
     {

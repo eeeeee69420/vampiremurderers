@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     public void HitScreenAnim()
     {
         if (hitScreen != null)
-            hitScreen.GetComponent<Animator>().Play("HitScreen");
+            hitScreen.GetComponent<Animator>().Play("HitScreen", 0, 0f);
         else
             Debug.LogWarning("HitScreen object not assigned!");
     }

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float hp;
 
     [HideInInspector] public List<Weapon> Weapons;
-    [HideInInspector] public List<Passive> Passives;
+    public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
 
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         stats = characterData.stats.Clone();
         hp = stats.hpmax;
         AddWeapon(characterData.weaponData);
+        UpdateWeapons();
+        UpdatePassives();
     }
 
     void FixedUpdate()

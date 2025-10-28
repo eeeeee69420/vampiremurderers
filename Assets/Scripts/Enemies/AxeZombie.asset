@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: AxeZombie
   m_EditorClassIdentifier: 
   enemyName: Axe Zombie
-  projectile: {fileID: 0}
+  projectile: {fileID: 7550324247132563378, guid: 0eee5ce60a1739543b17d03e9efaaebc, type: 3}
   stats:
     hpmax: 100
     hpregen: 0
     armor: 0
     moveSpeed: 1
-    damage: 1
-    cooldown: 1
+    damage: 5
+    cooldown: 5
     area: 1
-    duration: 1
-    projectileSpeed: 1
+    duration: 3
+    projectileSpeed: 5
     amount: 0
     growth: 1
     revives: 0

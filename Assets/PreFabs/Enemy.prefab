@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2197757701542118672}
   - component: {fileID: 8838065424489609865}
   - component: {fileID: 2855856513320639377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 86014941155837528}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1366414071c6fbc498e9eb7041e64d60, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -118,8 +118,9 @@ GameObject:
   - component: {fileID: 2624788152494666456}
   - component: {fileID: 5064431878111178178}
   - component: {fileID: 6578213094593480450}
-  m_Layer: 0
-  m_Name: AxeZombie
+  - component: {fileID: -8144432032792195454}
+  m_Layer: 8
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,3 +218,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   enemyController: {fileID: 0}
+--- !u!114 &-8144432032792195454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441334104679630566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cc1d0730b0ad7488e9303747e0a7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
+  enemyBehavior: {fileID: 0}
