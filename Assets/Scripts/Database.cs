@@ -56,22 +56,22 @@ public class StatIncrease
 [System.Serializable]
 public class CharacterStats
 {
-    public float hpmax = 100;
+    public float hpmax = 0; //100
     public float hpregen = 0;
     public int armor = 0;
-    public float moveSpeed = 1;
-    public float damage = 1;
-    public float cooldown = 1;
-    public float area = 1;
-    public float duration = 1;
-    public float projectileSpeed = 1;
+    public float moveSpeed = 0; //3
+    public float damage = 0;
+    public float cooldown = 0;
+    public float area = 0;
+    public float duration = 0;
+    public float projectileSpeed = 0;
     public int amount = 0;
-    public float growth = 1;
+    public float growth = 0;
     public float revives = 0;
-    public float greed = 1;
+    public float greed = 0;
     public float luck = 0;
-    public float criticalChance = 0.15f;
-    public float criticalDamage = 1.5f;
+    public float criticalChance = 0; //.15f
+    public float criticalDamage = 0; //1.5f
     public int pierce = 0;
     public float lifesteal = 0;
     public CharacterStats Clone()
@@ -138,7 +138,7 @@ public class CharacterStats
             case StatType.Amount: amount += (int)buffValue; break;
             case StatType.Growth: growth *= buffValue; break;
             case StatType.Revives: revives += (int)buffValue; break;
-            case StatType.Greed: greed += buffValue - 1; break;
+            case StatType.Greed: greed += buffValue; break;
             case StatType.Luck: luck += buffValue; break;
             case StatType.CriticalChance: criticalChance += buffValue; break;
             case StatType.CriticalDamage: criticalDamage += buffValue; break;
@@ -153,19 +153,19 @@ public class CharacterStats
             hpmax = buffs1.hpmax + buffs2.hpmax,
             hpregen = buffs1.hpregen + buffs2.hpregen,
             armor = buffs1.armor + buffs2.armor,
-            moveSpeed = buffs1.moveSpeed + buffs2.moveSpeed - 1,
-            damage = buffs1.damage + buffs2.damage - 1,
-            cooldown = buffs1.cooldown + buffs2.cooldown - 1,
-            area = buffs1.area + buffs2.area - 1,
-            duration = buffs1.duration + buffs2.duration - 1,
-            projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed - 1,
+            moveSpeed = buffs1.moveSpeed + buffs2.moveSpeed,
+            damage = buffs1.damage + buffs2.damage,
+            cooldown = buffs1.cooldown + buffs2.cooldown,
+            area = buffs1.area + buffs2.area,
+            duration = buffs1.duration + buffs2.duration,
+            projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed,
             amount = buffs1.amount + buffs2.amount,
-            growth = buffs1.growth + buffs2.growth - 1,
+            growth = buffs1.growth + buffs2.growth,
             revives = buffs1.revives + buffs2.revives,
-            greed = buffs1.greed + buffs2.greed - 1,
+            greed = buffs1.greed + buffs2.greed,
             luck = buffs1.luck + buffs2.luck,
-            criticalChance = buffs1.criticalChance + buffs2.criticalChance - .15f,
-            criticalDamage = buffs1.criticalDamage + buffs2.criticalDamage - 1.5f,
+            criticalChance = buffs1.criticalChance + buffs2.criticalChance,
+            criticalDamage = buffs1.criticalDamage + buffs2.criticalDamage,
             pierce = buffs1.pierce + buffs2.pierce,
             lifesteal = buffs1.lifesteal + buffs2.lifesteal
         };
