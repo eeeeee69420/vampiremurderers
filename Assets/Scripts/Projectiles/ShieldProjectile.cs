@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class ShieldProjectile : ProjectileController
 {
+    public AudioClip soundEffect;
+    public AudioSource audioSource;
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     protected override void Move()
     {
     }
@@ -21,6 +27,7 @@ public class ShieldProjectile : ProjectileController
         {
             collision.gameObject.GetComponent<ProjectileController>().Despawn();
         }
+        audioSource.PlayOneShot(soundEffect);
     }
     protected virtual void OnTriggerStay2D(UnityEngine.Collider2D collision)
     {
@@ -30,6 +37,7 @@ public class ShieldProjectile : ProjectileController
             collision.gameObject.GetComponent<EnemyBase>().Hit();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
+            audioSource.PlayOneShot(soundEffect);
         }
     }
 }
