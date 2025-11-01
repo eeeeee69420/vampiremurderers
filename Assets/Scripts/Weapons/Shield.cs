@@ -15,7 +15,8 @@ public class Shield : ProjectileWeapon
         playerController.UpdateWeapons();
         shield = Instantiate(weaponData.projectile, playerController.transform);
         RefreshStats();
-        shield.GetComponent<ShieldProjectile>().owner = gameObject;
+
+        shield.GetComponentInChildren<ShieldProjectile>().owner = this.gameObject;
     }
     protected override IEnumerator ActivateWeapon()
     {
@@ -31,7 +32,7 @@ public class Shield : ProjectileWeapon
     {
         buffStats = weaponData.baseStats.ApplyBuffs(playerController.stats);
         range = buffStats.projectileSpeed * buffStats.duration;
-        shield.GetComponentInChildren<ProjectileController>().stats = buffStats.Clone();
+        shield.GetComponentInChildren<ShieldProjectile>().stats = buffStats.Clone();
         shield.transform.localScale *= shield.GetComponentInChildren<ProjectileController>().stats.area;
     }
 }
