@@ -11,9 +11,15 @@ public class ProjectileWeapon : Weapon
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
     public LayerMask enemyMask;
+    private void Start()
+    {
+        enemyMask = LayerMask.GetMask("Enemy");
+        RefreshStats();
+    }
     protected override void FindTarget()
     {
-        targets = Physics2D.OverlapCircleAll(transform.position, buffStats.duration * buffStats.projectileSpeed * buffStats.duration, enemyMask);
+        targets = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);
+        Debug.Log(targets.Length);
         switch (weaponData.targetting)
         {
             case TargettingType.Closest:
@@ -35,7 +41,7 @@ public class ProjectileWeapon : Weapon
                 {
                     if (targets[i] == null) continue;
                     float dist = Vector2.Distance(transform.position, targets[i].GetComponent<EnemyBase>().transform.position);
-                    if (dist < farthestDist)
+                    if (dist > farthestDist)
                     {
                         farthestDist = dist;
                         target = targets[i];
@@ -59,17 +65,22 @@ public class ProjectileWeapon : Weapon
 
     protected override IEnumerator ActivateWeapon()
     {
+        FindTarget();
         remainingCooldown += buffStats.cooldown;
-        for (int i = 0; i < buffStats.amount; i++)
+        Debug.Log(target);
+        if (target != null)
         {
-            FindTarget();
-            Vector3 direction = target.transform.position - transform.position;
-            spawnedObjects.Add(Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
-            spawnedObjects[^1].GetComponent<ProjectileController>().stats = buffStats.Clone();
-            spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
-            spawnedObjects[^1].GetComponent<ProjectileController>().player = true;
-            spawnedObjects[^1].GetComponent<ProjectileController>().owner = gameObject;
-            yield return new WaitForSeconds(.1f);
+            for (int i = 0; i < buffStats.amount; i++)
+            {
+                FindTarget();
+                Vector3 direction = target.transform.position - transform.position;
+                spawnedObjects.Add(Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
+                spawnedObjects[^1].GetComponent<ProjectileController>().stats = buffStats.Clone();
+                spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
+                spawnedObjects[^1].GetComponent<ProjectileController>().player = true;
+                spawnedObjects[^1].GetComponent<ProjectileController>().owner = gameObject;
+                yield return new WaitForSeconds(.1f);
+            }
         }
     }
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ccbcbc17fa5147b04de039044c986, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  baseStats:
+    hpmax: 0
+    hpregen: 0
+    armor: 0
+    moveSpeed: 0
+    damage: 5
+    cooldown: 1
+    area: 0
+    duration: 5
+    projectileSpeed: 5
+    amount: 1
+    growth: 0
+    revives: 0
+    greed: 0
+    luck: 0
+    criticalChance: 0
+    criticalDamage: 0
+    pierce: 0
+    lifesteal: 0
+  maxLevel: 0
+  icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
+  weaponBehavior: 1
+  targetting: 2
+  projectile: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
