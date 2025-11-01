@@ -105,17 +105,17 @@ public class CharacterStats
             hpmax = this.hpmax + buffs.hpmax,
             hpregen = this.hpregen + buffs.hpregen,
             armor = this.armor + buffs.armor,
-            moveSpeed = this.moveSpeed * buffs.moveSpeed,
-            damage = this.damage * buffs.damage,
-            cooldown = this.cooldown / buffs.cooldown,
-            area = this.area * buffs.area,
-            duration = this.duration * buffs.duration,
-            projectileSpeed = this.projectileSpeed * buffs.projectileSpeed,
+            moveSpeed = this.moveSpeed * (buffs.moveSpeed + 1),
+            damage = this.damage * (buffs.damage + 1),
+            cooldown = this.cooldown / (buffs.cooldown + 1),
+            area = this.area * (buffs.area + 1),
+            duration = this.duration * (buffs.duration + 1),
+            projectileSpeed = this.projectileSpeed * (buffs.projectileSpeed + 1),
             amount = this.amount + buffs.amount,
             growth = this.growth + buffs.growth,
             revives = this.revives + buffs.revives,
-            greed = this.greed + buffs.greed,
-            luck = this.luck + buffs.luck,
+            greed = this.greed * (buffs.greed + 1),
+            luck = this.luck * (buffs.luck + 1),
             criticalChance = this.criticalChance + buffs.criticalChance,
             criticalDamage = this.criticalDamage + buffs.criticalDamage,
             pierce = this.pierce + buffs.pierce,
@@ -129,17 +129,17 @@ public class CharacterStats
             case StatType.HpMax: hpmax += buffValue; break;
             case StatType.HpRegen: hpregen += buffValue; break;
             case StatType.Armor: armor += (int)buffValue; break;
-            case StatType.MoveSpeed: moveSpeed *= buffValue; break;
-            case StatType.Damage: damage *= buffValue; break;
-            case StatType.Cooldown: cooldown /= buffValue; break;
-            case StatType.Area: area *= buffValue; break;
-            case StatType.Duration: duration *= buffValue; break;
-            case StatType.ProjectileSpeed: projectileSpeed *= buffValue; break;
+            case StatType.MoveSpeed: moveSpeed *= (buffValue + 1); break;
+            case StatType.Damage: damage *= (buffValue + 1); break;
+            case StatType.Cooldown: cooldown /= (buffValue + 1); break;
+            case StatType.Area: area *= (buffValue + 1); break;
+            case StatType.Duration: duration *= (buffValue + 1); break;
+            case StatType.ProjectileSpeed: projectileSpeed *= (buffValue + 1); break;
             case StatType.Amount: amount += (int)buffValue; break;
-            case StatType.Growth: growth *= buffValue; break;
+            case StatType.Growth: growth *= (buffValue + 1); break;
             case StatType.Revives: revives += (int)buffValue; break;
-            case StatType.Greed: greed += buffValue; break;
-            case StatType.Luck: luck += buffValue; break;
+            case StatType.Greed: greed *= (buffValue + 1); break;
+            case StatType.Luck: luck *= (buffValue + 1); break;
             case StatType.CriticalChance: criticalChance += buffValue; break;
             case StatType.CriticalDamage: criticalDamage += buffValue; break;
             case StatType.Pierce: pierce += (int)buffValue; break;
@@ -171,7 +171,7 @@ public class CharacterStats
         };
     }
 }
-public enum StatType
+public enum StatType //All additive stats are framed as % reduction, so 15% faster cooldowns = a cooldown boost of .15, 15% higher damage = .15 damage.
 {
     HpMax, //Flat
     HpRegen, //Flat
