@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -18,6 +19,18 @@ public class ProjectileWeapon : Weapon
     protected override void FindTarget()
     {
         targets = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);
+        List<Collider2D> targetList = new List<Collider2D>(
+            Physics2D.OverlapCircleAll(transform.position, range, enemyMask)
+        );
+
+        for (int i = targetList.Count - 1; i >= 0; i--)
+        {
+            EnemyBase enemy = targetList[i].GetComponent<EnemyBase>();
+            if (enemy != null && enemy.dead)
+                targetList.RemoveAt(i);
+        }
+
+        targets = targetList.ToArray();
         switch (weaponData.targetting)
         {
             case TargettingType.Closest:

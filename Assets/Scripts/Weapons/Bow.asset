@@ -31,7 +31,10 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 2
     lifesteal: 0
-  LevelStats: []
+  LevelStats:
+  - statIncreases:
+    - stat: 9
+      amount: 1
   icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   weaponBehavior: 1
   targetting: 2

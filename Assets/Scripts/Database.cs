@@ -57,6 +57,13 @@ public class LevelStatIncrease
 {
     public List<StatIncrease> statIncreases;
 }
+[System.Serializable]
+public class RewardContainer
+{
+    public float xpAmount;
+    public WeaponData weapon;
+    public PassiveData passive;
+}
 
 [System.Serializable]
 public class CharacterStats
@@ -174,6 +181,30 @@ public class CharacterStats
             pierce = buffs1.pierce + buffs2.pierce,
             lifesteal = buffs1.lifesteal + buffs2.lifesteal
         };
+    }
+    public void MergeBuff(float buffValue, StatType statType)
+    {
+        switch (statType)
+        {
+            case StatType.HpMax: hpmax += buffValue; break;
+            case StatType.HpRegen: hpregen += buffValue; break;
+            case StatType.Armor: armor += (int)buffValue; break;
+            case StatType.MoveSpeed: moveSpeed += buffValue; break;
+            case StatType.Damage: damage += buffValue; break;
+            case StatType.Cooldown: cooldown += buffValue; break;
+            case StatType.Area: area += buffValue; break;
+            case StatType.Duration: duration += buffValue; break;
+            case StatType.ProjectileSpeed: projectileSpeed += buffValue; break;
+            case StatType.Amount: amount += (int)buffValue; break;
+            case StatType.Growth: growth += buffValue; break;
+            case StatType.Revives: revives += (int)buffValue; break;
+            case StatType.Greed: greed += buffValue; break;
+            case StatType.Luck: luck += buffValue; break;
+            case StatType.CriticalChance: criticalChance += buffValue; break;
+            case StatType.CriticalDamage: criticalDamage += buffValue; break;
+            case StatType.Pierce: pierce += (int)buffValue; break;
+            case StatType.Lifesteal: lifesteal += buffValue; break;
+        }
     }
 }
 public enum StatType //All additive stats are framed as % reduction, so 15% faster cooldowns = a cooldown boost of .15, 15% higher damage = .15 damage.

@@ -21,7 +21,6 @@ public class Weapon : MonoBehaviour
     public virtual void Initiate()
     {
         playerController = GetComponent<PlayerController>();
-        playerController.UpdateWeapons();
         RefreshStats();
     }
     void FixedUpdate()

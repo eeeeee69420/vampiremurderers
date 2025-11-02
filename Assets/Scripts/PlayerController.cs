@@ -16,14 +16,18 @@ public class PlayerController : MonoBehaviour
 
     public CharacterData characterData;
     [HideInInspector] public CharacterStats stats;
-    public CharacterStats buffs;
-    [HideInInspector] public int level;
+    [HideInInspector] public CharacterStats buffs;
     [HideInInspector] public float hp;
 
     [HideInInspector] public List<Weapon> Weapons;
-    public List<Passive> Passives;
+    [HideInInspector] public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
+
+    [HideInInspector] public float xp;
+    [HideInInspector] public float maxXp;
+    public float xpScaling;
+    [HideInInspector] public int level;
 
     void Start()
     {
@@ -52,13 +56,54 @@ public class PlayerController : MonoBehaviour
     }
     public void AddWeapon(WeaponData weaponData)
     {
-        Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
-        Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
-        Weapons.Add(newWeapon);
-        newWeapon.weaponData = weaponData;
-        newWeapon.Initiate();
+        bool isNewWeapon = true;
+        for (int i = 0; i < Weapons.Count; i++)
+        {
+            if (Weapons[i].weaponData == weaponData)
+            {
+                isNewWeapon = false;
+                if (Weapons[i].level < weaponData.LevelStats.Count)
+                {
+                    Weapons[i].level++;
+                    Weapons[i].RefreshStats();
+                }
+            }
+        }
+        if (isNewWeapon)
+        {
+            Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
+            Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
+            Weapons.Add(newWeapon);
+            newWeapon.weaponData = weaponData;
+            newWeapon.Initiate();
+        }
+        UpdateWeapons();
     }
-
+    public void AddPassive(PassiveData passiveData)
+    {
+        {
+            bool isNewPassive = true;
+            for (int i = 0; i < Passives.Count; i++)
+            {
+                if (Passives[i].data == passiveData && Passives[i].level <= passiveData.maxLevel)
+                {
+                    isNewPassive = false;
+                    Passives[i].level++;
+                }
+            }
+            if (isNewPassive)
+            {
+                Passive newPassive = new()
+                {
+                    data = passiveData
+                };
+                Passives.Add(newPassive);
+            }
+        }
+        buffs.MergeBuff(passiveData.bonusPerLevel, passiveData.affectedStat);
+        RefreshStats();
+        UpdatePassives();
+    }
     public void UpdateWeapons()
     {
         Weapons = new List<Weapon>(GetComponents<Weapon>());
@@ -100,5 +145,28 @@ public class PlayerController : MonoBehaviour
             else
                 PassiveIcons[i].color = Color.clear;
         }
+    }
+    public void PickUpItem(RewardContainer rewards)
+    {
+        AddXp(rewards.xpAmount);
+        if (rewards.weapon != null)
+            AddWeapon(rewards.weapon);
+        if (rewards.passive != null)
+            AddPassive(rewards.passive);
+    }
+    public void AddXp(float xpAmount)
+    {
+        xp += xpAmount;
+        if (xp > maxXp)
+        {
+            xp -= maxXp;
+            maxXp *= xpScaling + 1;
+            level++;
+        }
+    }
+    public void RefreshStats()
+    {
+        stats = characterData.stats.Clone();
+        stats.ApplyBuffs(buffs);
     }
 }

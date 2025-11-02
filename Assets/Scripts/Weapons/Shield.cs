@@ -12,7 +12,6 @@ public class Shield : ProjectileWeapon
     public override void Initiate()
     {
         playerController = GetComponent<PlayerController>();
-        playerController.UpdateWeapons();
         shield = Instantiate(weaponData.projectile, playerController.transform);
         RefreshStats();
 

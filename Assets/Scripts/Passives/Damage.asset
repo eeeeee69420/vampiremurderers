@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dabbc3ca48b164c9e61c01a89313a4, type: 3}
   m_Name: Damage
   m_EditorClassIdentifier: 
-  passiveName: 
-  icon: {fileID: 0}
-  description: 
-  affectedStat: 0
-  bonusPerLevel: 0
-  maxLevel: 0
+  passiveName: Whetstone
+  icon: {fileID: 21300000, guid: 7ff7279da963c604d812b042a32d411b, type: 3}
+  affectedStat: 4
+  bonusPerLevel: 0.1
+  maxLevel: 5
