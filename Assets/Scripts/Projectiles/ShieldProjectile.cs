@@ -35,7 +35,7 @@ public class ShieldProjectile : ProjectileController
         {
             collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage * Time.deltaTime * 2;
             collision.gameObject.GetComponent<EnemyBase>().Hit();
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed * stats.moveSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             audioSource.PlayOneShot(soundEffect);
         }
