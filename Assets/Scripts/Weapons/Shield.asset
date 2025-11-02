@@ -21,7 +21,7 @@ MonoBehaviour:
     cooldown: 2
     area: 1.1
     duration: 1e+10
-    projectileSpeed: 7.5
+    projectileSpeed: 2
     amount: 1
     growth: 1
     revives: 0

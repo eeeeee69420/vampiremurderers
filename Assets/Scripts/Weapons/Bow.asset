@@ -18,10 +18,10 @@ MonoBehaviour:
     armor: 0
     moveSpeed: 0
     damage: 5
-    cooldown: 1
-    area: 0
+    cooldown: 3
+    area: 1
     duration: 5
-    projectileSpeed: 5
+    projectileSpeed: 7.5
     amount: 1
     growth: 0
     revives: 0
@@ -29,9 +29,9 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 0
+    pierce: 2
     lifesteal: 0
-  maxLevel: 0
+  LevelStats: []
   icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   weaponBehavior: 1
   targetting: 2

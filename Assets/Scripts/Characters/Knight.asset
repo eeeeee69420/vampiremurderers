@@ -22,15 +22,15 @@ MonoBehaviour:
     hpregen: 0
     armor: 0
     moveSpeed: 3
-    damage: 1
-    cooldown: 1
-    area: 1
-    duration: 1
-    projectileSpeed: 1
+    damage: 0
+    cooldown: 0
+    area: 0
+    duration: 0
+    projectileSpeed: 0
     amount: 0
-    growth: 1
+    growth: 0
     revives: 0
-    greed: 1
+    greed: 0
     luck: 0
     criticalChance: 0.15
     criticalDamage: 1.5

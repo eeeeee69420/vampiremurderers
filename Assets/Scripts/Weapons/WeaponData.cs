@@ -6,8 +6,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public CharacterStats baseStats;
-    public List<List<StatIncrease>> LevelStats;
-    public int maxLevel;
+    public List<LevelStatIncrease> LevelStats;
     public Sprite icon;
     public WeaponBehavior weaponBehavior;
     public TargettingType targetting;

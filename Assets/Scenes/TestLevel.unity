@@ -1442,6 +1442,14 @@ PrefabInstance:
       propertyPath: enemyData
       value: 
       objectReference: {fileID: 11400000, guid: 88d60fc486c6e794f8593cd940fcc93a, type: 2}
+    - target: {fileID: 2624788152494666456, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624788152494666456, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3144847838030026055, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.498
@@ -21670,6 +21678,14 @@ PrefabInstance:
       propertyPath: enemyData
       value: 
       objectReference: {fileID: 11400000, guid: 2b5ee18b76186e14fb98a08a3ce2217e, type: 2}
+    - target: {fileID: 2624788152494666456, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624788152494666456, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3144847838030026055, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.498
@@ -22316,6 +22332,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 211420193}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.area
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: stats.area
       value: 1.1
       objectReference: {fileID: 0}
@@ -22323,6 +22343,22 @@ PrefabInstance:
       propertyPath: PassiveGrid
       value: 
       objectReference: {fileID: 1651165511}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.greed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.hpmax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.growth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: stats.damage
       value: 1.1
@@ -22336,8 +22372,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 268947e61418dc84fb8eeb73e78658fa, type: 2}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.cooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.duration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: stats.cooldown
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.moveSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: Weapons.Array.size
@@ -22345,6 +22393,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: Passives.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.criticalChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.criticalDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: buffs.projectileSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}

@@ -14,12 +14,10 @@ public class ProjectileWeapon : Weapon
     private void Start()
     {
         enemyMask = LayerMask.GetMask("Enemy");
-        RefreshStats();
     }
     protected override void FindTarget()
     {
         targets = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);
-        Debug.Log(targets.Length);
         switch (weaponData.targetting)
         {
             case TargettingType.Closest:
@@ -67,7 +65,6 @@ public class ProjectileWeapon : Weapon
     {
         FindTarget();
         remainingCooldown += buffStats.cooldown;
-        Debug.Log(target);
         if (target != null)
         {
             for (int i = 0; i < buffStats.amount; i++)

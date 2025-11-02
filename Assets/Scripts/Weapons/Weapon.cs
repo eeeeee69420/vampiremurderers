@@ -50,11 +50,12 @@ public class Weapon : MonoBehaviour
         buffStats = weaponData.baseStats.Clone();
         for (int i = 0; i < level; i++)
         {
-            for (int k = 0; k < weaponData.LevelStats[i].Count; k++)
+            for (int k = 0; k < weaponData.LevelStats[i].statIncreases.Count; k++)
             {
-                buffStats.ApplyBuff(weaponData.LevelStats[i][k].stat, weaponData.LevelStats[i][k].amount);
+                buffStats.ApplyBuff(weaponData.LevelStats[i].statIncreases[k].stat, weaponData.LevelStats[i].statIncreases[k].amount);
             }
         }
         buffStats = buffStats.ApplyBuffs(playerController.buffs);
+        range = buffStats.duration * buffStats.projectileSpeed;
     }
 }

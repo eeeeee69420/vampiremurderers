@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public CharacterData characterData;
     [HideInInspector] public CharacterStats stats;
-    [HideInInspector] public CharacterStats buffs;
+    public CharacterStats buffs;
     [HideInInspector] public int level;
     [HideInInspector] public float hp;
 

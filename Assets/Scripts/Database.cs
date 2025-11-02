@@ -52,6 +52,11 @@ public class StatIncrease
     public StatType stat;
     public float amount;
 }
+[System.Serializable]
+public class LevelStatIncrease
+{
+    public List<StatIncrease> statIncreases;
+}
 
 [System.Serializable]
 public class CharacterStats

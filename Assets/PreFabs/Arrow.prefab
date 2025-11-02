@@ -110,20 +110,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    level: 0
+    hpmax: 0
+    hpregen: 0
+    armor: 0
+    moveSpeed: 0
     damage: 0
-    projectileSpeed: 0
     cooldown: 0
     area: 0
     duration: 0
+    projectileSpeed: 0
     amount: 0
+    growth: 0
+    revives: 0
+    greed: 0
+    luck: 0
     criticalChance: 0
     criticalDamage: 0
     pierce: 0
+    lifesteal: 0
   projectileBody: {fileID: 0}
   animator: {fileID: 0}
   player: 0
-  freezeTimer: 0.5
+  freezeTimer: 1
+  hitObjects: []
+  owner: {fileID: 0}
 --- !u!1 &8363853185915355048
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 654397419432346951}
   - component: {fileID: 5809830549014897928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Projectile Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +161,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2531176984530817825}
@@ -196,7 +206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: 1971139560, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

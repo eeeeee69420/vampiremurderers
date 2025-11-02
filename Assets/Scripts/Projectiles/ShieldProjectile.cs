@@ -20,7 +20,7 @@ public class ShieldProjectile : ProjectileController
         {
             collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
             collision.gameObject.GetComponent<EnemyBase>().Hit();
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.moveSpeed * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
         }
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
