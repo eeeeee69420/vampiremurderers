@@ -40,9 +40,10 @@ public class Weapon : MonoBehaviour
     {
 
     }
-    public virtual void LevelStats(int level)
+    public virtual void LevelWeapon()
     {
-
+        level++;
+        RefreshStats();
     }
     public virtual void RefreshStats()
     {

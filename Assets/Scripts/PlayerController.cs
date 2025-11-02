@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
                 isNewWeapon = false;
                 if (Weapons[i].level < weaponData.LevelStats.Count)
                 {
-                    Weapons[i].level++;
-                    Weapons[i].RefreshStats();
+                    Weapons[i].LevelWeapon();
                 }
             }
         }
@@ -88,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 if (Passives[i].data == passiveData && Passives[i].level <= passiveData.maxLevel)
                 {
                     isNewPassive = false;
-                    Passives[i].level++;
+                    LevelPassive(Passives[i]);
                 }
             }
             if (isNewPassive)
@@ -98,11 +97,15 @@ public class PlayerController : MonoBehaviour
                     data = passiveData
                 };
                 Passives.Add(newPassive);
+                UpdatePassives();
             }
         }
-        buffs.MergeBuff(passiveData.bonusPerLevel, passiveData.affectedStat);
+    }
+    public void LevelPassive(Passive passive)
+    {
+        passive.level++;
+        buffs.MergeBuff(passive.data.bonusPerLevel, passive.data.affectedStat);
         RefreshStats();
-        UpdatePassives();
     }
     public void UpdateWeapons()
     {
