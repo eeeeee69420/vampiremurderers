@@ -54,7 +54,7 @@ public class ProjectileController : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
             collision.gameObject.GetComponent<EnemyBase>().Hit();
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = transform.up * stats.projectileSpeed;
+            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed;
             collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             owner.GetComponent<PlayerController>().LifeSteal();
             Pierce();

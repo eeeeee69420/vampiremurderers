@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -257,6 +258,7 @@ public static class WeaponBehaviors
 }
 public enum ElementType
 {
+    Typeless,
     Water,
     Fire,
     Grass,
@@ -280,4 +282,38 @@ public static class EnemyBehaviors
         { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("MeleeEnemy")) },
         { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("RangedEnemyHold")) },
     };
+}
+public enum StatusTypes
+{
+    Stun,
+    Slow,
+    Untargetable,
+    Invulnerable,
+}
+[System.Serializable]
+public class DamageOverTime
+{
+    public float amount;
+    public ElementType element;
+    public float duration;
+}
+[System.Serializable]
+public class StatEffector
+{
+    public float amount;
+    public StatType stat;
+    public float duration;
+}
+[System.Serializable]
+public class StatusEffect
+{
+    public StatusTypes statusType;
+    public float duration;
+}
+[System.Serializable]
+public class StatusCondition
+{
+    public List<StatEffector> statEffectors;
+    public DamageOverTime DOT;
+
 }
