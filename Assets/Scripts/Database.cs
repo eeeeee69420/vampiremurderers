@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -269,6 +270,34 @@ public enum ElementType
     Poison,
     Light,
     Dark
+}
+public static class ElementChart
+{
+    // Store what each element counters
+    private static readonly Dictionary<ElementType, ElementType[]> Counters = new()
+    {
+        { ElementType.Water,   new[] { ElementType.Fire, ElementType.Thunder } },
+        { ElementType.Fire,    new[] { ElementType.Grass, ElementType.Ice } },
+        { ElementType.Grass,   new[] { ElementType.Water, ElementType.Earth } },
+        { ElementType.Earth,   new[] { ElementType.Fire, ElementType.Thunder } },
+        { ElementType.Thunder, new[] { ElementType.Water, ElementType.Air } },
+        { ElementType.Air,     new[] { ElementType.Earth, ElementType.Poison } },
+        { ElementType.Ice,     new[] { ElementType.Poison, ElementType.Air } },
+        { ElementType.Poison,  new[] { ElementType.Grass, ElementType.Ice } },
+    };
+
+    // Helper: check effectiveness
+    public static float GetEffectivity(this ElementType attacker, ElementType target)
+    {
+        if (Counters[attacker].Contains(target))
+            return 1.5f;
+
+        // Target counters attacker (reverse lookup)
+        if (Counters[target].Contains(attacker))
+            return .5f;
+
+        return 1f;
+    }
 }
 public enum EnemyBehavior
 {
