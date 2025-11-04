@@ -293,7 +293,7 @@ public enum StatusTypes
 [System.Serializable]
 public class DamageOverTime
 {
-    public float amount;
+    public float damage;
     public ElementType element;
     public float duration;
 }
@@ -315,5 +315,5 @@ public class StatusCondition
 {
     public List<StatEffector> statEffectors;
     public DamageOverTime DOT;
-
+    public Sprite icon;
 }
