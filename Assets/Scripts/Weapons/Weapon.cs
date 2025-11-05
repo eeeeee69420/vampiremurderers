@@ -17,7 +17,6 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public PlayerController playerController;
     [HideInInspector] public Type StatType = typeof(CharacterStats);
 
-
     public virtual void Initiate()
     {
         playerController = GetComponent<PlayerController>();
