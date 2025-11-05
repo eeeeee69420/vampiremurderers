@@ -76,6 +76,7 @@ public class CharacterStats
     public float moveSpeed = 0; //3
     public float damage = 0;
     public float cooldown = 0;
+    public float abilityCooldown = 0;
     public float area = 0;
     public float duration = 0;
     public float projectileSpeed = 0;
@@ -98,6 +99,7 @@ public class CharacterStats
             moveSpeed = this.moveSpeed,
             damage = this.damage,
             cooldown = this.cooldown,
+            abilityCooldown = this.abilityCooldown,
             area = this.area,
             duration = this.duration,
             projectileSpeed = this.projectileSpeed,
@@ -122,6 +124,7 @@ public class CharacterStats
             moveSpeed = this.moveSpeed * (buffs.moveSpeed + 1),
             damage = this.damage * (buffs.damage + 1),
             cooldown = this.cooldown / (buffs.cooldown + 1),
+            abilityCooldown = this.abilityCooldown / (buffs.abilityCooldown + 1),
             area = this.area * (buffs.area + 1),
             duration = this.duration * (buffs.duration + 1),
             projectileSpeed = this.projectileSpeed * (buffs.projectileSpeed + 1),
@@ -146,6 +149,7 @@ public class CharacterStats
             case StatType.MoveSpeed: moveSpeed *= (buffValue + 1); break;
             case StatType.Damage: damage *= (buffValue + 1); break;
             case StatType.Cooldown: cooldown /= (buffValue + 1); break;
+            case StatType.AbilityCooldown: abilityCooldown /= (buffValue + 1); break;
             case StatType.Area: area *= (buffValue + 1); break;
             case StatType.Duration: duration *= (buffValue + 1); break;
             case StatType.ProjectileSpeed: projectileSpeed *= (buffValue + 1); break;
@@ -170,6 +174,7 @@ public class CharacterStats
             moveSpeed = buffs1.moveSpeed + buffs2.moveSpeed,
             damage = buffs1.damage + buffs2.damage,
             cooldown = buffs1.cooldown + buffs2.cooldown,
+            abilityCooldown = buffs1.abilityCooldown + buffs2.abilityCooldown,
             area = buffs1.area + buffs2.area,
             duration = buffs1.duration + buffs2.duration,
             projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed,
@@ -194,6 +199,7 @@ public class CharacterStats
             case StatType.MoveSpeed: moveSpeed += buffValue; break;
             case StatType.Damage: damage += buffValue; break;
             case StatType.Cooldown: cooldown += buffValue; break;
+            case StatType.AbilityCooldown: abilityCooldown += buffValue; break;
             case StatType.Area: area += buffValue; break;
             case StatType.Duration: duration += buffValue; break;
             case StatType.ProjectileSpeed: projectileSpeed += buffValue; break;
@@ -217,6 +223,7 @@ public enum StatType //All additive stats are framed as % reduction, so 15% fast
     MoveSpeed, //Additive
     Damage, //Additive
     Cooldown, //Inverse Additive
+    AbilityCooldown, //Inverse Additive
     Area, //Additive
     Duration, //Additive
     ProjectileSpeed, //Additive
@@ -318,31 +325,4 @@ public enum StatusTypes
     Slow,
     Untargetable,
     Invulnerable,
-}
-[System.Serializable]
-public class DamageOverTime
-{
-    public float damage;
-    public ElementType element;
-    public float duration;
-}
-[System.Serializable]
-public class StatEffector
-{
-    public float amount;
-    public StatType stat;
-    public float duration;
-}
-[System.Serializable]
-public class StatusEffect
-{
-    public StatusTypes statusType;
-    public float duration;
-}
-[System.Serializable]
-public class StatusCondition
-{
-    public List<StatEffector> statEffectors;
-    public DamageOverTime DOT;
-    public Sprite icon;
 }
