@@ -237,6 +237,13 @@ public enum StatType //All additive stats are framed as % reduction, so 15% fast
     Pierce, //Flat
     Lifesteal //Flat
 }
+public class CharacterAbility
+{
+    public string name;
+    public Sprite icon;
+    public float baseCooldown;
+    public float baseDamage;
+}
 public enum TargettingType
 {
     None,
