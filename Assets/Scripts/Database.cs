@@ -326,10 +326,45 @@ public static class EnemyBehaviors
         { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("RangedEnemyHold")) },
     };
 }
-public enum StatusTypes
+public enum StatusStates
 {
     Stun,
-    Slow,
     Untargetable,
     Invulnerable,
+}
+public enum StatusTargets
+{
+    Self,
+    Target
+}
+public enum EffectScalingType
+{
+    Diminishing,
+    Ramping,
+    Normal
+}
+public class StatEffector
+{
+    public StatType affectedStat;
+    public float baseAmount; //Always in terms of buff or debuff.
+    public float currentAmount;
+    public EffectScalingType scalingType; //Always in terms of the value when its highest.
+}
+public class DamageOverTime
+{
+    public float DPS;
+    public ElementType element;
+}
+public class StatusCondition
+{
+    public string name;
+    public Sprite icon;
+
+    public List<StatusStates> states;
+    public List<DamageOverTime> damageOverTimes;
+    public List<StatEffector> statEffectors;
+
+    public float delay;
+    public bool delayUsesDuration;
+    public int maxStacks;
 }

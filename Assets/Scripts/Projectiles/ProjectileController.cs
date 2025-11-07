@@ -44,9 +44,7 @@ public class ProjectileController : MonoBehaviour
 
         if (!player && collision.gameObject.layer == 6 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<PlayerController>().hp -= stats.damage;
-            GameController.Instance.HitScreenAnim();
-            GameController.Instance.UpdateHPBar();
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(stats.damage);
             Pierce();
             hitObjects.Add(collision.gameObject);
         }
