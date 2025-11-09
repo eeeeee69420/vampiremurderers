@@ -19,6 +19,7 @@ MonoBehaviour:
     moveSpeed: 1
     damage: 10
     cooldown: 2
+    abilityCooldown: 0
     area: 1.1
     duration: 1e+10
     projectileSpeed: 2
@@ -31,8 +32,21 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
     lifesteal: 0
-  maxLevel: 5
+  LevelStats: []
   icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
   weaponBehavior: 0
   targetting: 0
   projectile: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}
+  statusConditions:
+  - name: 
+    icon: {fileID: 0}
+    states: 00000000
+    damageOverTimes: []
+    statEffectors: []
+    remainingDuration: -0.85999936
+    duration: 0.5
+    delay: 0
+    delayUsesDuration: 0
+    maxStacks: 1
+    hidden: 0
+  element: 0

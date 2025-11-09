@@ -19,8 +19,12 @@ public class ShieldProjectile : ProjectileController
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
-            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.moveSpeed * stats.projectileSpeed;
+            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = stats.moveSpeed * stats.projectileSpeed * transform.up;
             audioSource.PlayOneShot(soundEffect);
+            for (int i = 0; i < statusConditions.Count; i++)
+            {
+                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusConditions[i]));
+            }
         }
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
         {
@@ -32,8 +36,13 @@ public class ShieldProjectile : ProjectileController
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage * Time.deltaTime * 2);
-            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed * stats.moveSpeed;
+            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = stats.moveSpeed * stats.projectileSpeed * transform.up;
             audioSource.PlayOneShot(soundEffect);
+            for (int i = 0; i < statusConditions.Count; i++)
+            {
+                StatusCondition statusClone = statusConditions[i].Clone(owner.GetComponent<PlayerController>().buffs.duration);
+                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusClone));
+            }
         }
     }
 }

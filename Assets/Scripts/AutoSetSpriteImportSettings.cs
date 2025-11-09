@@ -7,12 +7,11 @@ public class AutoSetSpriteImportSettings : AssetPostprocessor
     {
         var importer = (TextureImporter)assetImporter;
 
-        // Only apply to Sprites (2D and UI)
         if (importer.textureType == TextureImporterType.Sprite)
         {
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-            importer.filterMode = FilterMode.Point; // optional, good for pixel art
-            importer.mipmapEnabled = false;         // optional
+            importer.filterMode = FilterMode.Point;
+            importer.mipmapEnabled = false;
         }
     }
 }

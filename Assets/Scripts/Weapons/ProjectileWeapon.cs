@@ -19,14 +19,14 @@ public class ProjectileWeapon : Weapon
     protected override void FindTarget()
     {
         targets = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);
-        List<Collider2D> targetList = new List<Collider2D>(
+        List<Collider2D> targetList = new(
             Physics2D.OverlapCircleAll(transform.position, range, enemyMask)
         );
 
         for (int i = targetList.Count - 1; i >= 0; i--)
         {
             EnemyBase enemy = targetList[i].GetComponent<EnemyBase>();
-            if (enemy != null && enemy.dead)
+            if (enemy != null && (enemy.dead || enemy.statusStates.Contains(StatusStates.Untargetable)))
                 targetList.RemoveAt(i);
         }
 
@@ -77,18 +77,20 @@ public class ProjectileWeapon : Weapon
     protected override IEnumerator ActivateWeapon()
     {
         FindTarget();
-        remainingCooldown += buffStats.cooldown;
+        remainingCooldown += stats.cooldown;
         if (target != null)
         {
-            for (int i = 0; i < buffStats.amount; i++)
+            for (int i = 0; i < stats.amount; i++)
             {
                 FindTarget();
                 Vector3 direction = target.transform.position - transform.position;
                 spawnedObjects.Add(Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
-                spawnedObjects[^1].GetComponent<ProjectileController>().stats = buffStats.Clone();
+                spawnedObjects[^1].GetComponent<ProjectileController>().stats = stats.Clone();
                 spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
                 spawnedObjects[^1].GetComponent<ProjectileController>().player = true;
                 spawnedObjects[^1].GetComponent<ProjectileController>().owner = gameObject;
+                spawnedObjects[^1].GetComponent<ProjectileController>().statusConditions = weaponData.statusConditions;
+                spawnedObjects[^1].GetComponent<ProjectileController>().element = weaponData.element;
                 yield return new WaitForSeconds(.1f);
             }
         }

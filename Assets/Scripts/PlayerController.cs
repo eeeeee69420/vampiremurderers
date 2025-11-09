@@ -30,15 +30,6 @@ public class PlayerController : CharacterController
         UpdateWeapons();
         UpdatePassives();
     }
-
-    protected override void FixedUpdate()
-    {
-        Move();
-        if (direction.magnitude > 0.2)
-            characterAnimator.animator.SetBool("isMoving", true);
-        else
-            characterAnimator.animator.SetBool("isMoving", false);
-    }
     protected override Vector2 Track()
     {
         inputX = Input.GetAxis("Horizontal");
@@ -46,6 +37,10 @@ public class PlayerController : CharacterController
         direction = new Vector2(inputX, inputY);
         if (direction.magnitude > 1)
             direction = direction.normalized;
+        if (direction.magnitude > 0.2)
+            characterAnimator.animator.SetBool("isMoving", true);
+        else
+            characterAnimator.animator.SetBool("isMoving", false);
         return direction;
     }
     public void AddWeapon(WeaponData weaponData)
@@ -115,24 +110,28 @@ public class PlayerController : CharacterController
                 WeaponIcons[i].color = Color.clear;
         }
     }
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, ElementType element = ElementType.Typeless)
     {
         GameController.Instance.HitScreenAnim();
         GameController.Instance.UpdateHPBar();
         hp -= (damage - stats.armor);
+        if (hp < 0 && stats.revives == 0)
+        {
+            StartCoroutine(Death());
+        }
     }
     public void UpdatePassives()
     {
         stats = characterData.stats.Clone();
-        for (int i = 0; i < PassiveIcons.Count; i++)
+            foreach (var passiveIcon in PassiveIcons)
         {
-            if (i < Passives.Count && Passives[i] != null)
+            if (PassiveIcons.IndexOf(passiveIcon) < Passives.Count && passiveIcon != null)
             {
-                PassiveIcons[i].sprite = Passives[i].data.icon;
-                PassiveIcons[i].color = Color.white;
+                passiveIcon.sprite = Passives[PassiveIcons.IndexOf(passiveIcon)].data.icon;
+                passiveIcon.color = Color.white;
             }
             else
-                PassiveIcons[i].color = Color.clear;
+                passiveIcon.color = Color.clear;
         }
     }
     public void PickUpItem(RewardContainer rewards)

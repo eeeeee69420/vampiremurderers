@@ -1,6 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -12,10 +16,11 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
     [HideInInspector] public List<Weapon> Weapons;
+    public List<StatusCondition> statusConditions = new();
 
     [HideInInspector] public Vector2 direction = new();
 
-    [HideInInspector] public List<StatusStates> StatusStates;
+    [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
 
     public void Start()
@@ -25,10 +30,11 @@ public class CharacterController : MonoBehaviour
         characterAnimator = GetComponent<CharacterAnimator>();
         RefreshStats();
     }
-    protected virtual void FixedUpdate()
+    public virtual void FixedUpdate()
     {
-        if (!dead)
-        Move();
+        if (!dead && !statusStates.Contains(StatusStates.Immobilized))
+            Move();
+        UpdateStatuses();
     }
     protected virtual Vector2 Track()
     {
@@ -51,17 +57,88 @@ public class CharacterController : MonoBehaviour
             hp += 1;
         }
     }
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, ElementType element = ElementType.Typeless)
     {
         hp -= (damage - stats.armor);
-        if (hp < 0)
+        if (hp < 0 && stats.revives == 0)
         {
-            dead = true;
-            hp = 0;
-            characterAnimator.PlayAnimation("Death");
+            StartCoroutine(Death());
         }
+        else if (stats.revives > 0)
+        {
+            hp = stats.hpmax;
+        }
+    }
+    public virtual void UpdateStatuses()
+    {
+        for (int i = statusConditions.Count - 1; i >= 0; i--)
+        {
+            var statusCondition = statusConditions[i];
+            statusCondition.remainingDuration -= Time.fixedDeltaTime;
+            foreach (var statEffector in statusCondition.statEffectors)
+            {
+                statEffector.SetCurrentAmount(statusCondition.remainingDuration, statusCondition.duration);
+            }
+            if (statusCondition.remainingDuration <= 0)
+            {
+                foreach (var state in statusCondition.states)
+                {
+                    statusStates.Remove(state);
+                }
+
+                statusConditions.RemoveAt(i);
+            }
+        }
+        RefreshBuffs();
     }
     public virtual void RefreshStats()
     {
+
+    }
+    public virtual void RefreshBuffs()
+    {
+        buffs = new();
+        for (int i = 0; i < statusConditions.Count; i++)
+        {
+            for (int j = 0; j < statusConditions[i].statEffectors.Count; j++)
+            {
+                buffs.MergeBuff(statusConditions[i].statEffectors[j].currentAmount, statusConditions[i].statEffectors[j].affectedStat);
+            }
+        }
+        RefreshStats();
+    }
+    public IEnumerator Death()
+    {
+        dead = true;
+        hp = 0;
+        characterAnimator.PlayAnimation("Death");
+        yield return new WaitForSeconds(2f);
+        if (gameObject.layer == 6)
+            SceneManager.LoadScene("TestLevel");
+        Destroy(gameObject);
+    }
+    public IEnumerator AddStatus(StatusCondition statusCondition)
+    {
+        yield return new WaitForSeconds(statusCondition.delay);
+
+        var duplicates = statusConditions
+            .Where(s => s.name == statusCondition.name)
+            .ToList();
+
+        if (duplicates.Count > statusCondition.maxStacks)
+        {
+            StatusCondition toRemove = duplicates.OrderBy(s => s.remainingDuration).First();
+            statusConditions.Remove(toRemove);
+            foreach (var state in toRemove.states)
+            {
+                statusStates.Remove(state);
+            }
+        }
+        statusConditions.Add(statusCondition);
+        statusConditions.Sort((a, b) => a.remainingDuration.CompareTo(b.remainingDuration));
+        foreach (var state in statusCondition.states)
+        {
+            statusStates.Add(state);
+        }
     }
 }

@@ -10,4 +10,5 @@ public class EnemyData : ScriptableObject
     public GameObject projectile;
     public CharacterStats stats;
     public EnemyBehavior behavior;
+    public ElementType element;
 }

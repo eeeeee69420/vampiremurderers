@@ -11,4 +11,6 @@ public class WeaponData : ScriptableObject
     public WeaponBehavior weaponBehavior;
     public TargettingType targetting;
     public GameObject projectile;
+    public List<StatusCondition> statusConditions;
+    public ElementType element;
 }

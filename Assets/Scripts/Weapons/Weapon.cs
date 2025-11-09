@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public float remainingCooldown;
     [HideInInspector] public float range;
     public WeaponData weaponData;
-    [HideInInspector] public CharacterStats buffStats = new();
+    [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public int level;
 
     [HideInInspector] public PlayerController playerController;
@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     {
         if (weaponData.targetting != TargettingType.None)
             FindTarget();
-        remainingCooldown += buffStats.cooldown;
+        remainingCooldown += stats.cooldown;
         yield return new WaitForSeconds(.1f);
     }
     protected virtual void FindTarget()
@@ -45,15 +45,15 @@ public class Weapon : MonoBehaviour
     }
     public virtual void RefreshStats()
     {
-        buffStats = weaponData.baseStats.Clone();
+        stats = weaponData.baseStats.Clone();
         for (int i = 0; i < level; i++)
         {
-            for (int k = 0; k < weaponData.LevelStats[i].statIncreases.Count; k++)
+            foreach (var statIncrease in weaponData.LevelStats[i].statIncreases)
             {
-                buffStats.ApplyBuff(weaponData.LevelStats[i].statIncreases[k].stat, weaponData.LevelStats[i].statIncreases[k].amount);
+                stats.ApplyBuff(statIncrease.stat, statIncrease.amount);
             }
         }
-        buffStats = buffStats.ApplyBuffs(playerController.buffs);
-        range = buffStats.duration * buffStats.projectileSpeed;
+        stats = stats.ApplyBuffs(playerController.buffs);
+        range = stats.duration * stats.projectileSpeed;
     }
 }

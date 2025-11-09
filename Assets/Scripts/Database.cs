@@ -341,18 +341,36 @@ public enum EffectScalingType
     Ramping,
     Normal
 }
+[System.Serializable]
 public class StatEffector
 {
     public StatType affectedStat;
-    public float baseAmount; //Always in terms of buff or debuff.
+    public float baseAmount; // Always in terms of buff or debuff.
     public float currentAmount;
-    public EffectScalingType scalingType; //Always in terms of the value when its highest.
+    public EffectScalingType scalingType; // Always in terms of the value when its highest.
+
+    public void SetCurrentAmount(float remainingDuration, float totalDuration)
+    {
+        if (totalDuration <= 0f)
+            currentAmount = baseAmount;
+
+        float progress = 1f - (remainingDuration / totalDuration);
+
+        currentAmount = scalingType switch
+        {
+            EffectScalingType.Diminishing => baseAmount * (remainingDuration / totalDuration),
+            EffectScalingType.Ramping => baseAmount * progress,
+            _ => baseAmount,
+        };
+    }
 }
+[System.Serializable]
 public class DamageOverTime
 {
     public float DPS;
     public ElementType element;
 }
+[System.Serializable]
 public class StatusCondition
 {
     public string name;
@@ -362,8 +380,28 @@ public class StatusCondition
     public List<DamageOverTime> damageOverTimes;
     public List<StatEffector> statEffectors;
 
+    public float remainingDuration;
+    public float duration;
     public float delay;
     public bool delayUsesDuration;
     public int maxStacks;
     public bool hidden;
+
+    public StatusCondition Clone(float delayBuff)
+    {
+        return new StatusCondition
+        {
+            name = this.name,
+            icon = this.icon,
+            states = this.states,
+            damageOverTimes = this.damageOverTimes,
+            statEffectors = this.statEffectors,
+            remainingDuration = this.duration * (delayBuff + 1),
+            duration = this.duration * (delayBuff + 1),
+            delay = this.delay * (delayBuff + 1),
+            delayUsesDuration = this.delayUsesDuration,
+            maxStacks = this.maxStacks,
+            hidden = this.hidden
+        };
+    }
 }

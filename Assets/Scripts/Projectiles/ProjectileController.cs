@@ -12,6 +12,8 @@ public class ProjectileController : MonoBehaviour
     public float freezeTimer = .2f;
     public List<GameObject> hitObjects = new();
     public GameObject owner;
+    public List<StatusCondition> statusConditions;
+    public ElementType element;
     void Start()
     {
         projectileBody = GetComponent<Rigidbody2D>();
@@ -44,17 +46,25 @@ public class ProjectileController : MonoBehaviour
 
         if (!player && collision.gameObject.layer == 6 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(stats.damage);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(stats.damage, element);
             Pierce();
             hitObjects.Add(collision.gameObject);
+            for (int i = 0; i < statusConditions.Count; i++)
+            {
+                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusConditions[i].Clone(owner.GetComponent<PlayerController>().buffs.duration)));
+            }
         }
         else if (player && collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
+            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage, element);
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed;
             owner.GetComponent<PlayerController>().LifeSteal();
             Pierce();
             hitObjects.Add(collision.gameObject);
+            for (int i = 0; i < statusConditions.Count; i++)
+            {
+                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusConditions[i].Clone(owner.GetComponent<PlayerController>().buffs.duration)));
+            }
         }
     }
 }

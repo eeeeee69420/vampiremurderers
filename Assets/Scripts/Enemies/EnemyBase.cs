@@ -9,7 +9,6 @@ public class EnemyBase : CharacterController
     [HideInInspector] public float closestDistance;
     [HideInInspector] public int playerTarget;
     [HideInInspector] public Vector2 targetPosition;
-    [HideInInspector] public bool touchingPlayer;
 
     [HideInInspector] public float remainingCooldown;
     [HideInInspector] public float attackAnimationDuration;
@@ -43,22 +42,6 @@ public class EnemyBase : CharacterController
         }
         targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().body.position;
         return (targetPosition - body.position).normalized;
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Player")
-            touchingPlayer = true;
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Player")
-            touchingPlayer = false;
-    }
-
-    public IEnumerator Death()
-    {
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
     }
     public virtual void Initialize()
     {
