@@ -19,6 +19,7 @@ MonoBehaviour:
     moveSpeed: 0
     damage: 5
     cooldown: 3
+    abilityCooldown: 0
     area: 1
     duration: 5
     projectileSpeed: 7.5
@@ -39,3 +40,16 @@ MonoBehaviour:
   weaponBehavior: 1
   targetting: 2
   projectile: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
+  statusConditions:
+  - name: 
+    icon: {fileID: 0}
+    states: 00000000
+    damageOverTimes: []
+    statEffectors: []
+    remainingDuration: 0
+    duration: 0.5
+    delay: 0
+    delayUsesDuration: 0
+    maxStacks: 1
+    hidden: 0
+  element: 0

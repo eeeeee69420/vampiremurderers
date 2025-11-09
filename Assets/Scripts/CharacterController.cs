@@ -85,7 +85,6 @@ public class CharacterController : MonoBehaviour
                 {
                     statusStates.Remove(state);
                 }
-
                 statusConditions.RemoveAt(i);
             }
         }

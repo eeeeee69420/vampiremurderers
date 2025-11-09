@@ -41,30 +41,33 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public virtual void HitEnemy(Collider2D collision, float damage)
+    {
+        owner.GetComponent<CharacterController>().LifeSteal();
+        collision.gameObject.GetComponent<CharacterController>().TakeDamage(damage);
+        if (collision.gameObject.layer == 8)
+            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
+        for (int i = 0; i < statusConditions.Count; i++)
+        {
+            StatusCondition statusClone = statusConditions[i].Clone();
+            statusClone.remainingDuration = statusClone.duration * (owner.GetComponent<PlayerController>().buffs.duration + 1);
+            if (statusClone.delayUsesDuration)
+                statusClone.delay *= owner.GetComponent<PlayerController>().buffs.duration;
+            StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusClone));
+        }
+        hitObjects.Add(collision.gameObject);
+        Pierce();
+    }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
 
         if (!player && collision.gameObject.layer == 6 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(stats.damage, element);
-            Pierce();
-            hitObjects.Add(collision.gameObject);
-            for (int i = 0; i < statusConditions.Count; i++)
-            {
-                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusConditions[i].Clone(owner.GetComponent<PlayerController>().buffs.duration)));
-            }
+            HitEnemy(collision, stats.damage);
         }
         else if (player && collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage, element);
-            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed;
-            owner.GetComponent<PlayerController>().LifeSteal();
-            Pierce();
-            hitObjects.Add(collision.gameObject);
-            for (int i = 0; i < statusConditions.Count; i++)
-            {
-                StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusConditions[i].Clone(owner.GetComponent<PlayerController>().buffs.duration)));
-            }
+            HitEnemy(collision, stats.damage);
         }
     }
 }

@@ -387,7 +387,7 @@ public class StatusCondition
     public int maxStacks;
     public bool hidden;
 
-    public StatusCondition Clone(float delayBuff)
+    public StatusCondition Clone()
     {
         return new StatusCondition
         {
@@ -396,9 +396,9 @@ public class StatusCondition
             states = this.states,
             damageOverTimes = this.damageOverTimes,
             statEffectors = this.statEffectors,
-            remainingDuration = this.duration * (delayBuff + 1),
-            duration = this.duration * (delayBuff + 1),
-            delay = this.delay * (delayBuff + 1),
+            remainingDuration = this.remainingDuration,
+            duration = this.duration,
+            delay = this.delay,
             delayUsesDuration = this.delayUsesDuration,
             maxStacks = this.maxStacks,
             hidden = this.hidden
