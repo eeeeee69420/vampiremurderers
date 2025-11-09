@@ -300,13 +300,11 @@ public static class ElementChart
         { ElementType.Poison,  new[] { ElementType.Grass, ElementType.Ice } },
     };
 
-    // Helper: check effectiveness
     public static float GetEffectivity(this ElementType attacker, ElementType target)
     {
         if (Counters[attacker].Contains(target))
             return 1.5f;
 
-        // Target counters attacker (reverse lookup)
         if (Counters[target].Contains(attacker))
             return .5f;
 
