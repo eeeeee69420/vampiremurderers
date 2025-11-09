@@ -19,7 +19,7 @@ public class Shield : ProjectileWeapon
     }
     protected override IEnumerator ActivateWeapon()
     {
-        Vector2 dir = playerController.inputDirection;
+        Vector2 dir = playerController.direction;
         if (dir.magnitude > 0)
         {
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

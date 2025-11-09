@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySetup : MonoBehaviour
 {
     public EnemyData enemyData;
-    public EnemyBase enemyBehavior;
+    [HideInInspector] public EnemyBase enemyBehavior;
     void Start()
     {
         if (enemyData != null)

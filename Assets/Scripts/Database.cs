@@ -326,7 +326,7 @@ public static class EnemyBehaviors
 }
 public enum StatusStates
 {
-    Stun,
+    Immobilized,
     Untargetable,
     Invulnerable,
 }
@@ -365,4 +365,5 @@ public class StatusCondition
     public float delay;
     public bool delayUsesDuration;
     public int maxStacks;
+    public bool hidden;
 }

@@ -18,10 +18,8 @@ public class ShieldProjectile : ProjectileController
     {
         if (collision.gameObject.layer == 8)
         {
-            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
-            collision.gameObject.GetComponent<EnemyBase>().Hit();
+            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.moveSpeed * stats.projectileSpeed;
-            collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             audioSource.PlayOneShot(soundEffect);
         }
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
@@ -33,10 +31,8 @@ public class ShieldProjectile : ProjectileController
     {
         if (collision.gameObject.layer == 8)
         {
-            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage * Time.deltaTime * 2;
-            collision.gameObject.GetComponent<EnemyBase>().Hit();
+            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage * Time.deltaTime * 2);
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed * stats.moveSpeed;
-            collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             audioSource.PlayOneShot(soundEffect);
         }
     }

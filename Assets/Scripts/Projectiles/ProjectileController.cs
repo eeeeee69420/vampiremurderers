@@ -50,10 +50,8 @@ public class ProjectileController : MonoBehaviour
         }
         else if (player && collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
         {
-            collision.gameObject.GetComponent<EnemyBase>().hp -= stats.damage;
-            collision.gameObject.GetComponent<EnemyBase>().Hit();
+            collision.gameObject.GetComponent<EnemyBase>().TakeDamage(stats.damage);
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = transform.up * stats.projectileSpeed;
-            collision.gameObject.GetComponent<EnemyBase>().freezeTimer = freezeTimer;
             owner.GetComponent<PlayerController>().LifeSteal();
             Pierce();
             hitObjects.Add(collision.gameObject);

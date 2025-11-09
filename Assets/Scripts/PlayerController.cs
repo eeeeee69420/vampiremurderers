@@ -5,21 +5,13 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController
 {
-    [HideInInspector] public Rigidbody2D playerBody;
-    [HideInInspector] public SpriteRenderer playerSprite;
-    [HideInInspector] public PlayerAnimator playerAnimator;
     [HideInInspector] public float inputX;
     [HideInInspector] public float inputY;
-    [HideInInspector] public Vector2 inputDirection = new();
 
     public CharacterData characterData;
-    [HideInInspector] public CharacterStats stats;
-    [HideInInspector] public CharacterStats buffs;
-    [HideInInspector] public float hp;
 
-    [HideInInspector] public List<Weapon> Weapons;
     [HideInInspector] public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
@@ -29,11 +21,9 @@ public class PlayerController : MonoBehaviour
     public float xpScaling;
     [HideInInspector] public int level;
 
-    void Start()
+    public new void Start()
     {
-        playerBody = GetComponent<Rigidbody2D>();
-        playerSprite = GetComponentInChildren<SpriteRenderer>();
-        playerAnimator = GetComponent<PlayerAnimator>();
+        base.Start();
         stats = characterData.stats.Clone();
         hp = stats.hpmax;
         AddWeapon(characterData.weaponData);
@@ -41,18 +31,22 @@ public class PlayerController : MonoBehaviour
         UpdatePassives();
     }
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
+    {
+        Move();
+        if (direction.magnitude > 0.2)
+            characterAnimator.animator.SetBool("isMoving", true);
+        else
+            characterAnimator.animator.SetBool("isMoving", false);
+    }
+    protected override Vector2 Track()
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-        inputDirection = new Vector2(inputX, inputY);
-        if (inputDirection.magnitude > 1)
-            inputDirection = inputDirection.normalized;
-        if (inputDirection.x < 0)
-            playerSprite.flipX = true;
-        else if (inputDirection.x > 0)
-            playerSprite.flipX = false;
-        playerBody.MovePosition(playerBody.position + stats.moveSpeed * Time.fixedDeltaTime * inputDirection);
+        direction = new Vector2(inputX, inputY);
+        if (direction.magnitude > 1)
+            direction = direction.normalized;
+        return direction;
     }
     public void AddWeapon(WeaponData weaponData)
     {
@@ -121,19 +115,11 @@ public class PlayerController : MonoBehaviour
                 WeaponIcons[i].color = Color.clear;
         }
     }
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         GameController.Instance.HitScreenAnim();
         GameController.Instance.UpdateHPBar();
         hp -= (damage - stats.armor);
-    }
-    public void LifeSteal()
-    {
-        int lifesteal = UnityEngine.Random.Range(1, 100);
-        if (lifesteal <= stats.lifesteal)
-        {
-            hp += 1;
-        }
     }
     public void UpdatePassives()
     {
@@ -167,7 +153,7 @@ public class PlayerController : MonoBehaviour
             level++;
         }
     }
-    public void RefreshStats()
+    public override void RefreshStats()
     {
         stats = characterData.stats.Clone();
         stats.ApplyBuffs(buffs);

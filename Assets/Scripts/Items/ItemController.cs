@@ -33,14 +33,14 @@ public class ItemController : MonoBehaviour
         float closestDistance = Mathf.Infinity;
         for (int i = 0; i < GameController.Instance.Players.Count; i++)
         {
-            dist = Vector2.Distance(body.position, GameController.Instance.Players[i].GetComponent<PlayerController>().playerBody.position);
+            dist = Vector2.Distance(body.position, GameController.Instance.Players[i].GetComponent<PlayerController>().body.position);
             if (dist < closestDistance)
             {
                 closestDistance = dist;
                 playerTarget = i;
             }
         }
-        Vector2 targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().playerBody.position;
+        Vector2 targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().body.position;
         direction = (targetPosition - body.position).normalized;
     }
     private void Move()
