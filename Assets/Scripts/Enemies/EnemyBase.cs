@@ -28,7 +28,7 @@ public class EnemyBase : CharacterController
             }
         }
     }
-    protected override Vector2 Track()
+    public override Vector2 Track()
     {
         closestDistance = Mathf.Infinity;
         for (int i = 0; i < GameController.Instance.Players.Count; i++)

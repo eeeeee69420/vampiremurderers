@@ -30,11 +30,11 @@ public class PlayerController : CharacterController
         UpdateWeapons();
         UpdatePassives();
     }
-    protected override Vector2 Track()
+    public override Vector2 Track()
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-        direction = new Vector2(inputX, inputY);
+        Vector2 direction = new(inputX, inputY);
         if (direction.magnitude > 1)
             direction = direction.normalized;
         if (direction.magnitude > 0.2)

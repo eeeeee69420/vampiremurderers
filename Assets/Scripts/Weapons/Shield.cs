@@ -19,7 +19,7 @@ public class Shield : ProjectileWeapon
     }
     protected override IEnumerator ActivateWeapon()
     {
-        Vector2 dir = playerController.direction;
+        Vector2 dir = playerController.Track();
         if (dir.magnitude > 0)
         {
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -31,6 +31,7 @@ public class Shield : ProjectileWeapon
     {
         stats = weaponData.baseStats.ApplyBuffs(playerController.stats);
         range = stats.projectileSpeed * stats.duration;
+        stats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.moveSpeed;
         shield.GetComponentInChildren<ShieldProjectile>().stats = stats.Clone();
         shield.transform.localScale *= shield.GetComponentInChildren<ProjectileController>().stats.area;
         shield.GetComponentInChildren<ShieldProjectile>().statusConditions = weaponData.statusConditions;

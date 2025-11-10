@@ -19,8 +19,6 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public List<Weapon> Weapons;
     public List<StatusCondition> statusConditions = new();
 
-    [HideInInspector] public Vector2 direction = new();
-
     [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
 
@@ -37,7 +35,7 @@ public class CharacterController : MonoBehaviour
             Move();
         UpdateStatuses();
     }
-    protected virtual Vector2 Track()
+    public virtual Vector2 Track()
     {
         return new();
     }

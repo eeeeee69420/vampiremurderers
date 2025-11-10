@@ -18,9 +18,10 @@ MonoBehaviour:
     hpmax: 100
     hpregen: 0
     armor: 0
-    moveSpeed: 1
+    moveSpeed: 1.5
     damage: 1
     cooldown: 1
+    abilityCooldown: 0
     area: 1
     duration: 1
     projectileSpeed: 1
@@ -34,3 +35,4 @@ MonoBehaviour:
     pierce: 0
     lifesteal: 0
   behavior: 0
+  element: 0

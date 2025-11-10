@@ -22,7 +22,7 @@ MonoBehaviour:
     abilityCooldown: 0
     area: 1.1
     duration: 1e+10
-    projectileSpeed: 7.5
+    projectileSpeed: 2.5
     amount: 1
     growth: 1
     revives: 0
@@ -40,6 +40,7 @@ MonoBehaviour:
   statusConditions:
   - name: 
     icon: {fileID: 0}
+    hidden: 0
     states: 00000000
     damageOverTimes: []
     statEffectors: []
@@ -48,5 +49,4 @@ MonoBehaviour:
     delay: 0
     delayUsesDuration: 0
     maxStacks: 1
-    hidden: 0
   element: 0
