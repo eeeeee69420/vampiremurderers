@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShieldProjectile : ProjectileController
 {
-    public AudioClip soundEffect;
+    public List<AudioClip> soundEffects;
     public AudioSource audioSource;
     private void Start()
     {

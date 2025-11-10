@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -138,6 +139,22 @@ public class CharacterController : MonoBehaviour
         foreach (var state in statusCondition.states)
         {
             statusStates.Add(state);
+        }
+        if (statusCondition.damageOverTimes.Count > 0)
+        {
+            StartCoroutine(RunDOT(statusCondition));
+        }
+    }
+    public IEnumerator RunDOT(StatusCondition statusCondition)
+    {
+        if (statusCondition.remainingDuration > 0)
+        {
+            foreach (var DOT in statusCondition.damageOverTimes)
+            {
+                TakeDamage(DOT.DPS, DOT.element);
+            }
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(RunDOT(statusCondition));
         }
     }
 }

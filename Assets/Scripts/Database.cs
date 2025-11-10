@@ -363,45 +363,59 @@ public class StatEffector
             _ => baseAmount,
         };
     }
+    public StatEffector Clone()
+    {
+        return new StatEffector { affectedStat = this.affectedStat, baseAmount = this.baseAmount, currentAmount = this.currentAmount, scalingType = this.scalingType };
+    }
 }
 [System.Serializable]
 public class DamageOverTime
 {
     public float DPS;
     public ElementType element;
+    public DamageOverTime Clone()
+    {
+        return new DamageOverTime { DPS = this.DPS, element = this.element };
+    }
 }
 [System.Serializable]
 public class StatusCondition
 {
     public string name;
     public Sprite icon;
+    public bool hidden;
 
     public List<StatusStates> states;
     public List<DamageOverTime> damageOverTimes;
     public List<StatEffector> statEffectors;
 
-    public float remainingDuration;
+    [HideInInspector] public float remainingDuration;
     public float duration;
     public float delay;
     public bool delayUsesDuration;
     public int maxStacks;
-    public bool hidden;
 
     public StatusCondition Clone()
     {
-        return new StatusCondition
+        StatusCondition clone = new()
         {
             name = this.name,
             icon = this.icon,
-            states = this.states,
-            damageOverTimes = this.damageOverTimes,
-            statEffectors = this.statEffectors,
+            hidden = this.hidden,
             remainingDuration = this.remainingDuration,
             duration = this.duration,
             delay = this.delay,
             delayUsesDuration = this.delayUsesDuration,
             maxStacks = this.maxStacks,
-            hidden = this.hidden
+
+            states = this.states != null ? new List<StatusStates>(this.states) : new List<StatusStates>(),
+            damageOverTimes = new List<DamageOverTime>(),
+            statEffectors = new List<StatEffector>()
         };
+        foreach (var dot in this.damageOverTimes)
+            clone.damageOverTimes.Add(dot?.Clone());
+        foreach (var eff in this.statEffectors)
+            clone.statEffectors.Add(eff?.Clone());
+        return clone;
     }
 }
