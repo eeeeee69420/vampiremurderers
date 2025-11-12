@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     public Image hpbar;
     public Image xpbar;
 
+    [SerializeField] private GameObject damageTextPrefab;
+    [SerializeField] private Canvas worldCanvas;
+
     void Awake()
     {
         if (Instance == null)
@@ -44,5 +47,13 @@ public class GameController : MonoBehaviour
         if (Players[0].GetComponent<PlayerController>().hp < 0)
         {
         }
+    }
+    public void ShowDamage(float damage, ElementType element, Vector3 worldPosition)
+    {
+        // Spawn in world space under the world canvas
+        GameObject dmgObj = Instantiate(damageTextPrefab, worldPosition, Quaternion.identity, worldCanvas.transform);
+
+        DamageText dmgText = dmgObj.GetComponent<DamageText>();
+        dmgText.SetText(damage, element);
     }
 }

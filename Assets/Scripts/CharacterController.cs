@@ -22,6 +22,8 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
 
+    public GameObject damageTextPrefab;
+
     public void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -67,6 +69,7 @@ public class CharacterController : MonoBehaviour
         {
             hp = stats.hpmax;
         }
+        GameController.Instance.ShowDamage(damage,element,transform.position);
     }
     public virtual void UpdateStatuses()
     {

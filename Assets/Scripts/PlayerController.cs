@@ -119,6 +119,7 @@ public class PlayerController : CharacterController
         {
             StartCoroutine(Death());
         }
+        GameController.Instance.ShowDamage(damage, element, transform.position);
     }
     public void UpdatePassives()
     {
