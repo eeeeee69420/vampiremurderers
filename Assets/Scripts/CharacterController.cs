@@ -61,7 +61,7 @@ public class CharacterController : MonoBehaviour
     public virtual void TakeDamage(float damage, ElementType element = ElementType.Typeless)
     {
         hp -= (damage - stats.armor);
-        if (!dead)
+        if (!dead && damage >= 1)
             GameController.Instance.ShowDamage(damage, element, transform.position);
         if (hp < 0 && stats.revives == 0)
             StartCoroutine(Death());

@@ -12,6 +12,7 @@ public class AutoSetSpriteImportSettings : AssetPostprocessor
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.filterMode = FilterMode.Point;
             importer.mipmapEnabled = false;
+            importer.spritePixelsPerUnit = 16;
         }
     }
 }

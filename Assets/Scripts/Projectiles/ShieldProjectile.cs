@@ -16,9 +16,10 @@ public class ShieldProjectile : ProjectileController
     }
     protected override void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
         {
             HitEnemy(collision, stats.damage);
+            StartCoroutine(MarkUnhit(collision.gameObject));
         }
         else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
         {
@@ -31,5 +32,10 @@ public class ShieldProjectile : ProjectileController
         {
             HitEnemy(collision, stats.damage * Time.deltaTime * 2);
         }
+    }
+    IEnumerator MarkUnhit(GameObject gameObject)
+    {
+        yield return new WaitForSeconds(.5f);
+        hitObjects.Remove(gameObject);
     }
 }
