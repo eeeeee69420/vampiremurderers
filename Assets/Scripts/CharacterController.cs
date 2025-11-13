@@ -61,15 +61,12 @@ public class CharacterController : MonoBehaviour
     public virtual void TakeDamage(float damage, ElementType element = ElementType.Typeless)
     {
         hp -= (damage - stats.armor);
+        if (!dead)
+            GameController.Instance.ShowDamage(damage, element, transform.position);
         if (hp < 0 && stats.revives == 0)
-        {
             StartCoroutine(Death());
-        }
         else if (stats.revives > 0)
-        {
             hp = stats.hpmax;
-        }
-        GameController.Instance.ShowDamage(damage,element,transform.position);
     }
     public virtual void UpdateStatuses()
     {
