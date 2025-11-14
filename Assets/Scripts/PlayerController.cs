@@ -10,8 +10,6 @@ public class PlayerController : CharacterController
     [HideInInspector] public float inputX;
     [HideInInspector] public float inputY;
 
-    public CharacterData characterData;
-
     [HideInInspector] public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
@@ -157,5 +155,7 @@ public class PlayerController : CharacterController
     {
         stats = characterData.stats.Clone();
         stats.ApplyBuffs(buffs);
+        Debug.Log(stats.moveSpeed);
+        Debug.Log(buffs.moveSpeed);
     }
 }

@@ -1920,9 +1920,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1026790116
@@ -23445,6 +23445,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5096340085538168510, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: abilityIcon
+      value: 
+      objectReference: {fileID: 330898792}
+    - target: {fileID: 5096340085538168510, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: abilityText
+      value: 
+      objectReference: {fileID: 2100355462}
+    - target: {fileID: 5096340085538168510, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: abilityIconOverlay
+      value: 
+      objectReference: {fileID: 1026790115}
     - target: {fileID: 5374498656756856066, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: m_Mass
       value: 3

@@ -10,6 +10,6 @@ public class CharacterData : ScriptableObject
     public string description;
 
     public WeaponData weaponData;
-    public string ability;
+    public AbilityData abilityData;
     public CharacterStats stats;
 }

@@ -13,16 +13,17 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public SpriteRenderer sprite;
     [HideInInspector] public CharacterAnimator characterAnimator;
 
+    public CharacterData characterData;
     [HideInInspector] public float hp;
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
     [HideInInspector] public List<Weapon> Weapons;
     public List<StatusCondition> statusConditions = new();
 
-    [HideInInspector] public List<StatusStates> statusStates = new();
+    public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
 
-    public GameObject damageTextPrefab;
+    [HideInInspector] public Vector2 direction;
 
     public void Start()
     {
@@ -43,7 +44,24 @@ public class CharacterController : MonoBehaviour
     }
     protected virtual void Move()
     {
-        Vector2 direction = Track();
+        if (statusStates.Contains(StatusStates.Unstoppable))
+        {
+            float turnRate = 10f;
+            Vector2 targetDir = Track();
+            float currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float targetAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            float newAngle = Mathf.MoveTowardsAngle(
+                currentAngle,
+                targetAngle,
+                turnRate * Time.fixedDeltaTime
+            );
+            direction = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad),
+                                    Mathf.Sin(newAngle * Mathf.Deg2Rad));
+        }
+        else
+        {
+            direction = Track();
+        }
         if (direction.x < 0)
             sprite.flipX = true;
         else if (direction.x > 0)
@@ -96,11 +114,11 @@ public class CharacterController : MonoBehaviour
     public virtual void RefreshBuffs()
     {
         buffs = new();
-        for (int i = 0; i < statusConditions.Count; i++)
+        foreach (var status in statusConditions)
         {
-            for (int j = 0; j < statusConditions[i].statEffectors.Count; j++)
+            foreach (var statEffect in status.statEffectors)
             {
-                buffs.MergeBuff(statusConditions[i].statEffectors[j].currentAmount, statusConditions[i].statEffectors[j].affectedStat);
+                buffs.MergeBuff(statEffect.currentAmount, statEffect.affectedStat);
             }
         }
         RefreshStats();

@@ -329,11 +329,7 @@ public enum StatusStates
     Immobilized,
     Untargetable,
     Invulnerable,
-}
-public enum StatusTargets
-{
-    Self,
-    Target
+    Unstoppable
 }
 public enum EffectScalingType
 {
@@ -346,7 +342,7 @@ public class StatEffector
 {
     public StatType affectedStat;
     public float baseAmount; // Always in terms of buff or debuff.
-    public float currentAmount;
+    [HideInInspector] public float currentAmount;
     public EffectScalingType scalingType; // Always in terms of the value when its highest.
 
     public void SetCurrentAmount(float remainingDuration, float totalDuration)
@@ -418,4 +414,13 @@ public class StatusCondition
             clone.statEffectors.Add(eff?.Clone());
         return clone;
     }
+}
+[System.Serializable]
+public class AbilityData
+{
+    public string name;
+    public Sprite icon;
+    public float duration;
+    public float cooldown;
+    public List<StatusCondition> statusConditions;
 }

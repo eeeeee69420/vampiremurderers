@@ -47,12 +47,12 @@ public class ProjectileController : MonoBehaviour
         collision.gameObject.GetComponent<CharacterController>().TakeDamage(damage);
         if (collision.gameObject.layer == 8)
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
-        for (int i = 0; i < statusConditions.Count; i++)
+        foreach (var status in statusConditions)
         {
-            StatusCondition statusClone = statusConditions[i].Clone();
+            StatusCondition statusClone = status.Clone();
             statusClone.remainingDuration = statusClone.duration * (owner.GetComponent<PlayerController>().buffs.duration + 1);
             if (statusClone.delayUsesDuration)
-                statusClone.delay *= owner.GetComponent<PlayerController>().buffs.duration;
+                statusClone.delay *= owner.GetComponent<PlayerController>().buffs.duration + 1;
             StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusClone));
         }
         hitObjects.Add(collision.gameObject);

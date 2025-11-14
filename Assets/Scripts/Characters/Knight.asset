@@ -16,7 +16,42 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: pee
   weaponData: {fileID: 11400000, guid: c69decc29de57434cab6c03025405808, type: 2}
-  ability: pee
+  abilityData:
+    name: CHARRGEEE
+    icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
+    duration: 0
+    cooldown: 20
+    statusConditions:
+    - name: CHARGE!
+      icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+      hidden: 0
+      states: 03000000
+      damageOverTimes: []
+      statEffectors:
+      - affectedStat: 3
+        baseAmount: 999
+        currentAmount: 0
+        scalingType: 1
+      remainingDuration: 0
+      duration: 10
+      delay: 0
+      delayUsesDuration: 0
+      maxStacks: 1
+    - name: CHARGE!2
+      icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+      hidden: 0
+      states: 03000000
+      damageOverTimes: []
+      statEffectors:
+      - affectedStat: 3
+        baseAmount: 1
+        currentAmount: 0
+        scalingType: 2
+      remainingDuration: 0
+      duration: 10
+      delay: 10
+      delayUsesDuration: 1
+      maxStacks: 1
   stats:
     hpmax: 100
     hpregen: 0
@@ -24,6 +59,7 @@ MonoBehaviour:
     moveSpeed: 3
     damage: 0
     cooldown: 0
+    abilityCooldown: 0
     area: 0
     duration: 0
     projectileSpeed: 0
