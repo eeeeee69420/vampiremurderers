@@ -38,7 +38,7 @@ public class AbilityController : MonoBehaviour
         }
         else cooldown -= Time.deltaTime;
             abilityIconOverlay.fillAmount = 1 - cooldown / abilityData.cooldown;
-        abilityText.text = cooldown.ToString("F1");
+        abilityText.text = cooldown.ToString("F0");
     }
     protected virtual void ActivateAbility()
     {
