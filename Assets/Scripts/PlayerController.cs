@@ -153,9 +153,10 @@ public class PlayerController : CharacterController
     }
     public override void RefreshStats()
     {
-        stats = characterData.stats.Clone();
-        stats.ApplyBuffs(buffs);
-        Debug.Log(stats.moveSpeed);
-        Debug.Log(buffs.moveSpeed);
+        foreach (var passive in Passives)
+            buffs.MergeBuff(passive.level * passive.data.bonusPerLevel, passive.data.affectedStat);
+        stats = characterData.stats.ApplyBuffs(buffs);
+        foreach (var weapon in Weapons)
+            weapon.RefreshStats();
     }
 }

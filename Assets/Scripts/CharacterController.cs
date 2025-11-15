@@ -18,9 +18,9 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
     [HideInInspector] public List<Weapon> Weapons;
-    public List<StatusCondition> statusConditions = new();
 
-    public List<StatusStates> statusStates = new();
+    [HideInInspector] public List<StatusCondition> statusConditions = new();
+    [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
 
     [HideInInspector] public Vector2 direction;
@@ -98,11 +98,7 @@ public class CharacterController : MonoBehaviour
             }
             if (statusCondition.remainingDuration <= 0)
             {
-                foreach (var state in statusCondition.states)
-                {
-                    statusStates.Remove(state);
-                }
-                statusConditions.RemoveAt(i);
+                RemoveStatus(statusConditions[i]);
             }
         }
         RefreshBuffs();
@@ -144,11 +140,7 @@ public class CharacterController : MonoBehaviour
         if (duplicates.Count > statusCondition.maxStacks)
         {
             StatusCondition toRemove = duplicates.OrderBy(s => s.remainingDuration).First();
-            statusConditions.Remove(toRemove);
-            foreach (var state in toRemove.states)
-            {
-                statusStates.Remove(state);
-            }
+            RemoveStatus(toRemove);
         }
         statusConditions.Add(statusCondition);
         statusConditions.Sort((a, b) => a.remainingDuration.CompareTo(b.remainingDuration));
@@ -172,5 +164,13 @@ public class CharacterController : MonoBehaviour
             yield return new WaitForSeconds(1f);
             StartCoroutine(RunDOT(statusCondition));
         }
+    }
+    public void RemoveStatus(StatusCondition statusCondition)
+    {
+        foreach (var state in statusCondition.states)
+        {
+            statusStates.Remove(state);
+        }
+        statusConditions.Remove(statusCondition);
     }
 }

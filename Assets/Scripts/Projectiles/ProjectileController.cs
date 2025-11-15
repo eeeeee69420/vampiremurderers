@@ -41,33 +41,33 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public virtual void HitEnemy(Collider2D collision, float damage)
+    public virtual void HitEnemy(GameObject collidedObject, float damage)
     {
         owner.GetComponent<CharacterController>().LifeSteal();
-        collision.gameObject.GetComponent<CharacterController>().TakeDamage(damage);
-        if (collision.gameObject.layer == 8)
-            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
+        collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
+        if (collidedObject.layer == 8)
+            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
         foreach (var status in statusConditions)
         {
             StatusCondition statusClone = status.Clone();
             statusClone.remainingDuration = statusClone.duration * (owner.GetComponent<PlayerController>().buffs.duration + 1);
             if (statusClone.delayUsesDuration)
                 statusClone.delay *= owner.GetComponent<PlayerController>().buffs.duration + 1;
-            StartCoroutine(collision.gameObject.GetComponent<EnemyBase>().AddStatus(statusClone));
+            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(statusClone));
         }
-        hitObjects.Add(collision.gameObject);
+        hitObjects.Add(collidedObject);
         Pierce();
     }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-
-        if (!player && collision.gameObject.layer == 6 && !hitObjects.Contains(collision.gameObject))
+        GameObject collidedObject = collision.gameObject;
+        if (!player && collidedObject.layer == 6 && !hitObjects.Contains(collidedObject))
         {
-            HitEnemy(collision, stats.damage);
+            HitEnemy(collidedObject, stats.damage);
         }
-        else if (player && collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
+        else if (player && collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
         {
-            HitEnemy(collision, stats.damage);
+            HitEnemy(collidedObject, stats.damage);
         }
     }
 }

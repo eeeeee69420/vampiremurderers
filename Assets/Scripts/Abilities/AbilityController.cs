@@ -35,6 +35,7 @@ public class AbilityController : MonoBehaviour
             abilityText.color = Color.black;
             durating = false;
             controller.characterAnimator.animator.SetBool("isUsingAbility", false);
+            cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
         }
         else cooldown -= Time.deltaTime;
             abilityIconOverlay.fillAmount = 1 - cooldown / abilityData.cooldown;
@@ -44,7 +45,7 @@ public class AbilityController : MonoBehaviour
     {
         controller.characterAnimator.animator.SetBool("isUsingAbility", true);
         abilityText.color = Color.cyan;
-        cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
+        cooldown = abilityData.duration * (1 + controller.stats.duration);
         durating = true;
         foreach (var status in abilityData.statusConditions)
         {

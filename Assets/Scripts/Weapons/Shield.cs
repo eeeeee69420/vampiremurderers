@@ -29,11 +29,10 @@ public class Shield : ProjectileWeapon
     }
     public override void RefreshStats()
     {
-        stats = weaponData.baseStats.ApplyBuffs(playerController.stats);
-        range = stats.projectileSpeed * stats.duration;
+        base.RefreshStats();
         stats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.moveSpeed;
         shield.GetComponentInChildren<ShieldProjectile>().stats = stats.Clone();
-        shield.transform.localScale *= shield.GetComponentInChildren<ProjectileController>().stats.area;
+        shield.transform.localScale = new Vector3(shield.GetComponentInChildren<ProjectileController>().stats.area, shield.GetComponentInChildren<ProjectileController>().stats.area, 0);
         shield.GetComponentInChildren<ShieldProjectile>().statusConditions = weaponData.statusConditions;
     }
 }

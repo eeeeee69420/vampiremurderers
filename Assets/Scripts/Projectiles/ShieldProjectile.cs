@@ -14,23 +14,27 @@ public class ShieldProjectile : ProjectileController
     protected override void Move()
     {
     }
-    protected override void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
+        GameObject collidedObject = collision.gameObject;
+        if (collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
         {
-            HitEnemy(collision, stats.damage);
-            StartCoroutine(MarkUnhit(collision.gameObject));
+            HitEnemy(collidedObject, stats.damage);
+            StartCoroutine(MarkUnhit(collidedObject));
         }
-        else if (collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<ProjectileController>().player)
+        else if (collidedObject.layer == 9 && !collidedObject.GetComponent<ProjectileController>().player)
         {
-            collision.gameObject.GetComponent<ProjectileController>().Despawn();
+            collidedObject.GetComponent<ProjectileController>().Despawn();
         }
     }
-    protected virtual void OnTriggerStay2D(UnityEngine.Collider2D collision)
+
+
+    protected void OnCollider2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.layer == 8)
+        GameObject collidedObject = collision.gameObject;
+        if (collidedObject.layer == 8)
         {
-            HitEnemy(collision, stats.damage * Time.deltaTime * 2);
+            HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2);
         }
     }
     IEnumerator MarkUnhit(GameObject gameObject)
