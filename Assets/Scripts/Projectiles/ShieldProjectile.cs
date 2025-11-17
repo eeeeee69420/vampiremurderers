@@ -29,12 +29,13 @@ public class ShieldProjectile : ProjectileController
     }
 
 
-    protected void OnCollider2D(UnityEngine.Collider2D collision)
+    protected void OnCollisionStay2D(Collision2D collision)
     {
         GameObject collidedObject = collision.gameObject;
         if (collidedObject.layer == 8)
         {
             HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2);
+            hitObjects.Remove(collidedObject);
         }
     }
     IEnumerator MarkUnhit(GameObject gameObject)

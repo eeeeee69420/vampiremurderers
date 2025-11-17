@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardContainer:
-    xpAmount: 0
-    weapon: {fileID: 0}
+    xpAmount: 10
+    weapon: {fileID: 11400000, guid: 66e1388be65419c4a8809b7f7a9d39d0, type: 2}
     passive: {fileID: 0}
   body: {fileID: 0}
   attracted: 0
@@ -118,7 +118,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 0.35
 --- !u!1 &8263147490211831771
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

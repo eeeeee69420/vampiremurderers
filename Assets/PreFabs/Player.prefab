@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4998906065366553245}
   - component: {fileID: 5374498656756856066}
   - component: {fileID: 5795592620552621474}
+  - component: {fileID: 8684017980682042574}
   - component: {fileID: 2932803314723351064}
   - component: {fileID: 5096340085538168510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +49,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &5795592620552621474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,16 +79,17 @@ MonoBehaviour:
   body: {fileID: 0}
   sprite: {fileID: 0}
   characterAnimator: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 268947e61418dc84fb8eeb73e78658fa, type: 2}
   hp: 0
   stats:
     hpmax: 100
     hpregen: 0
     armor: 0
     moveSpeed: 1
-    damage: 1
-    cooldown: 1
+    damage: 1.1
+    cooldown: 1.1
     abilityCooldown: 0
-    area: 1
+    area: 1.1
     duration: 1
     projectileSpeed: 1
     amount: 0
@@ -97,7 +99,7 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0.15
     criticalDamage: 1.5
-    pierce: 0
+    pierce: 1
     lifesteal: 0
   buffs:
     hpmax: 0
@@ -123,17 +125,44 @@ MonoBehaviour:
   statusConditions: []
   statusStates: 
   dead: 0
-  damageTextPrefab: {fileID: 0}
+  statusEffectGrid: {fileID: 0}
+  statusEffect: {fileID: 0}
+  direction: {x: 0, y: 0}
   inputX: 0
   inputY: 0
-  characterData: {fileID: 0}
   Passives: []
-  WeaponIcons: []
-  PassiveIcons: []
+  WeaponIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PassiveIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   xp: 0
   maxXp: 0
-  xpScaling: 0
+  xpScaling: 1.15
   level: 0
+--- !u!114 &8684017980682042574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699791826738643260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cb74c01a67b7049bc5846003c73c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!58 &2932803314723351064
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,8 +197,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06382489, y: -0.12764955}
-  m_Radius: 1.0894408
+  m_Offset: {x: -0.019629002, y: -0.16742599}
+  m_Radius: 0.99662924
 --- !u!114 &5096340085538168510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,9 +214,13 @@ MonoBehaviour:
   abilityData:
     name: 
     icon: {fileID: 0}
+    duration: 0
     cooldown: 0
     statusConditions: []
   controller: {fileID: 0}
+  cooldown: 0
+  durating: 0
+  abilityIcon: {fileID: 0}
   abilityIconOverlay: {fileID: 0}
   abilityText: {fileID: 0}
 --- !u!1 &8055399062245933442
@@ -201,7 +234,7 @@ GameObject:
   - component: {fileID: 8105089661176333002}
   - component: {fileID: 1467062198173580627}
   - component: {fileID: 5285285018428578891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +251,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.23, y: 9.23, z: 9.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4998906065366553245}
@@ -269,7 +302,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1840287506, guid: 561d755d87ba21a4299e764b9fb2dcfa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -18,7 +18,7 @@ MonoBehaviour:
     hpmax: 100
     hpregen: 0
     armor: 0
-    moveSpeed: 1.5
+    moveSpeed: 0.75
     damage: 5
     cooldown: 5
     abilityCooldown: 0

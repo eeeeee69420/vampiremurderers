@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shield : ProjectileWeapon
 {
     GameObject shield;
-    public float holdDistance = 1f;
     float angle;
     public float rotationSpeed = 180f;
 
