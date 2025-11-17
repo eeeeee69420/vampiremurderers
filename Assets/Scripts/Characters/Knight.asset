@@ -19,54 +19,10 @@ MonoBehaviour:
   abilityData:
     name: CHARRGEEE
     icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
-    duration: 20
-    cooldown: 20
+    duration: 10
+    cooldown: 10
     statusConditions:
-    - name: CHARGE!
-      icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-      hidden: 0
-      states: 03000000
-      damageOverTimes: []
-      statEffectors:
-      - affectedStat: 3
-        baseAmount: 1.5
-        currentAmount: 0
-        scalingType: 1
-      remainingDuration: 0
-      duration: 5
-      delay: 0
-      delayUsesDuration: 0
-      maxStacks: 1
-    - name: CHARGE!
-      icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-      hidden: 0
-      states: 03000000
-      damageOverTimes: []
-      statEffectors:
-      - affectedStat: 3
-        baseAmount: 1.5
-        currentAmount: 0
-        scalingType: 2
-      remainingDuration: 0
-      duration: 10
-      delay: 5
-      delayUsesDuration: 1
-      maxStacks: 1
-    - name: CHARGE!
-      icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-      hidden: 0
-      states: 03000000
-      damageOverTimes: []
-      statEffectors:
-      - affectedStat: 3
-        baseAmount: 1.5
-        currentAmount: 0
-        scalingType: 0
-      remainingDuration: 0
-      duration: 5
-      delay: 15
-      delayUsesDuration: 1
-      maxStacks: 1
+    - {fileID: 11400000, guid: cc4756bedfa42234eb794c3f861ffafa, type: 2}
   stats:
     hpmax: 100
     hpregen: 0

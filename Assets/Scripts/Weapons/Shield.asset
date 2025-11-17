@@ -38,15 +38,5 @@ MonoBehaviour:
   targetting: 0
   projectile: {fileID: 8089319034443921544, guid: 165abf2a4f30a244ab90d88dd14048cc, type: 3}
   statusConditions:
-  - name: 
-    icon: {fileID: 0}
-    hidden: 0
-    states: 00000000
-    damageOverTimes: []
-    statEffectors: []
-    remainingDuration: 0
-    duration: 1
-    delay: 0
-    delayUsesDuration: 0
-    maxStacks: 1
+  - {fileID: 11400000, guid: c43f100a7f24527409e8a915da56abe8, type: 2}
   element: 0

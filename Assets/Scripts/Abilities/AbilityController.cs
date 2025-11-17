@@ -32,7 +32,7 @@ public class AbilityController : MonoBehaviour
         }
         if (durating && cooldown <= 0)
         {
-            abilityText.color = Color.black;
+            abilityText.color = Color.white;
             durating = false;
             controller.characterAnimator.animator.SetBool("isUsingAbility", false);
             cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
@@ -49,11 +49,7 @@ public class AbilityController : MonoBehaviour
         durating = true;
         foreach (var status in abilityData.statusConditions)
         {
-            StatusCondition statusClone = status.Clone();
-            statusClone.remainingDuration = statusClone.duration * (controller.buffs.duration + 1);
-            if (statusClone.delayUsesDuration)
-                statusClone.delay *= controller.buffs.duration + 1;
-            StartCoroutine(controller.AddStatus(statusClone));
+            StartCoroutine(controller.AddStatus(status, controller));
         }
     }
 }

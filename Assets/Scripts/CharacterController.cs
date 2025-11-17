@@ -22,6 +22,8 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public List<StatusCondition> statusConditions = new();
     [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
+    public GameObject statusEffectGrid;
+    public GameObject statusEffect;
 
     [HideInInspector] public Vector2 direction;
 
@@ -129,8 +131,13 @@ public class CharacterController : MonoBehaviour
             SceneManager.LoadScene("TestLevel");
         Destroy(gameObject);
     }
-    public IEnumerator AddStatus(StatusCondition statusCondition)
+    public IEnumerator AddStatus(StatusCondition status, CharacterController owner = null)
     {
+        StatusCondition statusCondition = status.Clone();
+        statusCondition.owner = owner;
+        statusCondition.remainingDuration = statusCondition.duration * (owner.stats.duration + 1);
+        if (statusCondition.delayUsesDuration)
+            statusCondition.delay *= owner.stats.duration + 1;
         yield return new WaitForSeconds(statusCondition.delay);
 
         var duplicates = statusConditions
@@ -152,6 +159,7 @@ public class CharacterController : MonoBehaviour
         {
             StartCoroutine(RunDOT(statusCondition));
         }
+        RefreshStatusDisplay();
     }
     public IEnumerator RunDOT(StatusCondition statusCondition)
     {
@@ -167,10 +175,17 @@ public class CharacterController : MonoBehaviour
     }
     public void RemoveStatus(StatusCondition statusCondition)
     {
+        if (statusCondition.sequentialEffect != null)
+            StartCoroutine(AddStatus(statusCondition.sequentialEffect, statusCondition.owner));
         foreach (var state in statusCondition.states)
         {
             statusStates.Remove(state);
         }
         statusConditions.Remove(statusCondition);
+        RefreshStatusDisplay();
+    }
+    public virtual void RefreshStatusDisplay()
+    {
+
     }
 }

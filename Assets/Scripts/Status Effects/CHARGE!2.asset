@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9841ada842ea8d449963f6491ba77ca, type: 3}
+  m_Name: CHARGE!2
+  m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
+  icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+  hidden: 0
+  states: 03000000
+  damageOverTimes: []
+  statEffectors:
+  - affectedStat: 3
+    baseAmount: 1.5
+    currentAmount: 0
+    scalingType: 2
+  remainingDuration: 0
+  duration: 7
+  delay: 0
+  delayUsesDuration: 0
+  maxStacks: 1
+  sequentialEffect: {fileID: 11400000, guid: c0fc39ac240cf5949afbe66ce87b2819, type: 2}
+  owner: {fileID: 0}

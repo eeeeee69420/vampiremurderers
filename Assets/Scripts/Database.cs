@@ -375,47 +375,6 @@ public class DamageOverTime
     }
 }
 [System.Serializable]
-public class StatusCondition
-{
-    public string name;
-    public Sprite icon;
-    public bool hidden;
-
-    public List<StatusStates> states;
-    public List<DamageOverTime> damageOverTimes;
-    public List<StatEffector> statEffectors;
-
-    [HideInInspector] public float remainingDuration;
-    public float duration;
-    public float delay;
-    public bool delayUsesDuration;
-    public int maxStacks;
-
-    public StatusCondition Clone()
-    {
-        StatusCondition clone = new()
-        {
-            name = this.name,
-            icon = this.icon,
-            hidden = this.hidden,
-            remainingDuration = this.remainingDuration,
-            duration = this.duration,
-            delay = this.delay,
-            delayUsesDuration = this.delayUsesDuration,
-            maxStacks = this.maxStacks,
-
-            states = this.states != null ? new List<StatusStates>(this.states) : new List<StatusStates>(),
-            damageOverTimes = new List<DamageOverTime>(),
-            statEffectors = new List<StatEffector>()
-        };
-        foreach (var dot in this.damageOverTimes)
-            clone.damageOverTimes.Add(dot?.Clone());
-        foreach (var eff in this.statEffectors)
-            clone.statEffectors.Add(eff?.Clone());
-        return clone;
-    }
-}
-[System.Serializable]
 public class AbilityData
 {
     public string name;

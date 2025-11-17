@@ -49,11 +49,7 @@ public class ProjectileController : MonoBehaviour
             collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
         foreach (var status in statusConditions)
         {
-            StatusCondition statusClone = status.Clone();
-            statusClone.remainingDuration = statusClone.duration * (owner.GetComponent<PlayerController>().buffs.duration + 1);
-            if (statusClone.delayUsesDuration)
-                statusClone.delay *= owner.GetComponent<PlayerController>().buffs.duration + 1;
-            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(statusClone));
+            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(status, owner.GetComponent<CharacterController>()));
         }
         hitObjects.Add(collidedObject);
         Pierce();

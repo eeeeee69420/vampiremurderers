@@ -183,6 +183,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -252,6 +276,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -320,6 +368,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -488,6 +560,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -632,6 +728,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -700,6 +820,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1226,6 +1370,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1294,6 +1462,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1436,6 +1628,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1504,6 +1720,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1976,6 +2216,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2044,6 +2308,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2208,6 +2496,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2442,6 +2754,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2576,6 +2912,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2826,6 +3186,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2894,6 +3278,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3071,6 +3479,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3139,6 +3571,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3284,6 +3740,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3352,6 +3832,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3422,6 +3926,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3490,6 +4018,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3635,6 +4187,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3703,6 +4279,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3997,6 +4597,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22543,6 +23167,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22611,6 +23259,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22831,6 +23503,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22899,6 +23595,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23059,6 +23779,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23127,6 +23871,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23258,6 +24026,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23326,6 +24118,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23647,6 +24463,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23715,6 +24555,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23860,6 +24724,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24235,6 +25123,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24381,6 +25293,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24449,6 +25385,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24601,6 +25561,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24745,6 +25729,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24859,6 +25867,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24927,6 +25959,30 @@ PrefabInstance:
     - target: {fileID: 3441334104679630566, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
       propertyPath: m_Name
       value: Enemy (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790179679704177981, guid: 6809eac2c23d54044b1a1d8abca42034, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24999,8 +26055,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25017,8 +26073,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 136.89
-  m_fontSizeBase: 136.89
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
