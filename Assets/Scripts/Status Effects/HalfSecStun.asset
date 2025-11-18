@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Stun
   icon: {fileID: 1771474605852370435, guid: 514396c7f37dd6a4ebc78b524eefbd58, type: 3}
   hidden: 0
-  states: 03000000
+  states: 00000000
   damageOverTimes: []
   statEffectors: []
   remainingDuration: 0

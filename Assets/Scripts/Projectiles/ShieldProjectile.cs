@@ -34,8 +34,7 @@ public class ShieldProjectile : ProjectileController
         GameObject collidedObject = collision.gameObject;
         if (collidedObject.layer == 8)
         {
-            HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2);
-            hitObjects.Remove(collidedObject);
+            HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2, false);
         }
     }
     IEnumerator MarkUnhit(GameObject gameObject)

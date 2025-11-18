@@ -41,7 +41,7 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public virtual void HitEnemy(GameObject collidedObject, float damage)
+    public virtual void HitEnemy(GameObject collidedObject, float damage, bool markHit = true)
     {
         owner.GetComponent<CharacterController>().LifeSteal();
         collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
@@ -51,7 +51,8 @@ public class ProjectileController : MonoBehaviour
         }
         if (collidedObject.layer == 8)
             collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
-        hitObjects.Add(collidedObject);
+        if (markHit)
+            hitObjects.Add(collidedObject);
         Pierce();
     }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)

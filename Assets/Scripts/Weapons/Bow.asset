@@ -30,11 +30,14 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 2
+    pierce: 1
     lifesteal: 0
   LevelStats:
   - statIncreases:
     - stat: 9
+      amount: 1
+  - statIncreases:
+    - stat: 10
       amount: 1
   icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   weaponBehavior: 1
