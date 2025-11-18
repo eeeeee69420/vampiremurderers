@@ -45,12 +45,12 @@ public class ProjectileController : MonoBehaviour
     {
         owner.GetComponent<CharacterController>().LifeSteal();
         collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
-        if (collidedObject.layer == 8)
-            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
         foreach (var status in statusConditions)
         {
             StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(status, owner.GetComponent<CharacterController>()));
         }
+        if (collidedObject.layer == 8)
+            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
         hitObjects.Add(collidedObject);
         Pierce();
     }

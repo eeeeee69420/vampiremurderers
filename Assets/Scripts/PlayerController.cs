@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -122,7 +124,7 @@ public class PlayerController : CharacterController
     public void UpdatePassives()
     {
         stats = characterData.stats.Clone();
-            foreach (var passiveIcon in PassiveIcons)
+        foreach (var passiveIcon in PassiveIcons)
         {
             if (PassiveIcons.IndexOf(passiveIcon) < Passives.Count && passiveIcon != null)
             {
@@ -158,5 +160,13 @@ public class PlayerController : CharacterController
         stats = characterData.stats.ApplyBuffs(buffs);
         foreach (var weapon in Weapons)
             weapon.RefreshStats();
+    }
+    public override void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
+    {
+    }
+    private void UpdateStackText(Transform icon, int stackCount)
+    {
+        var text = icon.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = stackCount > 1 ? stackCount.ToString() : "";
     }
 }

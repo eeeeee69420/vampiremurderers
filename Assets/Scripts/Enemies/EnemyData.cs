@@ -11,4 +11,5 @@ public class EnemyData : ScriptableObject
     public CharacterStats stats;
     public EnemyBehavior behavior;
     public ElementType element;
+    public GameObject statusEffectPrefab;
 }

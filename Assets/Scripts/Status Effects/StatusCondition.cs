@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewStatus", menuName = "Game/Status")]
 public class StatusCondition : ScriptableObject
 {
+    public string displayName;
     public Sprite icon;
     public bool hidden;
 
@@ -25,7 +26,7 @@ public class StatusCondition : ScriptableObject
     {
         StatusCondition clone = ScriptableObject.CreateInstance<StatusCondition>();
 
-        clone.name = this.name;
+        clone.displayName = this.displayName;
         clone.icon = this.icon;
         clone.hidden = this.hidden;
         clone.remainingDuration = this.remainingDuration;

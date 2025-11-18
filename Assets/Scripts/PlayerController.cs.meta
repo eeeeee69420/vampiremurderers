@@ -3,7 +3,13 @@ guid: cbc4d12dab436c3418bec9a878a224ac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - body: {instanceID: 0}
+  - sprite: {instanceID: 0}
+  - characterAnimator: {instanceID: 0}
+  - characterData: {instanceID: 0}
+  - statusEffectGrid: {instanceID: 0}
+  - statusEffectPrefab: {fileID: 3819634667903956022, guid: 74af5cb602ee50a45bbe246931567dbd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

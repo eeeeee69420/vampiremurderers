@@ -36,3 +36,4 @@ MonoBehaviour:
     lifesteal: 0
   behavior: 1
   element: 0
+  statusEffectPrefab: {fileID: 5713583185037948662, guid: 639d623d30cd4494aab35f35f8cb2146, type: 3}

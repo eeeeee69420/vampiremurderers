@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9841ada842ea8d449963f6491ba77ca, type: 3}
   m_Name: CHARGE!2
   m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
-  icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+  displayName: CHARGE!
+  icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
   hidden: 0
   states: 03000000
   damageOverTimes: []

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9841ada842ea8d449963f6491ba77ca, type: 3}
   m_Name: HalfSecStun
   m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
+  displayName: Stun
   icon: {fileID: 1771474605852370435, guid: 514396c7f37dd6a4ebc78b524eefbd58, type: 3}
   hidden: 0
   states: 03000000
@@ -21,6 +22,6 @@ MonoBehaviour:
   duration: 0.5
   delay: 0
   delayUsesDuration: 0
-  maxStacks: 0
+  maxStacks: 1
   sequentialEffect: {fileID: 0}
   owner: {fileID: 0}

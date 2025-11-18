@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBase : CharacterController
 {
@@ -20,11 +22,13 @@ public class EnemyBase : CharacterController
         characterAnimator.animator.runtimeAnimatorController = EnemyBehaviors.behaviorMap[enemyData.behavior].controller;
         characterAnimator.characterController = this;
         hp = enemyData.stats.hpmax;
+        statusEffectGrid = GetComponentInChildren<GridLayoutGroup>().transform;
+        statusEffectPrefab = enemyData.statusEffectPrefab;
         foreach (var clip in EnemyBehaviors.behaviorMap[enemyData.behavior].controller.animationClips)
         {
             if (clip.name == "Attack")
             {
-                attackAnimationDuration = clip.length/2;
+                attackAnimationDuration = clip.length / 2;
             }
         }
     }
@@ -50,5 +54,37 @@ public class EnemyBase : CharacterController
     {
         stats = enemyData.stats.Clone();
         stats.ApplyBuffs(buffs);
+    }
+    public override void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
+    {
+        if (statusEffectGrid == null) return;
+        string displayName = statusCondition.displayName;
+        int stackCount = statusConditions.Count(s => s.displayName == displayName);
+        Transform existingIcon = null;
+        foreach (Transform icon in statusEffectGrid.transform)
+        {
+            if (icon.name.StartsWith(displayName))
+            {
+                existingIcon = icon;
+                break;
+            }
+        }
+
+        if (beingRemoved)
+        {
+            if (stackCount == 0 && existingIcon != null)
+            {
+                Destroy(existingIcon.gameObject);
+            }
+        }
+        else
+        {
+            if (existingIcon == null)
+            {
+                GameObject newIcon = Instantiate(statusEffectPrefab, statusEffectGrid);
+                newIcon.GetComponent<SpriteRenderer>().sprite = statusCondition.icon;
+                newIcon.name = $"{displayName}_0";
+            }
+        }
     }
 }

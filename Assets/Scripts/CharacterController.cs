@@ -22,8 +22,8 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public List<StatusCondition> statusConditions = new();
     [HideInInspector] public List<StatusStates> statusStates = new();
     [HideInInspector] public bool dead;
-    public GameObject statusEffectGrid;
-    public GameObject statusEffect;
+    public Transform statusEffectGrid;
+    public GameObject statusEffectPrefab;
 
     [HideInInspector] public Vector2 direction;
 
@@ -123,6 +123,8 @@ public class CharacterController : MonoBehaviour
     }
     public IEnumerator Death()
     {
+        var layersToExclude = new List<int> { 6, 8, 9 };
+        GetComponent<CircleCollider2D>().excludeLayers = layersToExclude.Aggregate(0, (acc, layer) => acc | (1 << layer));
         dead = true;
         hp = 0;
         characterAnimator.PlayAnimation("Death");
@@ -138,7 +140,6 @@ public class CharacterController : MonoBehaviour
         statusCondition.remainingDuration = statusCondition.duration * (owner.stats.duration + 1);
         if (statusCondition.delayUsesDuration)
             statusCondition.delay *= owner.stats.duration + 1;
-        yield return new WaitForSeconds(statusCondition.delay);
 
         var duplicates = statusConditions
             .Where(s => s.name == statusCondition.name)
@@ -159,7 +160,8 @@ public class CharacterController : MonoBehaviour
         {
             StartCoroutine(RunDOT(statusCondition));
         }
-        RefreshStatusDisplay();
+        RefreshStatusDisplay(status, false);
+        yield return new WaitForSeconds(statusCondition.delay);
     }
     public IEnumerator RunDOT(StatusCondition statusCondition)
     {
@@ -182,9 +184,9 @@ public class CharacterController : MonoBehaviour
             statusStates.Remove(state);
         }
         statusConditions.Remove(statusCondition);
-        RefreshStatusDisplay();
+        RefreshStatusDisplay(statusCondition, true);
     }
-    public virtual void RefreshStatusDisplay()
+    public virtual void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
     {
 
     }
