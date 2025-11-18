@@ -57,13 +57,11 @@ public class EnemyBase : CharacterController
     }
     public override void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
     {
-        if (statusEffectGrid == null) return;
-        string displayName = statusCondition.displayName;
-        int stackCount = statusConditions.Count(s => s.displayName == displayName);
+        int stackCount = statusConditions.Count(s => s.displayName == statusCondition.displayName);
         Transform existingIcon = null;
         foreach (Transform icon in statusEffectGrid.transform)
         {
-            if (icon.name.StartsWith(displayName))
+            if (icon.name.StartsWith(statusCondition.displayName))
             {
                 existingIcon = icon;
                 break;
@@ -83,7 +81,7 @@ public class EnemyBase : CharacterController
             {
                 GameObject newIcon = Instantiate(statusEffectPrefab, statusEffectGrid);
                 newIcon.GetComponent<SpriteRenderer>().sprite = statusCondition.icon;
-                newIcon.name = $"{displayName}_0";
+                newIcon.name = $"{statusCondition.displayName}_0";
             }
         }
     }

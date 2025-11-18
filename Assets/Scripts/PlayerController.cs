@@ -163,6 +163,35 @@ public class PlayerController : CharacterController
     }
     public override void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
     {
+        int stackCount = statusConditions.Count(s => s.displayName == statusCondition.displayName);
+        Transform existingIcon = null;
+        foreach (Transform icon in statusEffectGrid.transform)
+        {
+            if (icon.name.StartsWith(statusCondition.displayName))
+            {
+                existingIcon = icon;
+                UpdateStackText(icon, stackCount);
+                break;
+            }
+        }
+
+        if (beingRemoved)
+        {
+            if (stackCount == 0 && existingIcon != null)
+            {
+                Destroy(existingIcon.gameObject);
+            }
+        }
+        else
+        {
+            if (existingIcon == null)
+            {
+                GameObject newIcon = Instantiate(statusEffectPrefab, statusEffectGrid);
+                newIcon.transform.Find("StatusIcon").GetComponent<Image>().sprite = statusCondition.icon;
+                UpdateStackText(newIcon.transform, stackCount);
+                newIcon.name = $"{statusCondition.displayName}_0";
+            }
+        }
     }
     private void UpdateStackText(Transform icon, int stackCount)
     {
