@@ -22,6 +22,10 @@ MonoBehaviour:
     baseAmount: 1.5
     currentAmount: 0
     scalingType: 1
+  - affectedStat: 7
+    baseAmount: 1.5
+    currentAmount: 0
+    scalingType: 1
   remainingDuration: 0
   duration: 2
   delay: 0
