@@ -24,7 +24,7 @@ MonoBehaviour:
     abilityCooldown: 0
     area: 1
     duration: 3
-    projectileSpeed: 5
+    projectileSpeed: 4
     amount: 0
     growth: 1
     revives: 0
