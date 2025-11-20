@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ProjectileController : MonoBehaviour
 {
@@ -41,30 +42,20 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public virtual void HitEnemy(GameObject collidedObject, float damage, bool markHit = true)
-    {
-        owner.GetComponent<CharacterController>().LifeSteal();
-        collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
-        foreach (var status in statusConditions)
-        {
-            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(status, owner.GetComponent<CharacterController>()));
-        }
-        if (collidedObject.layer == 8)
-            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
-        if (markHit)
-            hitObjects.Add(collidedObject);
-        Pierce();
-    }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         GameObject collidedObject = collision.gameObject;
         if (!player && collidedObject.layer == 6 && !hitObjects.Contains(collidedObject))
         {
-            HitEnemy(collidedObject, stats.damage);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
+            hitObjects.Add(collidedObject);
+            Pierce();
         }
         else if (player && collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
         {
-            HitEnemy(collidedObject, stats.damage);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
+            hitObjects.Add(collidedObject);
+            Pierce();
         }
     }
 }

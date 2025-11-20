@@ -13,6 +13,7 @@ public class ProjectileWeapon : Weapon
 
     protected override IEnumerator ActivateWeapon()
     {
+        FindTarget(); //dont remove this
         remainingCooldown += stats.cooldown;
         if (target != null)
         {

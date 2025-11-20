@@ -117,17 +117,4 @@ public class Weapon : MonoBehaviour
         stats = stats.ApplyBuffs(controller.buffs);
         range = stats.duration * stats.projectileSpeed;
     }
-    public virtual void HitEnemy(GameObject collidedObject, float damage, bool markHit = true)
-    {
-        GetComponent<CharacterController>().LifeSteal();
-        collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
-        foreach (var status in weaponData.statusConditions)
-        {
-            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(status, GetComponent<CharacterController>()));
-        }
-        if (collidedObject.layer == 8)
-            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
-        if (markHit)
-            hitObjects.Add(collidedObject);
-    }
 }

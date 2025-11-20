@@ -384,3 +384,8 @@ public class AbilityData
     public List<StatusCondition> statusConditions;
     public List<WeaponData> tempWeapons;
 }
+public enum KnockbackType 
+{
+    Directional, 
+    Radial 
+}
