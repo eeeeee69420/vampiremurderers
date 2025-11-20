@@ -14,17 +14,18 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public int level;
 
-    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public CharacterController controller;
     [HideInInspector] public Type StatType = typeof(CharacterStats);
 
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
     public LayerMask enemyMask;
+    public List<GameObject> hitObjects = new();
 
 
     public virtual void Initiate()
     {
-        playerController = GetComponent<PlayerController>();
+        controller = GetComponent<CharacterController>();
         RefreshStats();
         enemyMask = LayerMask.GetMask("Enemy");
     }
@@ -113,7 +114,20 @@ public class Weapon : MonoBehaviour
                 stats.ApplyBuff(statIncrease.stat, statIncrease.amount);
             }
         }
-        stats = stats.ApplyBuffs(playerController.buffs);
+        stats = stats.ApplyBuffs(controller.buffs);
         range = stats.duration * stats.projectileSpeed;
+    }
+    public virtual void HitEnemy(GameObject collidedObject, float damage, bool markHit = true)
+    {
+        GetComponent<CharacterController>().LifeSteal();
+        collidedObject.GetComponent<CharacterController>().TakeDamage(damage);
+        foreach (var status in weaponData.statusConditions)
+        {
+            StartCoroutine(collidedObject.GetComponent<EnemyBase>().AddStatus(status, GetComponent<CharacterController>()));
+        }
+        if (collidedObject.layer == 8)
+            collidedObject.GetComponent<Rigidbody2D>().linearVelocity = stats.projectileSpeed * transform.up;
+        if (markHit)
+            hitObjects.Add(collidedObject);
     }
 }

@@ -10,15 +10,15 @@ public class Shield : ProjectileWeapon
 
     public override void Initiate()
     {
-        playerController = GetComponent<PlayerController>();
-        shield = Instantiate(weaponData.projectile, playerController.transform);
+        controller = GetComponent<PlayerController>();
+        shield = Instantiate(weaponData.projectile, controller.transform);
         RefreshStats();
         shield.GetComponentInChildren<ShieldProjectile>().statusConditions = weaponData.statusConditions;
         shield.GetComponentInChildren<ShieldProjectile>().owner = this.gameObject;
     }
     protected override IEnumerator ActivateWeapon()
     {
-        Vector2 dir = playerController.direction;
+        Vector2 dir = controller.direction;
         if (dir.magnitude > 0)
         {
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -29,7 +29,7 @@ public class Shield : ProjectileWeapon
     public override void RefreshStats()
     {
         base.RefreshStats();
-        stats.projectileSpeed = weaponData.baseStats.projectileSpeed * playerController.stats.moveSpeed;
+        stats.projectileSpeed = weaponData.baseStats.projectileSpeed * controller.stats.moveSpeed;
         shield.GetComponentInChildren<ShieldProjectile>().stats = stats.Clone();
         shield.transform.Find("Shield").localScale = new Vector3(shield.GetComponentInChildren<ProjectileController>().stats.area, shield.GetComponentInChildren<ProjectileController>().stats.area, 0);
         shield.GetComponentInChildren<ShieldProjectile>().statusConditions = weaponData.statusConditions;

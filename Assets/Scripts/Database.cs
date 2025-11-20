@@ -382,4 +382,5 @@ public class AbilityData
     public float duration;
     public float cooldown;
     public List<StatusCondition> statusConditions;
+    public List<WeaponData> tempWeapons;
 }

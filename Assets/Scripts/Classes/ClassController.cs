@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilityController : MonoBehaviour
+public class ClassController : MonoBehaviour
 {
     [HideInInspector] public AbilityData abilityData;
-    [HideInInspector] public CharacterController controller;
+    [HideInInspector] public PlayerController controller;
     [HideInInspector] public float cooldown;
     [HideInInspector] public bool durating;
 
@@ -18,7 +19,7 @@ public class AbilityController : MonoBehaviour
     public TextMeshProUGUI abilityText;
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<PlayerController>();
         abilityData = controller.characterData.abilityData;
         abilityIcon.sprite = abilityData.icon;
     }
@@ -50,6 +51,19 @@ public class AbilityController : MonoBehaviour
         foreach (var status in abilityData.statusConditions)
         {
             StartCoroutine(controller.AddStatus(status, controller));
+        }
+        foreach (var weapon in abilityData.tempWeapons)
+            controller.AddWeapon(weapon);
+    }
+    protected virtual void DeactivateAbility()
+    {
+        var statusesToRemove = controller.statusConditions
+            .Where(status => abilityData.statusConditions
+                .Any(abilityStatus => abilityStatus.displayName == status.displayName))
+            .ToList();
+        foreach (var status in statusesToRemove)
+        {
+            controller.RemoveStatus(status);
         }
     }
 }
