@@ -23,6 +23,8 @@ MonoBehaviour:
     cooldown: 10
     statusConditions:
     - {fileID: 11400000, guid: cc4756bedfa42234eb794c3f861ffafa, type: 2}
+    tempWeapons:
+    - {fileID: 11400000, guid: 3ddb8985371017047a53ff388e704c9a, type: 2}
   stats:
     hpmax: 100
     hpregen: 0

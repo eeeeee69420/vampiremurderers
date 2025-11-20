@@ -46,14 +46,14 @@ public class PlayerController : CharacterController
     public void AddWeapon(WeaponData weaponData)
     {
         bool isNewWeapon = true;
-        for (int i = 0; i < Weapons.Count; i++)
+        for (int i = 0; i < weapons.Count; i++)
         {
-            if (Weapons[i].weaponData == weaponData)
+            if (weapons[i].weaponData == weaponData)
             {
                 isNewWeapon = false;
-                if (Weapons[i].level < weaponData.LevelStats.Count)
+                if (weapons[i].level < weaponData.LevelStats.Count)
                 {
-                    Weapons[i].LevelWeapon();
+                    weapons[i].LevelWeapon();
                 }
             }
         }
@@ -61,7 +61,7 @@ public class PlayerController : CharacterController
         {
             Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
             Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
-            Weapons.Add(newWeapon);
+            weapons.Add(newWeapon);
             newWeapon.weaponData = weaponData;
             newWeapon.Initiate();
         }
@@ -98,12 +98,12 @@ public class PlayerController : CharacterController
     }
     public void UpdateWeapons()
     {
-        Weapons = new List<Weapon>(GetComponents<Weapon>());
+        weapons = new List<Weapon>(GetComponents<Weapon>());
         for (int i = 0; i < WeaponIcons.Count; i++)
         {
-            if (i < Weapons.Count && Weapons[i] != null)
+            if (i < weapons.Count && weapons[i] != null)
             {
-                WeaponIcons[i].sprite = Weapons[i].weaponData.icon;
+                WeaponIcons[i].sprite = weapons[i].weaponData.icon;
                 WeaponIcons[i].color = Color.white;
             }
             else
@@ -158,7 +158,7 @@ public class PlayerController : CharacterController
         foreach (var passive in Passives)
             buffs.MergeBuff(passive.level * passive.data.bonusPerLevel, passive.data.affectedStat);
         stats = characterData.stats.ApplyBuffs(buffs);
-        foreach (var weapon in Weapons)
+        foreach (var weapon in weapons)
             weapon.RefreshStats();
     }
     public override void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)

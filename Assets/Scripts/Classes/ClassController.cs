@@ -65,5 +65,17 @@ public class ClassController : MonoBehaviour
         {
             controller.RemoveStatus(status);
         }
+        foreach (var weaponData in abilityData.tempWeapons)
+        {
+            foreach (var weapon in controller.weapons)
+            {
+                if (weapon.weaponData.name == weaponData.name)
+                {
+                    controller.weapons.Remove(weapon);
+                    Destroy(weapon);
+                    controller.UpdateWeapons();
+                }
+            }
+        }
     }
 }

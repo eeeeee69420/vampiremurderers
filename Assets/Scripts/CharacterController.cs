@@ -17,7 +17,8 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public float hp;
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
-    [HideInInspector] public List<Weapon> Weapons;
+    [HideInInspector] public List<Weapon> weapons;
+    [HideInInspector] public float mass;
 
     [HideInInspector] public List<StatusCondition> statusConditions = new();
     [HideInInspector] public List<StatusStates> statusStates = new();
@@ -33,6 +34,7 @@ public class CharacterController : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
         characterAnimator = GetComponent<CharacterAnimator>();
         RefreshStats();
+        mass = body.mass;
     }
     public virtual void FixedUpdate()
     {
@@ -155,6 +157,8 @@ public class CharacterController : MonoBehaviour
         foreach (var state in statusCondition.states)
         {
             statusStates.Add(state);
+            if (state == StatusStates.Immovable)
+                body.mass = 999;
         }
         if (statusCondition.damageOverTimes.Count > 0)
         {
@@ -182,6 +186,8 @@ public class CharacterController : MonoBehaviour
         foreach (var state in statusCondition.states)
         {
             statusStates.Remove(state);
+            if (state == StatusStates.Immovable)
+                body.mass = mass;
         }
         statusConditions.Remove(statusCondition);
         RefreshStatusDisplay(statusCondition, true);

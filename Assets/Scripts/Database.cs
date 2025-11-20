@@ -267,6 +267,7 @@ public static class WeaponBehaviors
     {
         { WeaponBehavior.Shield, typeof(Shield) },
         { WeaponBehavior.Projectile, typeof(ProjectileWeapon) },
+        { WeaponBehavior.Collision, typeof(CollisionWeapon) },
     };
 }
 public enum ElementType
@@ -327,7 +328,8 @@ public enum StatusStates
     Immobilized,
     Untargetable,
     Invulnerable,
-    Unstoppable
+    Unstoppable,
+    Immovable
 }
 public enum EffectScalingType
 {

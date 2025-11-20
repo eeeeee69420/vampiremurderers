@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: CHARGE!
   icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
   hidden: 0
-  states: 03000000
+  states: 0300000004000000
   damageOverTimes: []
   statEffectors:
   - affectedStat: 3
