@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageText
   textMesh: {fileID: 5350348971080904684}
-  initialSpeed: 3
-  deceleration: 2
+  initialSpeed: 1.5
+  deceleration: 1
   lifetime: 1.5

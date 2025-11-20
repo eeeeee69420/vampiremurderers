@@ -257,11 +257,9 @@ public enum WeaponBehavior
 {
     Shield,
     Projectile,
-    SpreadProjectile,
-    BurstProjectile,
-    RadialProjectile,
     OrbittingProjectile,
-    Aura
+    Collision,
+    Hitbox
 }
 public static class WeaponBehaviors
 {
