@@ -27,16 +27,15 @@ public class ClassController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && cooldown <= 0 && !durating)
             ActivateAbility();
+        else if (Input.GetKeyDown(KeyCode.Space) && durating)
+            DeactivateAbility();
         if (cooldown < 0)
         {
             cooldown = 0;
         }
         if (durating && cooldown <= 0)
         {
-            abilityText.color = Color.white;
-            durating = false;
-            controller.characterAnimator.animator.SetBool("isUsingAbility", false);
-            cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
+            DeactivateAbility();
         }
         else cooldown -= Time.deltaTime;
             abilityIconOverlay.fillAmount = cooldown / abilityData.cooldown;
@@ -57,25 +56,41 @@ public class ClassController : MonoBehaviour
     }
     protected virtual void DeactivateAbility()
     {
+        abilityText.color = Color.white;
+        durating = false;
+        controller.characterAnimator.animator.SetBool("isUsingAbility", false);
+        cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
         var statusesToRemove = controller.statusConditions
-            .Where(status => abilityData.statusConditions
-                .Any(abilityStatus => abilityStatus.displayName == status.displayName))
+            .Where(status =>
+                abilityData.statusConditions.Any(abilityStatus =>
+                    GetAllSequentialNames(abilityStatus).Contains(status.displayName)
+                )
+            )
             .ToList();
         foreach (var status in statusesToRemove)
         {
-            controller.RemoveStatus(status);
+            controller.RemoveStatus(status, false);
         }
-        foreach (var weaponData in abilityData.tempWeapons)
+        var toRemove = controller.weapons
+            .Where(w => abilityData.tempWeapons
+                .Any(tw => tw.name == w.weaponData.name))
+            .ToList();
+
+        foreach (var weapon in toRemove)
         {
-            foreach (var weapon in controller.weapons)
-            {
-                if (weapon.weaponData.name == weaponData.name)
-                {
-                    controller.weapons.Remove(weapon);
-                    Destroy(weapon);
-                    controller.UpdateWeapons();
-                }
-            }
+            controller.weapons.Remove(weapon);
+            Destroy(weapon);
+        }
+
+        controller.UpdateWeapons();
+    }
+    IEnumerable<string> GetAllSequentialNames(StatusCondition root)
+    {
+        var current = root;
+        while (current != null)
+        {
+            yield return current.displayName;
+            current = current.sequentialEffect;
         }
     }
 }

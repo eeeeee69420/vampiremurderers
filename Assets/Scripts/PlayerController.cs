@@ -98,16 +98,21 @@ public class PlayerController : CharacterController
     }
     public void UpdateWeapons()
     {
-        weapons = new List<Weapon>(GetComponents<Weapon>());
+        weapons = GetComponents<Weapon>()
+            .Where(w => w != null)
+            .ToList();
+
         for (int i = 0; i < WeaponIcons.Count; i++)
         {
-            if (i < weapons.Count && weapons[i] != null)
+            if (i < weapons.Count)
             {
                 WeaponIcons[i].sprite = weapons[i].weaponData.icon;
                 WeaponIcons[i].color = Color.white;
             }
             else
+            {
                 WeaponIcons[i].color = Color.clear;
+            }
         }
     }
     public override void TakeDamage(float damage, ElementType element = ElementType.Typeless)

@@ -50,7 +50,7 @@ public class CharacterController : MonoBehaviour
     {
         if (statusStates.Contains(StatusStates.Unstoppable))
         {
-            float turnRate = 10f;
+            float turnRate = 24f;
             Vector2 targetDir = Track();
             float currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             float targetAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
@@ -140,8 +140,6 @@ public class CharacterController : MonoBehaviour
         StatusCondition statusCondition = status.Clone();
         statusCondition.owner = owner;
         statusCondition.remainingDuration = statusCondition.duration * (owner.stats.duration + 1);
-        if (statusCondition.delayUsesDuration)
-            statusCondition.delay *= owner.stats.duration + 1;
 
         var duplicates = statusConditions
             .Where(s => s.name == statusCondition.name)
@@ -158,14 +156,14 @@ public class CharacterController : MonoBehaviour
         {
             statusStates.Add(state);
             if (state == StatusStates.Immovable)
-                body.mass = 999;
+                body.mass = 99999;
         }
         if (statusCondition.damageOverTimes.Count > 0)
         {
             StartCoroutine(RunDOT(statusCondition));
         }
         RefreshStatusDisplay(status, false);
-        yield return new WaitForSeconds(statusCondition.delay);
+        yield return null;
     }
     public IEnumerator RunDOT(StatusCondition statusCondition)
     {
@@ -179,14 +177,14 @@ public class CharacterController : MonoBehaviour
             StartCoroutine(RunDOT(statusCondition));
         }
     }
-    public void RemoveStatus(StatusCondition statusCondition)
+    public void RemoveStatus(StatusCondition statusCondition, bool runSequential = true)
     {
-        if (statusCondition.sequentialEffect != null)
+        if (statusCondition.sequentialEffect != null && runSequential)
             StartCoroutine(AddStatus(statusCondition.sequentialEffect, statusCondition.owner));
         foreach (var state in statusCondition.states)
         {
             statusStates.Remove(state);
-            if (state == StatusStates.Immovable)
+            if (state == StatusStates.Immovable && !statusCondition.sequentialEffect.states.Contains(StatusStates.Immovable))
                 body.mass = mass;
         }
         statusConditions.Remove(statusCondition);

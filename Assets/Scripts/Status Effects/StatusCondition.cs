@@ -15,8 +15,6 @@ public class StatusCondition : ScriptableObject
 
     [HideInInspector] public float remainingDuration;
     public float duration;
-    public float delay;
-    public bool delayUsesDuration;
     public int maxStacks;
 
     public StatusCondition sequentialEffect;
@@ -31,8 +29,6 @@ public class StatusCondition : ScriptableObject
         clone.hidden = this.hidden;
         clone.remainingDuration = this.remainingDuration;
         clone.duration = this.duration;
-        clone.delay = this.delay;
-        clone.delayUsesDuration = this.delayUsesDuration;
         clone.maxStacks = this.maxStacks;
 
         clone.states = states != null ? new List<StatusStates>(states) : new List<StatusStates>();
