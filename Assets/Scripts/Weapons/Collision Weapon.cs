@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -17,5 +18,9 @@ public class CollisionWeapon : Weapon
     protected virtual void OnCollisionExit2D(UnityEngine.Collision2D collision)
     {
         hitObjects.Remove(collision.gameObject);
+    }
+    protected override IEnumerator ActivateWeapon()
+    {
+        yield return new WaitForSeconds(stats.cooldown);
     }
 }
