@@ -42,6 +42,9 @@ public class CharacterController : MonoBehaviour
             Move();
         UpdateStatuses();
     }
+    public virtual void Update()
+    {
+    }
     public virtual Vector2 Track()
     {
         return new();
@@ -184,7 +187,7 @@ public class CharacterController : MonoBehaviour
         foreach (var state in statusCondition.states)
         {
             statusStates.Remove(state);
-            if (state == StatusStates.Immovable && !statusCondition.sequentialEffect.states.Contains(StatusStates.Immovable))
+            if (state == StatusStates.Immovable && !(runSequential && statusCondition.sequentialEffect?.states?.Contains(StatusStates.Immovable) == true))
                 body.mass = mass;
         }
         statusConditions.Remove(statusCondition);

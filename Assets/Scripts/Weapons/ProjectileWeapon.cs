@@ -11,9 +11,9 @@ public class ProjectileWeapon : Weapon
     [HideInInspector] public List<GameObject> spawnedObjects = new();
 
 
-    protected override IEnumerator ActivateWeapon()
+    protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
-        FindTarget(); //dont remove this
+        FindTarget();
         remainingCooldown += stats.cooldown;
         if (target != null)
         {
@@ -21,13 +21,18 @@ public class ProjectileWeapon : Weapon
             {
                 FindTarget();
                 Vector3 direction = target.transform.position - transform.position;
-                spawnedObjects.Add(Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f)));
-                spawnedObjects[^1].GetComponent<ProjectileController>().stats = stats.Clone();
-                spawnedObjects[^1].transform.localScale *= spawnedObjects[^1].GetComponent<ProjectileController>().stats.area;
-                spawnedObjects[^1].GetComponent<ProjectileController>().player = true;
-                spawnedObjects[^1].GetComponent<ProjectileController>().owner = gameObject;
-                spawnedObjects[^1].GetComponent<ProjectileController>().statusConditions = weaponData.statusConditions;
-                spawnedObjects[^1].GetComponent<ProjectileController>().element = weaponData.element;
+
+                var proj = Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f));
+                var controller = proj.GetComponent<ProjectileController>();
+                controller.stats = stats.Clone();
+                controller.player = true;
+                controller.owner = gameObject;
+                controller.statusConditions = weaponData.statusConditions;
+                controller.element = weaponData.element;
+
+                proj.transform.localScale *= controller.stats.area;
+                spawnedObjects.Add(proj);
+
                 yield return new WaitForSeconds(.1f);
             }
         }

@@ -52,7 +52,7 @@ public class ClassController : MonoBehaviour
             StartCoroutine(controller.AddStatus(status, controller));
         }
         foreach (var weapon in abilityData.tempWeapons)
-            controller.AddWeapon(weapon);
+            controller.AddWeapon(weapon, true);
     }
     protected virtual void DeactivateAbility()
     {
@@ -78,8 +78,7 @@ public class ClassController : MonoBehaviour
 
         foreach (var weapon in toRemove)
         {
-            controller.weapons.Remove(weapon);
-            Destroy(weapon);
+            controller.RemoveWeapon(weapon);
         }
 
         controller.UpdateWeapons();

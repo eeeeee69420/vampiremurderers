@@ -13,13 +13,14 @@ public class Weapon : MonoBehaviour
     public WeaponData weaponData;
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public int level;
+    [HideInInspector] public bool tempWeapon = false;
 
     [HideInInspector] public CharacterController controller;
     [HideInInspector] public Type StatType = typeof(CharacterStats);
 
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
-    public LayerMask enemyMask;
+    public int enemyLayer;
     public List<GameObject> hitObjects = new();
 
 
@@ -27,15 +28,14 @@ public class Weapon : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         RefreshStats();
-        enemyMask = LayerMask.GetMask("Enemy");
     }
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         remainingCooldown -= Time.fixedDeltaTime;
         if (remainingCooldown <= 0)
-            StartCoroutine(ActivateWeapon());
+            StartCoroutine(ActivateWeapon(null));
     }
-    protected virtual IEnumerator ActivateWeapon()
+    protected virtual IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
         if (weaponData.targetting != TargettingType.None)
             FindTarget();
@@ -44,10 +44,7 @@ public class Weapon : MonoBehaviour
     }
     protected virtual void FindTarget()
     {
-        targets = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);
-        List<Collider2D> targetList = new(
-            Physics2D.OverlapCircleAll(transform.position, range, enemyMask)
-        );
+        List<Collider2D> targetList = new(Physics2D.OverlapCircleAll(transform.position, range, enemyLayer));
 
         for (int i = targetList.Count - 1; i >= 0; i--)
         {

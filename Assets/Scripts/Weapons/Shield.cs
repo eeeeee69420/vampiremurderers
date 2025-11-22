@@ -16,7 +16,7 @@ public class Shield : ProjectileWeapon
         shield.GetComponentInChildren<ShieldProjectile>().statusConditions = weaponData.statusConditions;
         shield.GetComponentInChildren<ShieldProjectile>().owner = this.gameObject;
     }
-    protected override IEnumerator ActivateWeapon()
+    protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
         Vector2 dir = controller.direction;
         if (dir.magnitude > 0)

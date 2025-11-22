@@ -6,6 +6,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 public class PlayerController : CharacterController
 {
@@ -43,7 +44,7 @@ public class PlayerController : CharacterController
             characterAnimator.animator.SetBool("isMoving", false);
         return direction;
     }
-    public void AddWeapon(WeaponData weaponData)
+    public void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
     {
         bool isNewWeapon = true;
         for (int i = 0; i < weapons.Count; i++)
@@ -64,8 +65,17 @@ public class PlayerController : CharacterController
             weapons.Add(newWeapon);
             newWeapon.weaponData = weaponData;
             newWeapon.Initiate();
+            newWeapon.enemyLayer = 8;
+            if (tempWeapon)
+                newWeapon.tempWeapon = true;
         }
         UpdateWeapons();
+    }
+    public void RemoveWeapon(Weapon weapon)
+    {
+        weapon.StopAllCoroutines();
+        weapon.enabled = false;
+        Destroy(weapon);
     }
     public void AddPassive(PassiveData passiveData)
     {
@@ -102,11 +112,13 @@ public class PlayerController : CharacterController
             .Where(w => w != null)
             .ToList();
 
+        var displayWeapons = weapons.Where(w => !w.tempWeapon).ToList();
+
         for (int i = 0; i < WeaponIcons.Count; i++)
         {
-            if (i < weapons.Count)
+            if (i < displayWeapons.Count)
             {
-                WeaponIcons[i].sprite = weapons[i].weaponData.icon;
+                WeaponIcons[i].sprite = displayWeapons[i].weaponData.icon;
                 WeaponIcons[i].color = Color.white;
             }
             else
