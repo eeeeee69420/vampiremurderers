@@ -12,7 +12,7 @@ public class CollisionWeapon : Weapon
     }
     protected virtual void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.gameObject.layer == 8 && !hitObjects.Contains(collision.gameObject))
+        if (((1 << collision.gameObject.layer) & enemyLayer.value) != 0 && !hitObjects.Contains(collision.gameObject))
         {
             StartCoroutine(ActivateWeapon(collision.gameObject));
             hitObjects.Add(collision.gameObject);

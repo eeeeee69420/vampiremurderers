@@ -65,7 +65,7 @@ public class PlayerController : CharacterController
             weapons.Add(newWeapon);
             newWeapon.weaponData = weaponData;
             newWeapon.Initiate();
-            newWeapon.enemyLayer = 8;
+            newWeapon.enemyLayer = LayerMask.GetMask("Enemy");
             if (tempWeapon)
                 newWeapon.tempWeapon = true;
         }

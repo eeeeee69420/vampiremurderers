@@ -6,7 +6,7 @@ public class Shield : ProjectileWeapon
 {
     GameObject shield;
     float angle;
-    public float rotationSpeed = 180f;
+    public float rotationSpeed = 240f;
 
     public override void Initiate()
     {

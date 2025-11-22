@@ -23,22 +23,26 @@ public class ClassController : MonoBehaviour
         abilityData = controller.characterData.abilityData;
         abilityIcon.sprite = abilityData.icon;
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && cooldown <= 0 && !durating)
-            ActivateAbility();
-        else if (Input.GetKeyDown(KeyCode.Space) && durating)
-            DeactivateAbility();
-        if (cooldown < 0)
+        cooldown -= Time.deltaTime;
+        if (cooldown < 0) cooldown = 0;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            cooldown = 0;
+            if (!durating && cooldown == 0)
+                ActivateAbility();
+            else if (durating)
+                DeactivateAbility();
         }
+
         if (durating && cooldown <= 0)
         {
             DeactivateAbility();
         }
-        else cooldown -= Time.deltaTime;
-            abilityIconOverlay.fillAmount = cooldown / abilityData.cooldown;
+
+        abilityIconOverlay.fillAmount = cooldown / abilityData.cooldown;
         abilityText.text = cooldown > 0 ? cooldown.ToString("F0") : "";
     }
     protected virtual void ActivateAbility()

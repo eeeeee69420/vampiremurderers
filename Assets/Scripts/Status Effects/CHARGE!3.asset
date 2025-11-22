@@ -24,8 +24,6 @@ MonoBehaviour:
     scalingType: 0
   remainingDuration: 0
   duration: 1
-  delay: 0
-  delayUsesDuration: 0
   maxStacks: 1
   sequentialEffect: {fileID: 0}
   owner: {fileID: 0}

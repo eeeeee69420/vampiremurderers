@@ -159,7 +159,7 @@ public class CharacterController : MonoBehaviour
         {
             statusStates.Add(state);
             if (state == StatusStates.Immovable)
-                body.mass = 99999;
+                body.mass = 100;
         }
         if (statusCondition.damageOverTimes.Count > 0)
         {

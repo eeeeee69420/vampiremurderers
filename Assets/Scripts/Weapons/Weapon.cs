@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
-    public int enemyLayer;
+    public LayerMask enemyLayer;
     public List<GameObject> hitObjects = new();
 
 
@@ -49,6 +49,8 @@ public class Weapon : MonoBehaviour
         for (int i = targetList.Count - 1; i >= 0; i--)
         {
             EnemyBase enemy = targetList[i].GetComponent<EnemyBase>();
+            if (enemy == null)
+                Debug.LogWarning("Found collider without EnemyBase: " + targetList[i].name);
             if (enemy != null && (enemy.dead || enemy.statusStates.Contains(StatusStates.Untargetable)))
                 targetList.RemoveAt(i);
         }
