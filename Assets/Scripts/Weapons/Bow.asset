@@ -18,7 +18,7 @@ MonoBehaviour:
     armor: 0
     moveSpeed: 0
     damage: 5
-    cooldown: 3
+    cooldown: 2
     abilityCooldown: 0
     area: 1
     duration: 3
@@ -30,7 +30,7 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 1
+    pierce: 2
     lifesteal: 0
   LevelStats:
   - statIncreases:

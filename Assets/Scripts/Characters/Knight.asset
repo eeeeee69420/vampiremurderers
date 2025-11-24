@@ -28,7 +28,7 @@ MonoBehaviour:
   stats:
     hpmax: 100
     hpregen: 0
-    armor: 0
+    armor: 10
     moveSpeed: 1.5
     damage: 0
     cooldown: 0

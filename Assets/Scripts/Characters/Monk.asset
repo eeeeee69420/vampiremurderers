@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343f59698af21304f92d955b9ac58523, type: 3}
   m_Name: Monk
   m_EditorClassIdentifier: 
-  characterName: Knight
+  characterName: Monk
   icon: {fileID: 0}
   description: pee
   weaponData: {fileID: 11400000, guid: 66e1388be65419c4a8809b7f7a9d39d0, type: 2}
   abilityData:
     name: Zen Aura
-    icon: {fileID: -462512012596995829, guid: 75f432fffb8c1ac4386464627abcabe0, type: 3}
+    icon: {fileID: 6157748173069639754, guid: d8cc664bec5445f44a99a1e06a7a2fa0, type: 3}
     duration: 15
     cooldown: 20
     statusConditions: []

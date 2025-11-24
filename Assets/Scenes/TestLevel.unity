@@ -28665,7 +28665,7 @@ PrefabInstance:
     - target: {fileID: 5285285018428578891, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a15d947b52c5cdd4190b47535061f11e, type: 2}
+      objectReference: {fileID: 22100000, guid: fecffdef9ad0a374eab48fccfaf35faf, type: 2}
     - target: {fileID: 5374498656756856066, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: m_Mass
       value: 3
@@ -28673,7 +28673,7 @@ PrefabInstance:
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 268947e61418dc84fb8eeb73e78658fa, type: 2}
+      objectReference: {fileID: 11400000, guid: f3972604abed37c498414162a7dd4a44, type: 2}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: statusEffectGrid
       value: 
