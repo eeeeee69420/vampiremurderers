@@ -45,3 +45,4 @@ MonoBehaviour:
     criticalDamage: 1.5
     pierce: 0
     lifesteal: 0
+  animatorController: {fileID: 9100000, guid: a15d947b52c5cdd4190b47535061f11e, type: 2}

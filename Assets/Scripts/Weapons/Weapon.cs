@@ -56,6 +56,7 @@ public class Weapon : MonoBehaviour
         }
 
         targets = targetList.ToArray();
+        if (targets.Length == 0) { target = null; return; }
         switch (weaponData.targetting)
         {
             case TargettingType.Closest:

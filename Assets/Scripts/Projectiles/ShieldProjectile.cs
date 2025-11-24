@@ -19,7 +19,7 @@ public class ShieldProjectile : ProjectileController
         GameObject collidedObject = collision.gameObject;
         if (collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
         {
-            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
             hitObjects.Add(collidedObject);
             StartCoroutine(MarkUnhit(collidedObject));
         }
@@ -35,7 +35,7 @@ public class ShieldProjectile : ProjectileController
         GameObject collidedObject = collision.gameObject;
         if (collidedObject.layer == 8)
         {
-            IWeaponHit.HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2, owner, statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
         }
     }
     IEnumerator MarkUnhit(GameObject gameObject)

@@ -1,7 +1,8 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class CollisionWeapon : Weapon
@@ -25,6 +26,6 @@ public class CollisionWeapon : Weapon
     protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
         yield return new WaitForSeconds(stats.cooldown);
-        IWeaponHit.HitEnemy(hitEnemy, stats.damage * stats.moveSpeed, gameObject, weaponData.statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
+        IWeaponHit.HitEnemy(hitEnemy, stats.damage, gameObject, weaponData.element, weaponData.statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
     }
 }

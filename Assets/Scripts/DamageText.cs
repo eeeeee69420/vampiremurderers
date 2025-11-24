@@ -7,7 +7,7 @@ public class DamageText : MonoBehaviour
 
     [Header("Movement")]
     public float initialSpeed = 3f;
-    public float deceleration = 2f;     // slows down over time
+    public float deceleration = 2f;
     public float lifetime = 1.5f;
 
     private Vector3 velocity;
@@ -16,10 +16,8 @@ public class DamageText : MonoBehaviour
 
     void Start()
     {
-        startColor = textMesh.color;
-
         Vector2 randomDir = Random.insideUnitCircle.normalized;
-        randomDir.y = Mathf.Abs(randomDir.y) + 0.2f; // bias upward a bit
+        randomDir.y = Mathf.Abs(randomDir.y) + 0.2f;
         velocity = randomDir * initialSpeed;
     }
 

@@ -244,6 +244,12 @@ public class CharacterAbility
     public float baseCooldown;
     public float baseDamage;
 }
+public enum ProjectileFiringType
+{
+    None,
+    Burst,
+    Spread
+}
 public enum TargettingType
 {
     None,
@@ -317,10 +323,10 @@ public enum EnemyBehavior
 }
 public static class EnemyBehaviors
 {
-    public static readonly Dictionary<EnemyBehavior, (Type behavior, RuntimeAnimatorController controller)> behaviorMap = new()
+    public static readonly Dictionary<EnemyBehavior, Type> behavior = new()
     {
-        { EnemyBehavior.Melee, (typeof(EnemyBase), Resources.Load<RuntimeAnimatorController>("MeleeEnemy")) },
-        { EnemyBehavior.RangedHold, (typeof(EnemyRangedHold), Resources.Load<RuntimeAnimatorController>("RangedEnemyHold")) },
+        { EnemyBehavior.Melee, typeof(EnemyBase) },
+        { EnemyBehavior.RangedHold, typeof(EnemyRangedHold) },
     };
 }
 public enum StatusStates
@@ -384,8 +390,8 @@ public class AbilityData
     public List<StatusCondition> statusConditions;
     public List<WeaponData> tempWeapons;
 }
-public enum KnockbackType 
+public enum KnockbackType
 {
-    Directional, 
-    Radial 
+    Directional,
+    Radial
 }

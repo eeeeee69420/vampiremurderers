@@ -13,6 +13,8 @@ public class PlayerController : CharacterController
     [HideInInspector] public float inputX;
     [HideInInspector] public float inputY;
 
+    public CharacterData characterData;
+
     [HideInInspector] public List<Passive> Passives;
     public List<Image> WeaponIcons;
     public List<Image> PassiveIcons;
@@ -25,6 +27,7 @@ public class PlayerController : CharacterController
     public new void Start()
     {
         base.Start();
+        characterAnimator.animator.runtimeAnimatorController = characterData.animatorController;
         stats = characterData.stats.Clone();
         hp = stats.hpmax;
         AddWeapon(characterData.weaponData);
@@ -73,9 +76,10 @@ public class PlayerController : CharacterController
     }
     public void RemoveWeapon(Weapon weapon)
     {
+        weapons.Remove(weapon);
         weapon.StopAllCoroutines();
         weapon.enabled = false;
-        Destroy(weapon);
+        DestroyImmediate(weapon);
     }
     public void AddPassive(PassiveData passiveData)
     {
@@ -127,15 +131,11 @@ public class PlayerController : CharacterController
             }
         }
     }
-    public override void TakeDamage(float damage, ElementType element = ElementType.Typeless)
+    public override void TakeDamage(float damage, ElementType element = ElementType.Typeless, bool ignoreArmor = false)
     {
+        base.TakeDamage(damage, element, ignoreArmor);
         GameController.Instance.HitScreenAnim();
         GameController.Instance.UpdateHPBar();
-        hp -= (damage - stats.armor);
-        if (hp < 0 && stats.revives == 0)
-        {
-            StartCoroutine(Death());
-        }
         GameController.Instance.ShowDamage(damage, element, transform.position);
     }
     public void UpdatePassives()

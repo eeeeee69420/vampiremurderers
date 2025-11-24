@@ -35,5 +35,6 @@ MonoBehaviour:
     pierce: 0
     lifesteal: 0
   behavior: 1
+  animationController: {fileID: 22100000, guid: 626b73318e10e4d44b4724e6bbdb8dcd, type: 2}
   element: 0
   statusEffectPrefab: {fileID: 5713583185037948662, guid: 639d623d30cd4494aab35f35f8cb2146, type: 3}

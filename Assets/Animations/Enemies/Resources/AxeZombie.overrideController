@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AxeZombie
+  m_Controller: {fileID: 9100000, guid: 83fcf650336a3324a8065d1e1626b89a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e5203fa80f3c0e44883c299383b85e12, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dd3298e358b587e409030e52dd86da49, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 946946ead3b8fdf458576e4675be266b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 33a60fb549e57774dbdb574aa9a942b1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2b6186d12b657b546942f09deabae9cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6c21a1498573fb54a8ed6a4ef864d6ba, type: 2}

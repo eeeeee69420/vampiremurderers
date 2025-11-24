@@ -6,6 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.ShaderData;
 
 public class CharacterController : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public SpriteRenderer sprite;
     [HideInInspector] public CharacterAnimator characterAnimator;
 
-    public CharacterData characterData;
     [HideInInspector] public float hp;
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
@@ -83,9 +83,12 @@ public class CharacterController : MonoBehaviour
             hp += 1;
         }
     }
-    public virtual void TakeDamage(float damage, ElementType element = ElementType.Typeless)
+    public virtual void TakeDamage(float damage, ElementType element = ElementType.Typeless, bool ignoreArmor = false)
     {
-        hp -= (damage - stats.armor);
+        if (!ignoreArmor)
+            hp -= damage - stats.armor;
+        else
+            hp -= damage;
         if (!dead && damage >= 1)
             GameController.Instance.ShowDamage(damage, element, transform.position);
         if (hp < 0 && stats.revives == 0)
@@ -141,8 +144,13 @@ public class CharacterController : MonoBehaviour
     public IEnumerator AddStatus(StatusCondition status, CharacterController owner = null)
     {
         StatusCondition statusCondition = status.Clone();
-        statusCondition.owner = owner;
-        statusCondition.remainingDuration = statusCondition.duration * (owner.stats.duration + 1);
+        if (owner != null)
+        {
+            statusCondition.owner = owner;
+            statusCondition.remainingDuration = statusCondition.duration * (owner.stats.duration + 1);
+        }
+        else
+            statusCondition.remainingDuration = statusCondition.duration;
 
         var duplicates = statusConditions
             .Where(s => s.name == statusCondition.name)
@@ -174,7 +182,44 @@ public class CharacterController : MonoBehaviour
         {
             foreach (var DOT in statusCondition.damageOverTimes)
             {
-                TakeDamage(DOT.DPS, DOT.element);
+                switch (DOT.element)
+                {
+                    case ElementType.Typeless:
+                        TakeDamage(DOT.DPS, DOT.element);
+                        break;
+                    case ElementType.Water:
+                        TakeDamage(DOT.DPS * stats.hpmax, DOT.element);
+                        break;
+                    case ElementType.Fire:
+                        TakeDamage(DOT.DPS * stats.hpmax, DOT.element, true);
+                        break;
+                    case ElementType.Grass:
+                        TakeDamage(DOT.DPS, DOT.element);
+                        statusCondition.owner.LifeSteal();
+                        break;
+                    case ElementType.Earth:
+                        TakeDamage(DOT.DPS, DOT.element, true);
+                        break;
+                    case ElementType.Thunder:
+                        TakeDamage(DOT.DPS, DOT.element);
+                        StartCoroutine(AddStatus(GameController.Instance.electrifiedEffect));
+                        break;
+                    case ElementType.Air:
+                        TakeDamage(DOT.DPS * (statusCondition.duration - statusCondition.remainingDuration), DOT.element);
+                        break;
+                    case ElementType.Ice:
+                        TakeDamage(DOT.DPS, DOT.element);
+                        break;
+                    case ElementType.Poison:
+                        TakeDamage(DOT.DPS, DOT.element);
+                        break;
+                    case ElementType.Light:
+                        TakeDamage(DOT.DPS * statusCondition.owner.stats.damage, DOT.element);
+                        break;
+                    case ElementType.Dark:
+                        TakeDamage(DOT.DPS * (stats.hpmax - hp), DOT.element);
+                        break;
+                }
             }
             yield return new WaitForSeconds(1f);
             StartCoroutine(RunDOT(statusCondition));

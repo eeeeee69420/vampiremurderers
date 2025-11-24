@@ -10,7 +10,8 @@ public class WeaponData : ScriptableObject
     public Sprite icon;
     public WeaponBehavior weaponBehavior;
     public TargettingType targetting;
-    public GameObject projectile;
     public List<StatusCondition> statusConditions;
     public ElementType element;
+    public GameObject projectile;
+    public ProjectileFiringType projectileFiringType;
 }

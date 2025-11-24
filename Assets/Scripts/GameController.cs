@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public Image hpbar;
     public Image xpbar;
 
+    public StatusCondition electrifiedEffect;
+
     [SerializeField] private GameObject damageTextPrefab;
     [SerializeField] private Canvas worldCanvas;
 
@@ -50,7 +52,6 @@ public class GameController : MonoBehaviour
     }
     public void ShowDamage(float damage, ElementType element, Vector3 worldPosition)
     {
-        // Spawn in world space under the world canvas
         GameObject dmgObj = Instantiate(damageTextPrefab, worldPosition, Quaternion.identity, worldCanvas.transform);
 
         DamageText dmgText = dmgObj.GetComponent<DamageText>();

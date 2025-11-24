@@ -14,7 +14,7 @@ public class EnemySetup : MonoBehaviour
     }
     public void Initialize()
     {
-        Type behaviorType = EnemyBehaviors.behaviorMap[enemyData.behavior].behavior;
+        Type behaviorType = EnemyBehaviors.behavior[enemyData.behavior];
         gameObject.name = enemyData.name;
         enemyBehavior = (EnemyBase)gameObject.AddComponent(behaviorType);
         enemyBehavior.enemyData = enemyData;

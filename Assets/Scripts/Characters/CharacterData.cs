@@ -12,4 +12,5 @@ public class CharacterData : ScriptableObject
     public WeaponData weaponData;
     public AbilityData abilityData;
     public CharacterStats stats;
+    public RuntimeAnimatorController animatorController;
 }

@@ -47,13 +47,13 @@ public class ProjectileController : MonoBehaviour
         GameObject collidedObject = collision.gameObject;
         if (!player && collidedObject.layer == 6 && !hitObjects.Contains(collidedObject))
         {
-            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
             hitObjects.Add(collidedObject);
             Pierce();
         }
         else if (player && collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
         {
-            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
+            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
             hitObjects.Add(collidedObject);
             Pierce();
         }

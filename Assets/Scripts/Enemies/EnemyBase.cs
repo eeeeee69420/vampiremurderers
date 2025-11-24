@@ -19,12 +19,12 @@ public class EnemyBase : CharacterController
     public new void Start()
     {
         base.Start();
-        characterAnimator.animator.runtimeAnimatorController = EnemyBehaviors.behaviorMap[enemyData.behavior].controller;
+        characterAnimator.animator.runtimeAnimatorController = enemyData.animationController;
         characterAnimator.characterController = this;
         hp = enemyData.stats.hpmax;
         statusEffectGrid = GetComponentInChildren<GridLayoutGroup>().transform;
         statusEffectPrefab = enemyData.statusEffectPrefab;
-        foreach (var clip in EnemyBehaviors.behaviorMap[enemyData.behavior].controller.animationClips)
+        foreach (var clip in enemyData.animationController.animationClips)
         {
             if (clip.name == "Attack")
             {

@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class IWeaponHit : MonoBehaviour
 {
-    public static void HitEnemy(GameObject enemy, float damage, GameObject owner, List<StatusCondition> statusConditions = null, float knockback = 0, KnockbackType knockbackType = default, Vector2 origin = default)
+    public static void HitEnemy(GameObject enemy, float damage, GameObject owner, ElementType element = ElementType.Typeless, List<StatusCondition> statusConditions = null, float knockback = 0, KnockbackType knockbackType = default, Vector2 origin = default)
     {
         var enemyController = enemy.GetComponent<CharacterController>();
         var ownerController = owner.GetComponent<CharacterController>();
         ownerController?.LifeSteal();
-        enemyController?.TakeDamage(damage);
+        enemyController?.TakeDamage(damage, element);
 
         foreach (var status in statusConditions)
         {

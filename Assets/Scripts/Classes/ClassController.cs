@@ -64,21 +64,13 @@ public class ClassController : MonoBehaviour
         durating = false;
         controller.characterAnimator.animator.SetBool("isUsingAbility", false);
         cooldown = abilityData.cooldown / (1 + controller.stats.cooldown);
-        var statusesToRemove = controller.statusConditions
-            .Where(status =>
-                abilityData.statusConditions.Any(abilityStatus =>
-                    GetAllSequentialNames(abilityStatus).Contains(status.displayName)
-                )
-            )
-            .ToList();
+        var statusesToRemove = controller.statusConditions.Where(status => abilityData.statusConditions.Any(abilityStatus => GetAllSequentialNames(abilityStatus).Contains(status.displayName))).ToList();
         foreach (var status in statusesToRemove)
         {
             controller.RemoveStatus(status, false);
         }
-        var toRemove = controller.weapons
-            .Where(w => abilityData.tempWeapons
-                .Any(tw => tw.name == w.weaponData.name))
-            .ToList();
+
+        var toRemove = controller.weapons.Where(w => abilityData.tempWeapons.Contains(w.weaponData)).ToList();
 
         foreach (var weapon in toRemove)
         {
