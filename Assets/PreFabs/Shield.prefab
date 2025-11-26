@@ -75,6 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac57a27db7f73a342ba78dc0645b9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileBody: {fileID: 0}
+  animator: {fileID: 0}
+  sprite: {fileID: 0}
+  spriteObject: {fileID: 0}
+  circleCollider: {fileID: 0}
+  hitObjects: []
   stats:
     hpmax: 100
     hpregen: 0
@@ -95,16 +101,13 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
     lifesteal: 0
-  projectileBody: {fileID: 0}
-  animator: {fileID: 0}
-  player: 1
-  freezeTimer: 0.5
-  hitObjects: []
   owner: {fileID: 0}
+  target: {fileID: 0}
   statusConditions: []
   element: 0
-  soundEffects: []
-  audioSource: {fileID: 0}
+  isPlayer: 0
+  isDespawned: 0
+  data: {fileID: 0}
 --- !u!82 &7166976243037406840
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,5 +7,5 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Zen Aura Explosion
-  m_Controller: {fileID: 9100000, guid: f0c5a101fc26eae4f80e62bc3c6b337d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 82eccda38ccf02b48916981f6adfcbd9, type: 2}
   m_Clips: []

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485213863c1a49f4b9f6b3437e17df45, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
+  staticSprite: {fileID: 1971139560, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
+  usesAnimator: 0
+  animatorController: {fileID: 0}
+  spriteFacesUp: 0
+  spriteOffset: {x: 0, y: 0}
+  spriteScale: {x: 1, y: 1}
+  spriteRotation: 45
+  hitboxSize: 0.1
+  hitboxOffset: {x: 0, y: 0.2}
+  deathProjectile: {fileID: 0}
+  movement: 1
+  acceleration: 0
+  turnSpeed: 0

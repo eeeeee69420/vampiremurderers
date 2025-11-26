@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
     {
         remainingCooldown -= Time.fixedDeltaTime;
         if (remainingCooldown <= 0)
-            StartCoroutine(ActivateWeapon(null));
+            StartCoroutine(ActivateWeapon());
     }
     protected virtual IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
@@ -48,8 +48,7 @@ public class Weapon : MonoBehaviour
 
         for (int i = targetList.Count - 1; i >= 0; i--)
         {
-            EnemyBase enemy = targetList[i].GetComponent<EnemyBase>();
-            if (enemy == null)
+            if (!targetList[i].TryGetComponent<EnemyBase>(out var enemy))
                 Debug.LogWarning("Found collider without EnemyBase: " + targetList[i].name);
             if (enemy != null && (enemy.dead || enemy.statusStates.Contains(StatusStates.Untargetable)))
                 targetList.RemoveAt(i);

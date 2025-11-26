@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485213863c1a49f4b9f6b3437e17df45, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
+  staticSprite: {fileID: 0}
+  usesAnimator: 1
+  animatorController: {fileID: 22100000, guid: 58984cb6e15726548bb1abed67b10fbd, type: 2}
+  spriteFacesUp: 0
+  spriteOffset: {x: -0.5, y: -0.3}
+  spriteScale: {x: 1, y: 1}
+  spriteRotation: 90
+  hitboxSize: 0.35
+  hitboxOffset: {x: 0, y: 0}
+  deathProjectile: {fileID: 0}
+  movement: 1
+  acceleration: 0
+  turnSpeed: 0

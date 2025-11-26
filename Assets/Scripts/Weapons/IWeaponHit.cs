@@ -6,18 +6,17 @@ using UnityEngine;
 
 public class IWeaponHit : MonoBehaviour
 {
-    public static void HitEnemy(GameObject enemy, float damage, GameObject owner, ElementType element = ElementType.Typeless, List<StatusCondition> statusConditions = null, float knockback = 0, KnockbackType knockbackType = default, Vector2 origin = default)
+    public static void HitEnemy(GameObject enemy, float damage, CharacterController owner, ElementType element = ElementType.Typeless, List<StatusCondition> statusConditions = null, float knockback = 0, KnockbackType knockbackType = default, Vector2 origin = default)
     {
         var enemyController = enemy.GetComponent<CharacterController>();
-        var ownerController = owner.GetComponent<CharacterController>();
-        ownerController?.LifeSteal();
+        owner.LifeSteal();
         enemyController?.TakeDamage(damage, element);
 
         foreach (var status in statusConditions)
         {
-            if (statusConditions != null && enemyController != null && ownerController != null)
+            if (statusConditions != null && enemyController != null)
             {
-                enemyController.StartCoroutine(enemyController.AddStatus(status, ownerController));
+                enemyController.StartCoroutine(enemyController.AddStatus(status, owner));
             }
         }
         if (knockback > 0)

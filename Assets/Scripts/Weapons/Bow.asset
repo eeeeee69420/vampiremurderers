@@ -35,7 +35,7 @@ MonoBehaviour:
   LevelStats:
   - statIncreases:
     - stat: 9
-      amount: 1
+      amount: 0.5
   - statIncreases:
     - stat: 10
       amount: 1
@@ -45,5 +45,7 @@ MonoBehaviour:
   statusConditions:
   - {fileID: 11400000, guid: 22b3f72a13d143445bd652531985ebd2, type: 2}
   element: 0
-  projectile: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
+  projectile: {fileID: 11400000, guid: ffff913b6ebd5c542acd9f53cebf6c18, type: 2}
   projectileFiringType: 1
+  radius: 0
+  rotationSpeed: 0

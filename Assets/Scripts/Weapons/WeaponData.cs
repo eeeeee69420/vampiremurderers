@@ -12,6 +12,7 @@ public class WeaponData : ScriptableObject
     public TargettingType targetting;
     public List<StatusCondition> statusConditions;
     public ElementType element;
-    public GameObject projectile;
+    public ProjectileData projectile;
     public ProjectileFiringType projectileFiringType;
+    public float radius;
 }

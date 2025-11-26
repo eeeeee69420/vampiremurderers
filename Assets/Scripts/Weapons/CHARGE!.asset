@@ -17,7 +17,7 @@ MonoBehaviour:
     hpregen: 0
     armor: 0
     moveSpeed: 1
-    damage: 1
+    damage: 3
     cooldown: 0
     abilityCooldown: 0
     area: 0
@@ -36,7 +36,8 @@ MonoBehaviour:
   icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
   weaponBehavior: 3
   targetting: 0
-  projectile: {fileID: 0}
   statusConditions:
   - {fileID: 11400000, guid: 22b3f72a13d143445bd652531985ebd2, type: 2}
   element: 0
+  projectile: {fileID: 0}
+  projectileFiringType: 0

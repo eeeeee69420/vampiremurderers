@@ -2,25 +2,55 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class ProjectileController : MonoBehaviour
 {
-    public CharacterStats stats;
     public Rigidbody2D projectileBody;
     public Animator animator;
-    public bool player;
-    public float freezeTimer = .2f;
+    public SpriteRenderer sprite;
+    public Transform spriteObject;
+    public CircleCollider2D circleCollider;
+
     public List<GameObject> hitObjects = new();
-    public GameObject owner;
+
+    public CharacterStats stats;
+    public CharacterController owner;
+    public GameObject target;
     public List<StatusCondition> statusConditions;
     public ElementType element;
-    void Start()
+    public bool isPlayer;
+    public bool isDespawned;
+
+    public ProjectileData data;
+    void Awake()
     {
         projectileBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        circleCollider = GetComponent<CircleCollider2D>();
     }
+    public void Initialize()
+    {
+        if (data.usesAnimator)
+            animator.runtimeAnimatorController = data.animatorController;
+        else
+        {
+            sprite.sprite = data.staticSprite;
+            animator.runtimeAnimatorController = null;
+        }
+        spriteObject.localPosition = data.spriteOffset;
+        spriteObject.localScale = data.spriteScale;
+        spriteObject.localRotation = Quaternion.Euler(0f, 0f, data.spriteRotation);
 
+        circleCollider.offset = data.hitboxOffset;
+        circleCollider.radius = data.hitboxSize;
+
+        transform.localScale *= stats.area;
+
+        isDespawned = false;
+    }
     void FixedUpdate()
     {
         Move();
@@ -30,7 +60,16 @@ public class ProjectileController : MonoBehaviour
     }
     protected virtual void Move()
     {
-        projectileBody.position += (Vector2)(stats.projectileSpeed * Time.fixedDeltaTime * transform.up);
+        if (data.spriteFacesUp)
+            spriteObject.rotation = Quaternion.identity; 
+        switch (data.movement)
+        {
+            case ProjectileMovement.None:
+                break;
+            case ProjectileMovement.Straight:
+                projectileBody.position += (Vector2)(stats.projectileSpeed * Time.fixedDeltaTime * transform.up);
+                break;
+        }
     }
     protected virtual void Pierce()
     {
@@ -40,18 +79,13 @@ public class ProjectileController : MonoBehaviour
     }
     public virtual void Despawn()
     {
-        Destroy(gameObject);
+        ProjectileManager.Instance.DisableProjectile(gameObject);
+        isDespawned = true;
     }
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         GameObject collidedObject = collision.gameObject;
-        if (!player && collidedObject.layer == 6 && !hitObjects.Contains(collidedObject))
-        {
-            IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
-            hitObjects.Add(collidedObject);
-            Pierce();
-        }
-        else if (player && collidedObject.layer == 8 && !hitObjects.Contains(collidedObject))
+        if (((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6)) && !hitObjects.Contains(collidedObject))
         {
             IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
             hitObjects.Add(collidedObject);

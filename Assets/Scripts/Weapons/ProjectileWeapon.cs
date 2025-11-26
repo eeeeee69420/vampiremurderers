@@ -37,17 +37,18 @@ public class ProjectileWeapon : Weapon
                 }
                 Vector3 direction = target.transform.position - transform.position;
 
-                var proj = Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - firingAngle));
-                var controller = proj.GetComponent<ProjectileController>();
-                controller.stats = stats.Clone();
-                controller.player = true;
-                controller.owner = gameObject;
-                controller.statusConditions = weaponData.statusConditions;
-                controller.element = weaponData.element;
-
-                proj.transform.localScale *= controller.stats.area;
+                GameObject proj = ProjectileManager.Instance.InstantiateProjectile(
+                    weaponData.projectile, 
+                    transform.position, 
+                    Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - firingAngle), 
+                    target.gameObject, 
+                    gameObject.GetComponent<CharacterController>(), 
+                    stats, 
+                    gameObject.layer == 6,
+                    weaponData.statusConditions,
+                    weaponData.element
+                    );
                 spawnedObjects.Add(proj);
-
                 yield return new WaitForSeconds(.1f);
             }
         }

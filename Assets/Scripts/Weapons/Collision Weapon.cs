@@ -26,6 +26,6 @@ public class CollisionWeapon : Weapon
     protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
         yield return new WaitForSeconds(stats.cooldown);
-        IWeaponHit.HitEnemy(hitEnemy, stats.damage, gameObject, weaponData.element, weaponData.statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
+        IWeaponHit.HitEnemy(hitEnemy, stats.damage, gameObject.GetComponent<CharacterController>(), weaponData.element, weaponData.statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
     }
 }

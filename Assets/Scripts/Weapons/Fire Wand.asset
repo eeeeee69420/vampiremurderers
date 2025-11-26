@@ -46,5 +46,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51c0457644442634f938909d5063376f, type: 2}
   - {fileID: 11400000, guid: 22b3f72a13d143445bd652531985ebd2, type: 2}
   element: 2
-  projectile: {fileID: 8444901660281836817, guid: d12791cc6cf9fc64daaa4b5c839c0470, type: 3}
+  projectile: {fileID: 11400000, guid: 06650b21106bf9d438de94458f50be22, type: 2}
   projectileFiringType: 2
+  radius: 0
+  rotationSpeed: 0

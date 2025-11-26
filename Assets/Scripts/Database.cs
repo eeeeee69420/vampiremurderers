@@ -271,7 +271,7 @@ public static class WeaponBehaviors
 {
     public static readonly Dictionary<WeaponBehavior, Type> behaviorMap = new()
     {
-        { WeaponBehavior.Shield, typeof(Shield) },
+        { WeaponBehavior.Shield, typeof(PivotWeapon) },
         { WeaponBehavior.Projectile, typeof(ProjectileWeapon) },
         { WeaponBehavior.Collision, typeof(CollisionWeapon) },
     };
@@ -394,4 +394,10 @@ public enum KnockbackType
 {
     Directional,
     Radial
+}
+public enum ProjectileMovement
+{
+    None,
+    Straight,
+    FollowOwnerDirection
 }
