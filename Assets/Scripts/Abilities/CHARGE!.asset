@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4fed627f22a6e4ab5b453c970dac1a, type: 3}
+  m_Name: CHARGE!
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityData
+  displayName: CHARGE
+  icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
+  duration: 10
+  cooldown: 20
+  statusConditions:
+  - {fileID: 11400000, guid: cc4756bedfa42234eb794c3f861ffafa, type: 2}
+  tempWeapons:
+  - {fileID: 11400000, guid: 3ddb8985371017047a53ff388e704c9a, type: 2}
+  abilityEffects: 00000000

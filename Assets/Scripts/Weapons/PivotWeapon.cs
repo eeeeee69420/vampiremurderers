@@ -85,7 +85,7 @@ public class PivotWeapon : ProjectileWeapon
     }
     public void Rotate()
     {
-        if (durating)
+        if (durating && pivot != null)
         {
             switch (weaponData.weaponBehavior)
             {

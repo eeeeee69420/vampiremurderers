@@ -52,11 +52,32 @@ public class ClassController : MonoBehaviour
         cooldown = abilityData.duration * (1 + controller.stats.duration);
         durating = true;
         foreach (var status in abilityData.statusConditions)
-        {
             StartCoroutine(controller.AddStatus(status, controller));
-        }
         foreach (var weapon in abilityData.tempWeapons)
             controller.AddWeapon(weapon, true);
+        foreach (var effect in abilityData.abilityEffects)
+        {
+            switch (effect)
+            {
+                case AbilityEffects.ActivateShield:
+                    foreach (var weapon in controller.weapons)
+                    {
+                        if (weapon.weaponData.weaponBehavior == WeaponBehavior.Shield)
+                        {
+                            PivotWeapon pivot = weapon as PivotWeapon;
+                            if (pivot != null && !pivot.durating)
+                            {
+                                pivot.Activate();
+                            }
+                            else if (pivot != null && pivot.durating)
+                            {
+                                pivot.remainingCooldown = 
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
     }
     protected virtual void DeactivateAbility()
     {

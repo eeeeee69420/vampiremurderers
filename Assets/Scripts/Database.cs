@@ -237,13 +237,7 @@ public enum StatType //All additive stats are framed as % reduction, so 15% fast
     Pierce, //Flat
     Lifesteal //Flat
 }
-public class CharacterAbility
-{
-    public string name;
-    public Sprite icon;
-    public float baseCooldown;
-    public float baseDamage;
-}
+
 public enum ProjectileFiringType
 {
     None,
@@ -272,6 +266,7 @@ public static class WeaponBehaviors
     public static readonly Dictionary<WeaponBehavior, Type> behaviorMap = new()
     {
         { WeaponBehavior.Shield, typeof(PivotWeapon) },
+        { WeaponBehavior.OrbittingProjectile, typeof(PivotWeapon) },
         { WeaponBehavior.Projectile, typeof(ProjectileWeapon) },
         { WeaponBehavior.Collision, typeof(CollisionWeapon) },
     };
@@ -380,15 +375,9 @@ public class DamageOverTime
         return new DamageOverTime { DPS = this.DPS, element = this.element };
     }
 }
-[System.Serializable]
-public class AbilityData
+public enum AbilityEffects
 {
-    public string name;
-    public Sprite icon;
-    public float duration;
-    public float cooldown;
-    public List<StatusCondition> statusConditions;
-    public List<WeaponData> tempWeapons;
+    ActivateShield
 }
 public enum KnockbackType
 {
