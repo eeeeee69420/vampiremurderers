@@ -9,8 +9,15 @@ public class PivotWeapon : ProjectileWeapon
     public bool durating;
     public GameObject pivot;
 
+    public override void Initiate()
+    {
+        base.Initiate();
+        pivot = Instantiate(ProjectileManager.Instance.universalPivotPrefab, transform.position, Quaternion.identity, gameObject.transform);
+    }
+
     public override void FixedUpdate()
     {
+        Debug.Log(remainingCooldown);
         remainingCooldown -= Time.deltaTime;
         if (remainingCooldown < 0)
             remainingCooldown = 0;
@@ -26,8 +33,7 @@ public class PivotWeapon : ProjectileWeapon
     public void Activate()
     {
         durating = true;
-        remainingCooldown += stats.duration;
-        pivot = Instantiate(ProjectileManager.Instance.universalPivotPrefab, transform.position, Quaternion.identity, gameObject.transform);
+        remainingCooldown = stats.duration;
 
         switch (weaponData.weaponBehavior)
         {
@@ -80,12 +86,15 @@ public class PivotWeapon : ProjectileWeapon
     public void Deactivate()
     {
         durating = false;
-        remainingCooldown += stats.cooldown;
-        Destroy(pivot);
+        remainingCooldown = stats.cooldown;
+        foreach (var projectile in spawnedObjects)
+        {
+            projectile.SetActive(false);
+        }
     }
     public void Rotate()
     {
-        if (durating && pivot != null)
+        if (durating)
         {
             switch (weaponData.weaponBehavior)
             {
@@ -102,5 +111,14 @@ public class PivotWeapon : ProjectileWeapon
                     break;
             }
         }
+    }
+    public void RestartDuration(float duration)
+    {
+        Deactivate();
+
+        durating = true;
+        remainingCooldown = duration;
+
+        Activate();
     }
 }

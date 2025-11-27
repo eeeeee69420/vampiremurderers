@@ -42,7 +42,10 @@ public class ClassController : MonoBehaviour
             DeactivateAbility();
         }
 
-        abilityIconOverlay.fillAmount = cooldown / abilityData.cooldown;
+        if (!durating)
+            abilityIconOverlay.fillAmount = cooldown / (abilityData.cooldown / (1 + controller.stats.duration));
+        if (durating)
+            abilityIconOverlay.fillAmount = cooldown / (abilityData.duration * (1 + controller.stats.duration));
         abilityText.text = cooldown > 0 ? cooldown.ToString("F0") : "";
     }
     protected virtual void ActivateAbility()
@@ -65,13 +68,12 @@ public class ClassController : MonoBehaviour
                         if (weapon.weaponData.weaponBehavior == WeaponBehavior.Shield)
                         {
                             PivotWeapon pivot = weapon as PivotWeapon;
-                            if (pivot != null && !pivot.durating)
+                            if (pivot != null)
                             {
-                                pivot.Activate();
-                            }
-                            else if (pivot != null && pivot.durating)
-                            {
-                                pivot.remainingCooldown = 
+                                if (!pivot.durating)
+                                    pivot.Activate();
+                                else
+                                    pivot.RestartDuration(abilityData.duration * (1 + controller.stats.duration));
                             }
                         }
                     }
