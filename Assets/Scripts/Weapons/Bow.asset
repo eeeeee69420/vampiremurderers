@@ -48,4 +48,4 @@ MonoBehaviour:
   projectile: {fileID: 11400000, guid: ffff913b6ebd5c542acd9f53cebf6c18, type: 2}
   projectileFiringType: 1
   radius: 0
-  rotationSpeed: 0
+  amountDelay: 0.1

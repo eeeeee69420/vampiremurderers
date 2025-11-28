@@ -13,6 +13,7 @@ public class ProjectileData : ScriptableObject
 
     public float hitboxSize;
     public Vector2 hitboxOffset;
+    public bool isTrigger;
 
     public ProjectileData deathProjectile;
     public ProjectileMovement movement;

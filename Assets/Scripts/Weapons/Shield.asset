@@ -41,4 +41,5 @@ MonoBehaviour:
   element: 0
   projectile: {fileID: 11400000, guid: 5ad584681bdcd8549987dddb2eb5ab13, type: 2}
   projectileFiringType: 0
-  radius: 0.5
+  radius: 0.75
+  amountDelay: 0

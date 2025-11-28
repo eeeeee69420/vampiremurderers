@@ -21,6 +21,7 @@ MonoBehaviour:
   spriteRotation: 45
   hitboxSize: 0.1
   hitboxOffset: {x: 0, y: 0.2}
+  isTrigger: 1
   deathProjectile: {fileID: 0}
   movement: 1
   acceleration: 0

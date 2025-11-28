@@ -23,7 +23,7 @@ MonoBehaviour:
     area: 1
     duration: 5
     projectileSpeed: 2
-    amount: 3
+    amount: 2
     growth: 0
     revives: 0
     greed: 0
@@ -49,4 +49,4 @@ MonoBehaviour:
   projectile: {fileID: 11400000, guid: 06650b21106bf9d438de94458f50be22, type: 2}
   projectileFiringType: 2
   radius: 0
-  rotationSpeed: 0
+  amountDelay: 0
