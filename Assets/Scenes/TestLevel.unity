@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0fab3e7b401624cbbeb8f1d67a2d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileManager
-  universalProjectilePrefab: {fileID: 1271738001792338962, guid: 9aa6a1036828bfd408b1ddfc7ba68976, type: 3}
+  universalProjectilePrefab: {fileID: 1271738001792338962, guid: bcde703bac2d5f545a64c24910cfeacc, type: 3}
   universalPivotPrefab: {fileID: 6386770544860892354, guid: 2ee5082f0d462bc4aa0efdce75427111, type: 3}
   projectiles: []
   disabledProjectiles: []
@@ -28694,7 +28694,7 @@ PrefabInstance:
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 268947e61418dc84fb8eeb73e78658fa, type: 2}
+      objectReference: {fileID: 11400000, guid: f3972604abed37c498414162a7dd4a44, type: 2}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: statusEffectGrid
       value: 
