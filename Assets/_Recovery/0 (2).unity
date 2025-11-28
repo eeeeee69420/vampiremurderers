@@ -28694,7 +28694,7 @@ PrefabInstance:
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 268947e61418dc84fb8eeb73e78658fa, type: 2}
+      objectReference: {fileID: 11400000, guid: f3972604abed37c498414162a7dd4a44, type: 2}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: statusEffectGrid
       value: 

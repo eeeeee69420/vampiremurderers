@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class PivotWeapon : ProjectileWeapon
 {
-    public bool durating;
     public GameObject pivot;
 
     public override void Initiate()
@@ -23,26 +23,21 @@ public class PivotWeapon : ProjectileWeapon
             remainingCooldown = 0;
         if (remainingCooldown <= 0)
         {
-            if (durating)
-                Deactivate();
-            else
-                Activate();
+            StartCoroutine(ActivateWeapon());
         }
         Rotate();
     }
-    public void Activate()
+    protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
-        durating = true;
-        remainingCooldown = stats.duration;
-
+        remainingCooldown = stats.cooldown;
         switch (weaponData.weaponBehavior)
         {
             case WeaponBehavior.Shield:
                 {
                     GameObject proj = ProjectileManager.Instance.InstantiateProjectile(
                         weaponData.projectile,
-                        new Vector3(0, weaponData.radius, 0) + transform.position,
-                        Quaternion.identity,
+                        pivot.transform.position + pivot.transform.up * weaponData.radius,
+                        pivot.transform.rotation,
                         gameObject,
                         gameObject.GetComponent<CharacterController>(),
                         stats,
@@ -78,47 +73,34 @@ public class PivotWeapon : ProjectileWeapon
                             weaponData.element
                         );
                         spawnedObjects.Add(proj);
+                        yield return new WaitForSeconds(weaponData.amountDelay);
                     }
                     break;
                 }
         }
     }
-    public void Deactivate()
-    {
-        durating = false;
-        remainingCooldown = stats.cooldown;
-        foreach (var projectile in spawnedObjects)
-        {
-            projectile.SetActive(false);
-        }
-    }
     public void Rotate()
     {
-        if (durating)
+        switch (weaponData.weaponBehavior)
         {
-            switch (weaponData.weaponBehavior)
-            {
-                case WeaponBehavior.OrbittingProjectile:
-                    pivot.transform.Rotate(0f, 0f, weaponData.projectile.turnSpeed * Time.fixedDeltaTime);
-                    break;
-                case WeaponBehavior.Shield:
-                    Vector2 dir = controller.direction;
-                    if (dir.magnitude > 0)
-                    {
-                        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                        pivot.transform.rotation = Quaternion.RotateTowards(pivot.transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f), weaponData.projectile.turnSpeed * Time.fixedDeltaTime);
-                    }
-                    break;
-            }
+            case WeaponBehavior.OrbittingProjectile:
+                pivot.transform.Rotate(0f, 0f, weaponData.projectile.turnSpeed * Time.fixedDeltaTime);
+                break;
+            case WeaponBehavior.Shield:
+                Vector2 dir = controller.direction;
+                if (dir.magnitude > 0)
+                {
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    pivot.transform.rotation = Quaternion.RotateTowards(pivot.transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f), weaponData.projectile.turnSpeed * Time.fixedDeltaTime);
+                }
+                break;
         }
     }
-    public void RestartDuration(float duration)
+    public void RestartDuration()
     {
-        Deactivate();
-
-        durating = true;
-        remainingCooldown = duration;
-
-        Activate();
+        if (remainingCooldown <= stats.cooldown)
+            StartCoroutine(ActivateWeapon());
+        foreach (var projectile in spawnedObjects)
+            projectile.GetComponent<ProjectileController>().stats.duration = stats.duration;
     }
 }

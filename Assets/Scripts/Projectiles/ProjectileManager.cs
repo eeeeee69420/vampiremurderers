@@ -32,8 +32,10 @@ public class ProjectileManager : MonoBehaviour
         }
         if (parent != null)
             projectile.transform.SetParent(parent.transform, false);
+        else
+            projectile.transform.SetParent(null);
 
-        projectile.transform.SetPositionAndRotation(position, firingAngle);
+            projectile.transform.SetPositionAndRotation(position, firingAngle);
         projectile.transform.localScale = Vector3.one;
 
         ProjectileController projectileController = projectile.GetComponent<ProjectileController>();

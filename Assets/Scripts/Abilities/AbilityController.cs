@@ -7,7 +7,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClassController : MonoBehaviour
+public class AbilityController : MonoBehaviour
 {
     [HideInInspector] public AbilityData abilityData;
     [HideInInspector] public PlayerController controller;
@@ -70,10 +70,7 @@ public class ClassController : MonoBehaviour
                             PivotWeapon pivot = weapon as PivotWeapon;
                             if (pivot != null)
                             {
-                                if (!pivot.durating)
-                                    pivot.Activate();
-                                else
-                                    pivot.RestartDuration(abilityData.duration * (1 + controller.stats.duration));
+                                pivot.RestartDuration();
                             }
                         }
                     }

@@ -232,8 +232,9 @@ public class CharacterController : MonoBehaviour
         foreach (var state in statusCondition.states)
         {
             statusStates.Remove(state);
-            if (state == StatusStates.Immovable && !(runSequential && statusCondition.sequentialEffect?.states?.Contains(StatusStates.Immovable) == true))
-                body.mass = mass;
+            if (state != StatusStates.Immovable || runSequential && statusCondition.sequentialEffect?.states?.Contains(StatusStates.Immovable) == true)
+                continue;
+            body.mass = mass;
         }
         statusConditions.Remove(statusCondition);
         RefreshStatusDisplay(statusCondition, true);

@@ -18,10 +18,10 @@ MonoBehaviour:
     armor: 0
     moveSpeed: 1
     damage: 10
-    cooldown: 10
+    cooldown: 25
     abilityCooldown: 0
     area: 1
-    duration: 10
+    duration: 15
     projectileSpeed: 5
     amount: 1
     growth: 1
