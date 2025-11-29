@@ -1,3 +1,5 @@
+using System;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewProjectileData", menuName = "Game/Projectile Data")]
@@ -11,7 +13,8 @@ public class ProjectileData : ScriptableObject
     public Vector2 spriteScale; //Always solid numbers (0.25, .5, 1, 1.5, 2, etc).
     public float spriteRotation; //Always face straight up.
 
-    public float hitboxSize;
+    public ColliderType colliderType;
+    public Vector2 hitboxSize;
     public Vector2 hitboxOffset;
     public bool isTrigger;
 

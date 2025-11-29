@@ -17,7 +17,6 @@ public class PivotWeapon : ProjectileWeapon
 
     public override void FixedUpdate()
     {
-        Debug.Log(remainingCooldown);
         remainingCooldown -= Time.deltaTime;
         if (remainingCooldown < 0)
             remainingCooldown = 0;
@@ -59,7 +58,7 @@ public class PivotWeapon : ProjectileWeapon
                         float rad = angle * Mathf.Deg2Rad;
                         Vector2 dir = new(Mathf.Cos(rad), Mathf.Sin(rad));
                         Vector3 spawnPosition = transform.position + (Vector3)(dir * weaponData.radius);
-                        Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+                        Quaternion rotation = Quaternion.Euler(0f, 0f, angle - 90f);
 
                         GameObject proj = ProjectileManager.Instance.InstantiateProjectile(
                             weaponData.projectile,
@@ -70,14 +69,15 @@ public class PivotWeapon : ProjectileWeapon
                             stats,
                             gameObject.layer == 6,
                             weaponData.statusConditions,
-                            weaponData.element
+                            weaponData.element,
+                            pivot.transform
                         );
                         spawnedObjects.Add(proj);
-                        yield return new WaitForSeconds(weaponData.amountDelay);
                     }
                     break;
                 }
         }
+        yield return null;
     }
     public void Rotate()
     {

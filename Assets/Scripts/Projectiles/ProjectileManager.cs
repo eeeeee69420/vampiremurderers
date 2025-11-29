@@ -42,7 +42,7 @@ public class ProjectileManager : MonoBehaviour
         projectileController.data = projectileData;
         projectileController.target = target;
         projectileController.owner = owner;
-        projectileController.stats = stats;
+        projectileController.stats = stats.Clone();
         projectileController.isPlayer = isPlayer;
         projectileController.statusConditions = statusConditions;
         projectileController.element = element;

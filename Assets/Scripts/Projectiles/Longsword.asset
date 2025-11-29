@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485213863c1a49f4b9f6b3437e17df45, type: 3}
-  m_Name: Fireball
+  m_Name: Longsword
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  staticSprite: {fileID: 0}
-  usesAnimator: 1
-  animatorController: {fileID: 22100000, guid: 58984cb6e15726548bb1abed67b10fbd, type: 2}
+  staticSprite: {fileID: -984709256, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}
+  usesAnimator: 0
+  animatorController: {fileID: 0}
   spriteFacesUp: 0
-  spriteOffset: {x: -0.5, y: -0.3}
+  spriteOffset: {x: 0, y: 0}
   spriteScale: {x: 1, y: 1}
-  spriteRotation: 90
-  hitboxSize: {x: 0.35, y: 0}
+  spriteRotation: 45
+  colliderType: 1
+  hitboxSize: {x: 0.2, y: 0.7}
   hitboxOffset: {x: 0, y: 0}
   isTrigger: 1
   deathProjectile: {fileID: 0}
-  movement: 1
+  movement: 0
   acceleration: 0
-  turnSpeed: 0
+  turnSpeed: -60

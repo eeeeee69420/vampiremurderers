@@ -19,8 +19,9 @@ MonoBehaviour:
   spriteOffset: {x: 0, y: 0}
   spriteScale: {x: 1, y: 1}
   spriteRotation: 0
-  hitboxSize: 0.25
+  hitboxSize: {x: 0.25, y: 0}
   hitboxOffset: {x: 0, y: 0}
+  isTrigger: 0
   deathProjectile: {fileID: 0}
   movement: 0
   acceleration: 0

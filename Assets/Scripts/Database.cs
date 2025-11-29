@@ -269,6 +269,7 @@ public static class WeaponBehaviors
         { WeaponBehavior.OrbittingProjectile, typeof(PivotWeapon) },
         { WeaponBehavior.Projectile, typeof(ProjectileWeapon) },
         { WeaponBehavior.Collision, typeof(CollisionWeapon) },
+        { WeaponBehavior.Hitbox, typeof(HitboxWeapon) },
     };
 }
 public enum ElementType
@@ -389,4 +390,19 @@ public enum ProjectileMovement
     None,
     Straight,
     FollowOwnerDirection
+}
+public enum ColliderType
+{
+    Circle,
+    Capsule,
+    Box
+}
+public static class Colliders
+{
+    public static readonly Dictionary<ColliderType, Type> collider = new()
+    {
+        { ColliderType.Circle, typeof(CircleCollider2D) },
+        { ColliderType.Capsule, typeof(CapsuleCollider2D) },
+        { ColliderType.Box, typeof(BoxCollider2D) },
+    };
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -11,7 +12,7 @@ public class ProjectileController : MonoBehaviour
     public Animator animator;
     public SpriteRenderer sprite;
     public Transform spriteObject;
-    public CircleCollider2D circleCollider;
+    public Collider2D projectileCollider;
 
     public List<GameObject> hitObjects = new();
 
@@ -29,7 +30,6 @@ public class ProjectileController : MonoBehaviour
         projectileBody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        circleCollider = GetComponent<CircleCollider2D>();
     }
     public void Initialize()
     {
@@ -44,12 +44,26 @@ public class ProjectileController : MonoBehaviour
         spriteObject.localScale = data.spriteScale;
         spriteObject.localRotation = Quaternion.Euler(0f, 0f, data.spriteRotation);
 
-        circleCollider.offset = data.hitboxOffset;
-        circleCollider.radius = data.hitboxSize;
-        circleCollider.isTrigger = data.isTrigger;
+        foreach (var c in GetComponents<Collider2D>())
+            Destroy(c);
+        projectileCollider = (Collider2D)gameObject.AddComponent(Colliders.collider[data.colliderType]);
+        switch (projectileCollider)
+        {
+            case CircleCollider2D circle:
+                circle.radius = data.hitboxSize.x;
+                break;
+            case BoxCollider2D box:
+                box.size = data.hitboxSize;
+                break;
+            case CapsuleCollider2D capsule:
+                capsule.size = data.hitboxSize;
+                break;
+        }
+        projectileCollider.offset = data.hitboxOffset;
+        projectileCollider.isTrigger = data.isTrigger;
         if (!data.isTrigger)
         {
-            circleCollider.excludeLayers = 1 << owner.gameObject.layer;
+            projectileCollider.excludeLayers = 1 << owner.gameObject.layer;
         }
 
         transform.localScale *= stats.area;
@@ -90,21 +104,23 @@ public class ProjectileController : MonoBehaviour
     protected virtual void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         GameObject collidedObject = collision.gameObject;
-        if (((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6)) && !hitObjects.Contains(collidedObject))
+        if (((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6)) && !hitObjects.Contains(collidedObject) && !isDespawned)
         {
             IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Directional, transform.up);
             hitObjects.Add(collidedObject);
+            StartCoroutine(MarkUnhit(collidedObject));
             Pierce();
         }
     }
     protected void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collidedObject = collision.gameObject;
-        if (((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6)) && !hitObjects.Contains(collidedObject))
+        if (((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6)) && !hitObjects.Contains(collidedObject) && !isDespawned)
         {
             IWeaponHit.HitEnemy(collidedObject, stats.damage, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Radial, transform.position);
             hitObjects.Add(collidedObject);
             StartCoroutine(MarkUnhit(collidedObject));
+            Pierce();
         }
         else if (collidedObject.layer == 9 && collidedObject.GetComponent<ProjectileController>().isPlayer != isPlayer)
         {
@@ -116,7 +132,7 @@ public class ProjectileController : MonoBehaviour
     protected void OnCollisionStay2D(Collision2D collision)
     {
         GameObject collidedObject = collision.gameObject;
-        if (collidedObject.layer == 8)
+        if ((isPlayer && collidedObject.layer == 8) || (!isPlayer && collidedObject.layer == 6) && !isDespawned)
         {
             IWeaponHit.HitEnemy(collidedObject, stats.damage * Time.deltaTime * 2, owner, element, statusConditions, stats.projectileSpeed, KnockbackType.Radial, owner.transform.position);
         }
