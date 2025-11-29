@@ -77,7 +77,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   sprite: {fileID: 0}
   spriteObject: {fileID: 654397419432346951}
-  circleCollider: {fileID: 0}
+  projectileCollider: {fileID: 0}
   hitObjects: []
   stats:
     hpmax: 0

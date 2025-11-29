@@ -89,6 +89,7 @@ public class ProjectileController : MonoBehaviour
                 projectileBody.position += (Vector2)(stats.projectileSpeed * Time.fixedDeltaTime * transform.up);
                 break;
         }
+        spriteObject.Rotate(0f, 0f, data.spriteRotationSpeed * Time.fixedDeltaTime);
     }
     protected virtual void Pierce()
     {

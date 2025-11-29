@@ -10,47 +10,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 473ccbcbc17fa5147b04de039044c986, type: 3}
-  m_Name: Fire Wand
+  m_Name: Battleaxe
   m_EditorClassIdentifier: 
   baseStats:
     hpmax: 0
     hpregen: 0
     armor: 0
     moveSpeed: 0
-    damage: 5
+    damage: 20
     cooldown: 10
     abilityCooldown: 0
     area: 1
     duration: 5
-    projectileSpeed: 2
-    amount: 2
+    projectileSpeed: 3
+    amount: 1
     growth: 0
     revives: 0
     greed: 0
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 999
+    pierce: 15
     lifesteal: 0
   LevelStats:
   - statIncreases:
     - stat: 9
-      amount: 1
+      amount: 0.5
   - statIncreases:
     - stat: 10
       amount: 1
-  icon: {fileID: -7887267367896569301, guid: abb0e67e24f33ce449f09060ecdc6eff, type: 3}
+  icon: {fileID: -1773150384, guid: 3806583b629e09e48949304910a6ed24, type: 3}
   weaponBehavior: 1
-  targetting: 1
+  targetting: 4
   statusConditions:
-  - {fileID: 11400000, guid: 51c0457644442634f938909d5063376f, type: 2}
   - {fileID: 11400000, guid: 22b3f72a13d143445bd652531985ebd2, type: 2}
-  element: 2
-  projectile: {fileID: 11400000, guid: 06650b21106bf9d438de94458f50be22, type: 2}
-  projectileFiringType: 3
+  - {fileID: 11400000, guid: 6d6e69ac92b0b29478575c463f6428b1, type: 2}
+  element: 4
+  projectile: {fileID: 11400000, guid: 5015abb56b3bfa3489a96d5c1aaa5f88, type: 2}
+  projectileFiringType: 1
   radius: 0
-  amountDelay: 0
-  amountAngle: 10
-  projectileSpreadType: 0
-  spreadAmount: 0
-  spreadAngle: 0
+  amountDelay: 0.5

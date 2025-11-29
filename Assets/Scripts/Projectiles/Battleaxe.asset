@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485213863c1a49f4b9f6b3437e17df45, type: 3}
+  m_Name: Battleaxe
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
+  staticSprite: {fileID: -1773150384, guid: 3806583b629e09e48949304910a6ed24, type: 3}
+  usesAnimator: 0
+  animatorController: {fileID: 0}
+  spriteFacesUp: 0
+  spriteOffset: {x: 0, y: 0}
+  spriteScale: {x: 1, y: 1}
+  spriteRotation: 45
+  spriteRotationSpeed: 180
+  colliderType: 0
+  hitboxSize: {x: 0.3, y: 0}
+  hitboxOffset: {x: 0, y: -0.045}
+  isTrigger: 1
+  deathProjectile: {fileID: 0}
+  movement: 1
+  acceleration: 0
+  turnSpeed: 0

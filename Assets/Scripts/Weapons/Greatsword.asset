@@ -17,7 +17,7 @@ MonoBehaviour:
     hpregen: 0
     armor: 0
     moveSpeed: 1
-    damage: 3
+    damage: 7
     cooldown: 22
     abilityCooldown: 0
     area: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 20
+    pierce: 40
     lifesteal: 0
   LevelStats: []
   icon: {fileID: 1309666659, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}

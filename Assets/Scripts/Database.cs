@@ -242,7 +242,9 @@ public enum ProjectileFiringType
 {
     None,
     Burst,
-    Spread
+    Spread,
+    AlternatingSpread,
+    Omnidirectional
 }
 public enum TargettingType
 {
@@ -388,8 +390,7 @@ public enum KnockbackType
 public enum ProjectileMovement
 {
     None,
-    Straight,
-    FollowOwnerDirection
+    Straight
 }
 public enum ColliderType
 {

@@ -16,4 +16,8 @@ public class WeaponData : ScriptableObject
     public ProjectileFiringType projectileFiringType;
     public float radius;
     public float amountDelay;
+    public float amountAngle;
+    public ProjectileFiringType projectileSpreadType;
+    public int spreadAmount;
+    public float spreadAngle;
 }

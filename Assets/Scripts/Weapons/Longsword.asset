@@ -30,7 +30,7 @@ MonoBehaviour:
     luck: 0
     criticalChance: 0
     criticalDamage: 0
-    pierce: 20
+    pierce: 60
     lifesteal: 0
   LevelStats: []
   icon: {fileID: -984709256, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}
