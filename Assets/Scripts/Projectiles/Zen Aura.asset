@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485213863c1a49f4b9f6b3437e17df45, type: 3}
-  m_Name: Battleaxe
+  m_Name: Zen Aura
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  staticSprite: {fileID: -1773150384, guid: 3806583b629e09e48949304910a6ed24, type: 3}
-  usesAnimator: 0
-  animatorController: {fileID: 0}
+  staticSprite: {fileID: 0}
+  usesAnimator: 1
+  animatorController: {fileID: 22100000, guid: 04f83428ef7708945b433647ff7d57b1, type: 2}
   spriteFacesUp: 0
-  spriteOffset: {x: 0, y: -0.045}
-  spriteScale: {x: 1, y: 1}
-  spriteRotation: 45
-  spriteRotationSpeed: 180
+  spriteOffset: {x: -0.025, y: 0.025}
+  spriteScale: {x: 2, y: 2}
+  spriteRotation: 0
+  spriteRotationSpeed: 0
   colliderType: 0
-  hitboxSize: {x: 0.3, y: 0}
+  hitboxSize: {x: 1.425, y: 0}
   hitboxOffset: {x: 0, y: 0}
   isTrigger: 1
   deathProjectile: {fileID: 0}
