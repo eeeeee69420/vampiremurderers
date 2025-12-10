@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ccbcbc17fa5147b04de039044c986, type: 3}
+  m_Name: TBW 2
+  m_EditorClassIdentifier: 
+  baseStats:
+    hpmax: 0
+    hpregen: 0
+    armor: 0
+    moveSpeed: 0
+    damage: 5
+    cooldown: 15
+    abilityCooldown: 0
+    area: 1
+    duration: 3
+    projectileSpeed: 4
+    amount: 60
+    growth: 0
+    revives: 0
+    greed: 0
+    luck: 0
+    criticalChance: 0
+    criticalDamage: 0
+    pierce: 2
+    lifesteal: 0
+  LevelStats:
+  - statIncreases:
+    - stat: 9
+      amount: 0.5
+  - statIncreases:
+    - stat: 10
+      amount: 1
+  icon: {fileID: 2672201487185579391, guid: d26119ce01e31674e9a022352601be61, type: 3}
+  weaponBehavior: 1
+  targetting: 2
+  statusConditions:
+  - {fileID: 11400000, guid: 22b3f72a13d143445bd652531985ebd2, type: 2}
+  element: 0
+  projectile: {fileID: 11400000, guid: ffff913b6ebd5c542acd9f53cebf6c18, type: 2}
+  projectileFiringType: 1
+  radius: 0
+  amountDelay: 0.5
+  amountAngle: 6
+  projectileSpreadType: 3
+  spreadAmount: 5
+  spreadAngle: 20
