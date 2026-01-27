@@ -54,10 +54,16 @@ public class ProjectileWeapon : Weapon
                             angle += weaponData.spreadAngle * k;
                             break;
                         case ProjectileFiringType.AlternatingSpread:
-                            int sign = (k % 2 == 0) ? 1 : -1;
-                            int magnitude = (k + 1) / 2;
-                            angle += weaponData.spreadAngle * sign * magnitude;
-                            break;
+                            {
+                                int total = weaponData.spreadAmount + 1;
+                                int sign = (k % 2 == 0) ? 1 : -1;
+                                int magnitude = k / 2;
+                                angle += weaponData.spreadAngle * sign * magnitude;
+                                if (total % 2 == 0)
+                                    angle += weaponData.spreadAngle * 0.5f * sign;
+
+                                break;
+                            }
                         case ProjectileFiringType.Omnidirectional:
                             angle += k * 360 / (weaponData.spreadAmount + 1);
                             break;

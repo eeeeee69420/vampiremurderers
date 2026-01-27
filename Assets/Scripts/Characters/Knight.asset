@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Knight
   icon: {fileID: 0}
   description: pee
-  weaponData: {fileID: 11400000, guid: 0903a75ec31f52e4686f9727328d9d7e, type: 2}
+  weaponData: {fileID: 11400000, guid: c3facb452a72f1a48a511dc49ff75811, type: 2}
   abilityData: {fileID: 11400000, guid: 6e41dfcdd0d78ff48bb70884b13d8c48, type: 2}
   stats:
     hpmax: 100
