@@ -6,8 +6,9 @@ public enum UIDirection { Left, Right, Top, Bottom }
 public class MenuManager : MonoBehaviour
 {
     [Header("Animation Settings")]
-    public float enterDuration = 2f;
+    public float enterDuration = 1f;
     public float exitDuration = 1f;
+    public float entryDelay = 1f; // New global delay variable
     public Ease easeIn = Ease.InQuint;
     public Ease easeOut = Ease.OutQuint;
 
@@ -23,28 +24,31 @@ public class MenuManager : MonoBehaviour
     {
         Sequence s = DOTween.Sequence();
         s.Append(Exit(loadingScreen, UIDirection.Top));
-        s.Append(Enter(title, UIDirection.Top));
-        s.Append(Enter(startMenu, UIDirection.Left));
+        // We can now pass entryDelay here or use SetDelay() on the tween
+        s.Append(Enter(title, UIDirection.Top, entryDelay));
+        s.Append(Enter(startMenu, UIDirection.Left, entryDelay));
     }
 
-
-    public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom);
-    public void OpenFromTop(RectTransform menu) => Enter(menu, UIDirection.Top);
-    public void OpenFromLeft(RectTransform menu) => Enter(menu, UIDirection.Left);
-    public void OpenFromRight(RectTransform menu) => Enter(menu, UIDirection.Right);
+    public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom, entryDelay);
+    public void OpenFromTop(RectTransform menu) => Enter(menu, UIDirection.Top, entryDelay);
+    public void OpenFromLeft(RectTransform menu) => Enter(menu, UIDirection.Left, entryDelay);
+    public void OpenFromRight(RectTransform menu) => Enter(menu, UIDirection.Right, entryDelay);
 
     public void ExitToBottom(RectTransform menu) => Exit(menu, UIDirection.Bottom);
     public void ExitToTop(RectTransform menu) => Exit(menu, UIDirection.Top);
     public void ExitToLeft(RectTransform menu) => Exit(menu, UIDirection.Left);
     public void ExitToRight(RectTransform menu) => Exit(menu, UIDirection.Right);
 
-
-    public Tween Enter(RectTransform menu, UIDirection from)
+    public Tween Enter(RectTransform menu, UIDirection from, float delay = 0f)
     {
         if (menu == null) return null;
+
         menu.gameObject.SetActive(true);
         menu.anchoredPosition = GetPosForDirection(from);
-        return menu.DOAnchorPos(Vector2.zero, enterDuration).SetEase(easeOut);
+
+        return menu.DOAnchorPos(Vector2.zero, enterDuration)
+            .SetEase(easeOut)
+            .SetDelay(delay);
     }
 
     public Tween Exit(RectTransform menu, UIDirection to)
