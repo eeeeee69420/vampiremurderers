@@ -106,11 +106,14 @@ public class CharacterSelectionManager : MonoBehaviour
         if (!isPanelVisible)
         {
             descriptionPanel.DOAnchorPos(new Vector2(0, 0), transitionDuration).SetEase(easeOut);
+            statMenu.DOAnchorPos(new Vector2(64, 0), transitionDuration).SetEase(easeOut);
+
         }
     }
     public void OnMenuClose()
     {
         descriptionPanel.DOAnchorPos(new Vector2(480, 0), transitionDuration).SetEase(easeOut).SetDelay(1);
+        descriptionPanel.DOAnchorPos(new Vector2(0, 0), transitionDuration).SetEase(easeOut).SetDelay(1);
     }
     private void UpdateStatRow(TextMeshProUGUI text, float current, float baseVal, bool higherIsBetter, string format = "F1", string suffix = "")
     {
