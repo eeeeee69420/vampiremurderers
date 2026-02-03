@@ -13258,7 +13258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 480, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1948379911
@@ -13640,13 +13640,13 @@ MonoBehaviour:
   projectileSpeedText: {fileID: 1909585404}
   amountText: {fileID: 246177912}
   growthText: {fileID: 1497996331}
-  revivesText: {fileID: 0}
-  greedText: {fileID: 0}
-  luckText: {fileID: 0}
-  criticalChanceText: {fileID: 0}
-  criticalDamageText: {fileID: 0}
-  pierceText: {fileID: 0}
-  lifestealText: {fileID: 0}
+  revivesText: {fileID: 735774378}
+  greedText: {fileID: 858132648}
+  luckText: {fileID: 135257864}
+  criticalChanceText: {fileID: 891613752}
+  criticalDamageText: {fileID: 565829286}
+  pierceText: {fileID: 1218788743}
+  lifestealText: {fileID: 963330653}
 --- !u!1 &1991822924
 GameObject:
   m_ObjectHideFlags: 0
