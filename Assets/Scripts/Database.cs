@@ -12,36 +12,6 @@ public class Database : MonoBehaviour
 }
 
 [System.Serializable]
-public class WeaponStats
-{
-    public int level;
-    public float damage;
-    public float projectileSpeed;
-    public float cooldown;
-    public float area;
-    public float duration;
-    public float amount;
-    public float criticalChance;
-    public float criticalDamage;
-    public int pierce;
-    public WeaponStats Clone()
-    {
-        return new WeaponStats
-        {
-            level = this.level,
-            damage = this.damage,
-            projectileSpeed = this.projectileSpeed,
-            cooldown = this.cooldown,
-            area = this.area,
-            duration = this.duration,
-            amount = this.amount,
-            criticalChance = this.criticalChance,
-            criticalDamage = this.criticalDamage,
-            pierce = this.pierce
-        };
-    }
-}
-[System.Serializable]
 public class Passive
 {
     public PassiveData data;

@@ -8,25 +8,25 @@ public class MenuManager : MonoBehaviour
     [Header("Animation Settings")]
     public float enterDuration = 1f;
     public float exitDuration = 1f;
-    public float entryDelay = 1f; // New global delay variable
+    public float entryDelay = 1f;
     public Ease easeIn = Ease.InQuint;
     public Ease easeOut = Ease.OutQuint;
 
     [Header("Menu References")]
     public RectTransform title;
     public RectTransform startMenu;
-    public RectTransform loadingScreen;
+    public RectTransform loadingScreen; 
 
     [Header("Position Offsets")]
-    public Vector2 screenOffset = new Vector2(320, 180);
+    public Vector2 screenOffset = new(320, 180);
 
+    public CanvasGroup globalCanvasGroup;
     public void Start()
     {
         Sequence s = DOTween.Sequence();
         s.Append(Exit(loadingScreen, UIDirection.Top));
-        // We can now pass entryDelay here or use SetDelay() on the tween
-        s.Append(Enter(title, UIDirection.Top, entryDelay));
-        s.Append(Enter(startMenu, UIDirection.Left, entryDelay));
+        s.Append(Enter(title, UIDirection.Top));
+        s.Append(Enter(startMenu, UIDirection.Left));
     }
 
     public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom, entryDelay);

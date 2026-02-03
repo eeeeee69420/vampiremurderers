@@ -13,16 +13,11 @@ MonoBehaviour:
   m_Name: Monk
   m_EditorClassIdentifier: 
   characterName: Monk
-  icon: {fileID: 0}
-  description: pee
+  icon: {fileID: -4333720463083865623, guid: 0e0f3a4d35c90964099284a6d5bcbcf4, type: 3}
+  description: something something shield blah blah blah bleh bleh bleh blue blue
+    blue
   weaponData: {fileID: 11400000, guid: 66e1388be65419c4a8809b7f7a9d39d0, type: 2}
-  abilityData:
-    name: Zen Aura
-    icon: {fileID: 6157748173069639754, guid: d8cc664bec5445f44a99a1e06a7a2fa0, type: 3}
-    duration: 15
-    cooldown: 20
-    statusConditions: []
-    tempWeapons: []
+  abilityData: {fileID: 11400000, guid: cdd48226ab7341b478de4d616f60efe0, type: 2}
   stats:
     hpmax: 100
     hpregen: 0

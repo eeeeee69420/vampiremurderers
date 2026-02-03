@@ -39,7 +39,10 @@ MonoBehaviour:
   - statIncreases:
     - stat: 10
       amount: 1
+  displayName: Bow
   icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
+  description: Shoots arrows at the nearest enemy, dealing medium damage and knocking
+    them back. Good for defense.
   weaponBehavior: 1
   targetting: 2
   statusConditions:
@@ -49,3 +52,7 @@ MonoBehaviour:
   projectileFiringType: 1
   radius: 0
   amountDelay: 0.1
+  amountAngle: 0
+  projectileSpreadType: 0
+  spreadAmount: 0
+  spreadAngle: 0

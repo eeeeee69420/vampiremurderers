@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   characterName: Knight
-  icon: {fileID: 0}
-  description: pee
-  weaponData: {fileID: 11400000, guid: c3facb452a72f1a48a511dc49ff75811, type: 2}
+  icon: {fileID: -1937880378, guid: 615d43232d043eb45a6684f82d904256, type: 3}
+  description: so uhhh the knight right uhhh the knight he uhhh charges and then
+    he uhhh and he hits everything and uhh
+  weaponData: {fileID: 11400000, guid: c69decc29de57434cab6c03025405808, type: 2}
   abilityData: {fileID: 11400000, guid: 6e41dfcdd0d78ff48bb70884b13d8c48, type: 2}
   stats:
     hpmax: 100

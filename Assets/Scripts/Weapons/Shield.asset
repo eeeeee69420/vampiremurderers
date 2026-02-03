@@ -33,7 +33,9 @@ MonoBehaviour:
     pierce: 0
     lifesteal: 0
   LevelStats: []
+  displayName: Shield
   icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
+  description: Follows your movement, knocking back enemies and destroying projectiles.
   weaponBehavior: 0
   targetting: 0
   statusConditions:
@@ -43,3 +45,7 @@ MonoBehaviour:
   projectileFiringType: 0
   radius: 0.6
   amountDelay: 0
+  amountAngle: 0
+  projectileSpreadType: 0
+  spreadAmount: 0
+  spreadAngle: 0

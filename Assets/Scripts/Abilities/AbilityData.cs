@@ -6,6 +6,7 @@ public class AbilityData : ScriptableObject
 {
     public string displayName;
     public Sprite icon;
+    public string description;
     public float duration;
     public float cooldown;
     public List<StatusCondition> statusConditions;

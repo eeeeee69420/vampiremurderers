@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a4fed627f22a6e4ab5b453c970dac1a, type: 3}
-  m_Name: CHARGE!
+  m_Name: Zen Aura
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
-  displayName: Charge
-  icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
-  description: Charge ahead, ramming through enemies in your path and clearing the
-    way.
+  displayName: Zen Aura
+  icon: {fileID: 6157748173069639754, guid: d8cc664bec5445f44a99a1e06a7a2fa0, type: 3}
+  description: tbd
   duration: 10
   cooldown: 20
-  statusConditions:
-  - {fileID: 11400000, guid: cc4756bedfa42234eb794c3f861ffafa, type: 2}
-  tempWeapons:
-  - {fileID: 11400000, guid: 3ddb8985371017047a53ff388e704c9a, type: 2}
-  abilityEffects: 00000000
+  statusConditions: []
+  tempWeapons: []
+  abilityEffects: 

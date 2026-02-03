@@ -7,7 +7,9 @@ public class WeaponData : ScriptableObject
 {
     public CharacterStats baseStats;
     public List<LevelStatIncrease> LevelStats;
+    public string displayName;
     public Sprite icon;
+    public string description;
     public WeaponBehavior weaponBehavior;
     public TargettingType targetting;
     public List<StatusCondition> statusConditions;
