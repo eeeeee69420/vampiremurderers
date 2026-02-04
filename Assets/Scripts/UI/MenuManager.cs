@@ -15,20 +15,28 @@ public class MenuManager : MonoBehaviour
     [Header("Menu References")]
     public RectTransform title;
     public RectTransform startMenu;
-    public RectTransform loadingScreen; 
+    public RectTransform loadingScreen;
 
     [Header("Position Offsets")]
     public Vector2 screenOffset = new(320, 180);
 
+    [Header("Raycast Control")]
     public CanvasGroup globalCanvasGroup;
+
     public void Start()
     {
         Sequence s = DOTween.Sequence();
+
+        s.OnStart(() => SetRaycasts(false));
+
         s.Append(Exit(loadingScreen, UIDirection.Top));
         s.Append(Enter(title, UIDirection.Top));
         s.Append(Enter(startMenu, UIDirection.Left));
+
+        s.OnComplete(() => SetRaycasts(true));
     }
 
+    // --- Original Helper Methods ---
     public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom, entryDelay);
     public void OpenFromTop(RectTransform menu) => Enter(menu, UIDirection.Top, entryDelay);
     public void OpenFromLeft(RectTransform menu) => Enter(menu, UIDirection.Left, entryDelay);
@@ -48,15 +56,28 @@ public class MenuManager : MonoBehaviour
 
         return menu.DOAnchorPos(Vector2.zero, enterDuration)
             .SetEase(easeOut)
-            .SetDelay(delay);
+            .SetDelay(delay)
+            .OnStart(() => SetRaycasts(false))
+            .OnComplete(() => SetRaycasts(true));
     }
 
     public Tween Exit(RectTransform menu, UIDirection to)
     {
         if (menu == null) return null;
+
         return menu.DOAnchorPos(GetPosForDirection(to), exitDuration)
             .SetEase(easeIn)
-            .OnComplete(() => menu.gameObject.SetActive(false));
+            .OnStart(() => SetRaycasts(false))
+            .OnComplete(() =>
+            {
+                menu.gameObject.SetActive(false);
+                SetRaycasts(true);
+            });
+    }
+
+    private void SetRaycasts(bool canInteract)
+    {
+        globalCanvasGroup.blocksRaycasts = canInteract;
     }
 
     private Vector2 GetPosForDirection(UIDirection dir)

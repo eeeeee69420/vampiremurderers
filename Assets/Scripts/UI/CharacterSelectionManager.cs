@@ -81,18 +81,19 @@ public class CharacterSelectionManager : MonoBehaviour
         UpdateStatRow(armorText, stats.armor, 0, true);
 
         // Movement & Utility
-        UpdateStatRow(moveSpeedText, stats.moveSpeed, 3f, true);
+        UpdateStatRow(moveSpeedText, stats.moveSpeed, 1.5f, true);
         UpdateStatRow(luckText, stats.luck, 0f, true, "P0");
         UpdateStatRow(growthText, stats.growth, 0f, true, "P0");
         UpdateStatRow(greedText, stats.greed, 0f, true, "P0");
+        UpdateStatRow(revivesText, stats.revives, 0f, true, "N0");
 
         // Offense
-        UpdateStatRow(damageText, stats.damage, 0f, true);
+        UpdateStatRow(damageText, stats.damage, 0f, true, "P0");
         UpdateStatRow(areaText, stats.area, 0f, true, "P0");
-        UpdateStatRow(projectileSpeedText, stats.projectileSpeed, 0f, true);
-        UpdateStatRow(durationText, stats.duration, 0f, true, "F1", "s");
-        UpdateStatRow(amountText, stats.amount, 0, true);
-        UpdateStatRow(pierceText, stats.pierce, 0, true);
+        UpdateStatRow(projectileSpeedText, stats.projectileSpeed, 0f, true, "P0");
+        UpdateStatRow(durationText, stats.duration, 0f, true, "P0");
+        UpdateStatRow(amountText, stats.amount, 0, true, "N0");
+        UpdateStatRow(pierceText, stats.pierce, 0, true, "N0");
 
         // Criticals
         UpdateStatRow(criticalChanceText, stats.criticalChance, 0.15f, true, "P0");
@@ -100,8 +101,8 @@ public class CharacterSelectionManager : MonoBehaviour
         UpdateStatRow(lifestealText, stats.lifesteal, 0f, true, "P0");
 
         // Cooldowns (Lower is better!)
-        UpdateStatRow(cooldownText, stats.cooldown, 0f, false, "P0");
-        UpdateStatRow(abilityCooldownText, stats.abilityCooldown, 0f, false, "P0");
+        UpdateStatRow(cooldownText, stats.cooldown, 0f, true, "P0");
+        UpdateStatRow(abilityCooldownText, stats.abilityCooldown, 0f, true, "P0");
 
         if (!isPanelVisible)
         {

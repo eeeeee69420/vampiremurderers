@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343f59698af21304f92d955b9ac58523, type: 3}
+  m_Name: Knight 1
+  m_EditorClassIdentifier: 
+  characterName: Test
+  icon: {fileID: -1937880378, guid: 615d43232d043eb45a6684f82d904256, type: 3}
+  description: so uhhh the knight right uhhh the knight he uhhh charges and then
+    he uhhh and he hits everything and uhh
+  weaponData: {fileID: 11400000, guid: c69decc29de57434cab6c03025405808, type: 2}
+  abilityData: {fileID: 11400000, guid: 6e41dfcdd0d78ff48bb70884b13d8c48, type: 2}
+  stats:
+    hpmax: 150
+    hpregen: 0.5
+    armor: 10
+    moveSpeed: 2
+    damage: 0.1
+    cooldown: 0.1
+    abilityCooldown: 0.1
+    area: 0.1
+    duration: 0.1
+    projectileSpeed: 0.1
+    amount: 1
+    growth: 0.1
+    revives: 1
+    greed: 0.1
+    luck: 0.1
+    criticalChance: 0.2
+    criticalDamage: 2
+    pierce: 1
+    lifesteal: 0.1
+  animatorController: {fileID: 9100000, guid: a15d947b52c5cdd4190b47535061f11e, type: 2}
