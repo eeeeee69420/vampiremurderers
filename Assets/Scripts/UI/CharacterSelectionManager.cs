@@ -114,7 +114,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public void OnMenuClose()
     {
         descriptionPanel.DOAnchorPos(new Vector2(480, 0), transitionDuration).SetEase(easeOut).SetDelay(1);
-        descriptionPanel.DOAnchorPos(new Vector2(0, 0), transitionDuration).SetEase(easeOut).SetDelay(1);
+        statMenu.DOAnchorPos(new Vector2(0, 0), transitionDuration).SetEase(easeOut).SetDelay(1);
     }
     private void UpdateStatRow(TextMeshProUGUI text, float current, float baseVal, bool higherIsBetter, string format = "F1", string suffix = "")
     {
