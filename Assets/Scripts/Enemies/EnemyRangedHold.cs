@@ -8,9 +8,11 @@ public class EnemyRangedHold : EnemyBase
     public float range;
     public float preferredDistance;
     public float preferredDistanceRange = .5f;
-    public new void Start()
+    public override void Start()
     {
         base.Start();
+        range = enemyData.stats.projectileSpeed * enemyData.stats.duration;
+        preferredDistance = range / 2;
     }
     public override Vector2 Track()
     {
@@ -32,10 +34,5 @@ public class EnemyRangedHold : EnemyBase
         else
             direction = Vector2.zero;
         return direction;
-    }
-    public override void Initialize()
-    {
-        range = enemyData.stats.projectileSpeed * enemyData.stats.duration;
-        preferredDistance = range / 2;
     }
 }

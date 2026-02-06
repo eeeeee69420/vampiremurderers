@@ -7,10 +7,10 @@ public class EnemyData : ScriptableObject
 {
     public string enemyName;
 
-    public GameObject projectile;
     public CharacterStats stats;
     public EnemyBehavior behavior;
     public RuntimeAnimatorController animationController;
     public ElementType element;
     public GameObject statusEffectPrefab;
+    public List<WeaponData> weapons;
 }

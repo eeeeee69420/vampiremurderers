@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public float hp;
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public CharacterStats buffs = new();
-    [HideInInspector] public List<Weapon> weapons;
+    [HideInInspector] public List<Weapon> weapons = new();
     [HideInInspector] public float mass;
 
     [HideInInspector] public List<StatusCondition> statusConditions = new();
@@ -28,7 +29,7 @@ public class CharacterController : MonoBehaviour
 
     [HideInInspector] public Vector2 direction;
 
-    public void Start()
+    public virtual void Start()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -36,6 +37,7 @@ public class CharacterController : MonoBehaviour
         RefreshStats();
         mass = body.mass;
     }
+
     public virtual void FixedUpdate()
     {
         if (!dead && !statusStates.Contains(StatusStates.Immobilized))
@@ -242,5 +244,23 @@ public class CharacterController : MonoBehaviour
     public virtual void RefreshStatusDisplay(StatusCondition statusCondition, bool beingRemoved)
     {
 
+    }
+    public virtual void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
+    {
+        Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
+        Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
+        weapons.Add(newWeapon);
+        newWeapon.weaponData = weaponData;
+        newWeapon.Initiate();
+        newWeapon.enemyLayer = LayerMask.GetMask("Player");
+        if (tempWeapon)
+            newWeapon.tempWeapon = true;
+    }
+    public void RemoveWeapon(Weapon weapon)
+    {
+        weapons.Remove(weapon);
+        weapon.StopAllCoroutines();
+        weapon.enabled = false;
+        DestroyImmediate(weapon);
     }
 }

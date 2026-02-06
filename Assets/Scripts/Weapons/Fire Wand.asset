@@ -39,7 +39,9 @@ MonoBehaviour:
   - statIncreases:
     - stat: 10
       amount: 1
-  icon: {fileID: -7887267367896569301, guid: abb0e67e24f33ce449f09060ecdc6eff, type: 3}
+  displayName: 
+  icon: {fileID: -1809702614, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+  description: 
   weaponBehavior: 1
   targetting: 1
   statusConditions:

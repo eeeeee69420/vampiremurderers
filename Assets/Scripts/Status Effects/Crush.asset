@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crush
   m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
   displayName: Crush
-  icon: {fileID: -3174845436937608060, guid: 678a61b60df99664e8b312454de717d7, type: 3}
+  icon: {fileID: 4488759071719284159, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
   hidden: 0
   states: 
   damageOverTimes:

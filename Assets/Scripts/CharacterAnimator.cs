@@ -6,7 +6,7 @@ public class CharacterAnimator : MonoBehaviour
 {
     [HideInInspector] public Animator animator;
     [HideInInspector] public CharacterController characterController;
-    void Start()
+    void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         characterController = GetComponent<PlayerController>();

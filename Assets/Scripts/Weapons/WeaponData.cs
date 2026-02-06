@@ -22,4 +22,5 @@ public class WeaponData : ScriptableObject
     public ProjectileFiringType projectileSpreadType;
     public int spreadAmount;
     public float spreadAngle;
+    public bool triggersAttackAnim;
 }

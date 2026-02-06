@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
   displayName: Fire
-  icon: {fileID: 4406821860110552624, guid: ff56153dbc6007d4895d616361e6f669, type: 3}
+  icon: {fileID: -763687546035627933, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
   hidden: 0
   states: 
   damageOverTimes:

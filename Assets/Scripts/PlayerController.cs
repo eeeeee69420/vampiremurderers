@@ -24,7 +24,7 @@ public class PlayerController : CharacterController
     public float xpScaling;
     [HideInInspector] public int level;
 
-    public new void Start()
+    public override void Start()
     {
         base.Start();
         characterAnimator.animator.runtimeAnimatorController = characterData.animatorController;
@@ -47,7 +47,7 @@ public class PlayerController : CharacterController
             characterAnimator.animator.SetBool("isMoving", false);
         return direction;
     }
-    public void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
+    public override void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
     {
         bool isNewWeapon = true;
         for (int i = 0; i < weapons.Count; i++)
@@ -73,13 +73,6 @@ public class PlayerController : CharacterController
                 newWeapon.tempWeapon = true;
         }
         UpdateWeapons();
-    }
-    public void RemoveWeapon(Weapon weapon)
-    {
-        weapons.Remove(weapon);
-        weapon.StopAllCoroutines();
-        weapon.enabled = false;
-        DestroyImmediate(weapon);
     }
     public void AddPassive(PassiveData passiveData)
     {
@@ -136,7 +129,6 @@ public class PlayerController : CharacterController
         base.TakeDamage(damage, element, ignoreArmor);
         GameController.Instance.HitScreenAnim();
         GameController.Instance.UpdateHPBar();
-        GameController.Instance.ShowDamage(damage, element, transform.position);
     }
     public void UpdatePassives()
     {

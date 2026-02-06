@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CHARGE!
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   displayName: Charge
-  icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
+  icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
   description: Charge ahead, ramming through enemies in your path and clearing the
     way.
   duration: 10

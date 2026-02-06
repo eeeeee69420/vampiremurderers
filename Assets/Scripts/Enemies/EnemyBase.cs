@@ -16,7 +16,7 @@ public class EnemyBase : CharacterController
     [HideInInspector] public float attackAnimationDuration;
     public EnemyData enemyData;
     [HideInInspector] public float freezeTimer;
-    public new void Start()
+    public override void Start()
     {
         base.Start();
         characterAnimator.animator.runtimeAnimatorController = enemyData.animationController;
@@ -30,6 +30,10 @@ public class EnemyBase : CharacterController
             {
                 attackAnimationDuration = clip.length / 2;
             }
+        }
+        foreach (var weapon in enemyData.weapons)
+        {
+            AddWeapon(weapon);
         }
     }
     public override Vector2 Track()
@@ -46,9 +50,6 @@ public class EnemyBase : CharacterController
         }
         targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().body.position;
         return (targetPosition - body.position).normalized;
-    }
-    public virtual void Initialize()
-    {
     }
     public override void RefreshStats()
     {

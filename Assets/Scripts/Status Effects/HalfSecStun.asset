@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: HalfSecStun
   m_EditorClassIdentifier: Assembly-CSharp::StatusCondition
   displayName: Stun
-  icon: {fileID: 1771474605852370435, guid: 514396c7f37dd6a4ebc78b524eefbd58, type: 3}
+  icon: {fileID: 3247737580741139873, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
   hidden: 0
   states: 00000000
   damageOverTimes: []
   statEffectors: []
   remainingDuration: 0
   duration: 0.5
-  delay: 0
-  delayUsesDuration: 0
   maxStacks: 1
   sequentialEffect: {fileID: 0}
   owner: {fileID: 0}

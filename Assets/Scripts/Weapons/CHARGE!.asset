@@ -33,7 +33,9 @@ MonoBehaviour:
     pierce: 0
     lifesteal: 0
   LevelStats: []
-  icon: {fileID: -2661332006269241746, guid: fd07ed33e5fd4b54da4a2ab7d5f57985, type: 3}
+  displayName: 
+  icon: {fileID: -7667355298066314445, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+  description: 
   weaponBehavior: 3
   targetting: 0
   statusConditions:
@@ -41,3 +43,9 @@ MonoBehaviour:
   element: 0
   projectile: {fileID: 0}
   projectileFiringType: 0
+  radius: 0
+  amountDelay: 0
+  amountAngle: 0
+  projectileSpreadType: 0
+  spreadAmount: 0
+  spreadAngle: 0

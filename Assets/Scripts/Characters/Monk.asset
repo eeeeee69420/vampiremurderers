@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Monk
   m_EditorClassIdentifier: 
   characterName: Monk
-  icon: {fileID: -4333720463083865623, guid: 0e0f3a4d35c90964099284a6d5bcbcf4, type: 3}
+  icon: {fileID: -2120177008, guid: 4f4ab33e07f89e645a14577c392a95cf, type: 3}
   description: something something shield blah blah blah bleh bleh bleh blue blue
     blue
   weaponData: {fileID: 11400000, guid: 66e1388be65419c4a8809b7f7a9d39d0, type: 2}
