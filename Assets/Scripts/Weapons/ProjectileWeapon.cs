@@ -14,6 +14,10 @@ public class ProjectileWeapon : Weapon
 
     protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
+        if (weaponData.triggersAttackAnim)
+        {
+            controller.characterAnimator.PlayAnimation("Attack");
+        }
         FindTarget();
         remainingCooldown += stats.cooldown;
         if (target != null || weaponData.targetting == TargettingType.None)

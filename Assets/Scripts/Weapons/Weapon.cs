@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public Collider2D target;
     [HideInInspector] public Collider2D[] targets;
     public LayerMask enemyLayer;
-    public List<GameObject> hitObjects = new();
+    [HideInInspector] public List<GameObject> hitObjects = new();
 
 
     public virtual void Initiate()
@@ -48,8 +48,8 @@ public class Weapon : MonoBehaviour
 
         for (int i = targetList.Count - 1; i >= 0; i--)
         {
-            if (!targetList[i].TryGetComponent<EnemyBase>(out var enemy))
-                Debug.LogWarning("Found collider without EnemyBase: " + targetList[i].name);
+            if (!targetList[i].TryGetComponent<CharacterController>(out var enemy))
+                Debug.LogWarning("Found collider without CharacterController: " + targetList[i].name);
             if (enemy != null && (enemy.dead || enemy.statusStates.Contains(StatusStates.Untargetable)))
                 targetList.RemoveAt(i);
         }
@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
                 for (int i = 0; i < targets.Length; i++)
                 {
                     if (targets[i] == null) continue;
-                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<EnemyBase>().transform.position);
+                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<CharacterController>().transform.position);
                     if (dist < nearestDist)
                     {
                         nearestDist = dist;
@@ -76,7 +76,7 @@ public class Weapon : MonoBehaviour
                 for (int i = 0; i < targets.Length; i++)
                 {
                     if (targets[i] == null) continue;
-                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<EnemyBase>().transform.position);
+                    float dist = Vector2.Distance(transform.position, targets[i].GetComponent<CharacterController>().transform.position);
                     if (dist > farthestDist)
                     {
                         farthestDist = dist;
@@ -89,11 +89,11 @@ public class Weapon : MonoBehaviour
                 target = targets[targetIndex];
                 break;
             case TargettingType.Weakest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<CharacterController>().hp).ToArray();
                 target = targets[0];
                 break;
             case TargettingType.Strongest:
-                targets = targets.OrderBy(collider => collider.GetComponent<EnemyBase>().hp).ToArray();
+                targets = targets.OrderBy(collider => collider.GetComponent<CharacterController>().hp).ToArray();
                 target = targets[0];
                 break;
         }

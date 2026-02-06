@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: AxeZombie
   m_EditorClassIdentifier: 
   enemyName: Axe Zombie
-  projectile: {fileID: 7550324247132563378, guid: 0eee5ce60a1739543b17d03e9efaaebc, type: 3}
   stats:
     hpmax: 100
     hpregen: 0
@@ -38,3 +37,5 @@ MonoBehaviour:
   animationController: {fileID: 22100000, guid: 626b73318e10e4d44b4724e6bbdb8dcd, type: 2}
   element: 0
   statusEffectPrefab: {fileID: 5713583185037948662, guid: 639d623d30cd4494aab35f35f8cb2146, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: b4c9224988649e04ebc5379c2b0a58c4, type: 2}
