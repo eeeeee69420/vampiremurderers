@@ -112,6 +112,10 @@ public class ProjectileController : MonoBehaviour
             StartCoroutine(MarkUnhit(collidedObject));
             Pierce();
         }
+        else if (data.destroyEnemyProjectiles && collidedObject.layer == 9 && collidedObject.GetComponent<ProjectileController>().isPlayer != isPlayer)
+        {
+            collidedObject.GetComponent<ProjectileController>().Despawn();
+        }
     }
     protected void OnCollisionEnter2D(Collision2D collision)
     {
@@ -123,7 +127,7 @@ public class ProjectileController : MonoBehaviour
             StartCoroutine(MarkUnhit(collidedObject));
             Pierce();
         }
-        else if (collidedObject.layer == 9 && collidedObject.GetComponent<ProjectileController>().isPlayer != isPlayer)
+        else if (data.destroyEnemyProjectiles && collidedObject.layer == 9 && collidedObject.GetComponent<ProjectileController>().isPlayer != isPlayer)
         {
             collidedObject.GetComponent<ProjectileController>().Despawn();
         }

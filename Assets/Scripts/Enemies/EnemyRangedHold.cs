@@ -6,13 +6,11 @@ using UnityEngine;
 public class EnemyRangedHold : EnemyBase
 {
     public float range;
-    public float preferredDistance;
     public float preferredDistanceRange = .5f;
     public override void Start()
     {
         base.Start();
-        range = enemyData.stats.projectileSpeed * enemyData.stats.duration;
-        preferredDistance = range / 2;
+
     }
     public override Vector2 Track()
     {
@@ -28,9 +26,9 @@ public class EnemyRangedHold : EnemyBase
         }
         targetPosition = GameController.Instance.Players[playerTarget].GetComponent<PlayerController>().body.position;
         Vector2 direction = (targetPosition - body.position).normalized;
-        if (closestDistance < preferredDistance - preferredDistanceRange)
+        if (closestDistance < enemyData.preferredDistance - preferredDistanceRange)
             direction *= -1f;
-        else if (closestDistance > preferredDistance + preferredDistanceRange) { }
+        else if (closestDistance > enemyData.preferredDistance + preferredDistanceRange) { }
         else
             direction = Vector2.zero;
         return direction;

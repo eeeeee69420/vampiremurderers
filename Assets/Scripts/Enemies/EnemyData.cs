@@ -13,4 +13,5 @@ public class EnemyData : ScriptableObject
     public ElementType element;
     public GameObject statusEffectPrefab;
     public List<WeaponData> weapons;
+    public float preferredDistance;
 }

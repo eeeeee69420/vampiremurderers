@@ -24,8 +24,8 @@ public class CollisionWeapon : Weapon
         if (weaponData.triggersAttackAnim)
         {
             controller.characterAnimator.PlayAnimation("Attack");
+            yield return new WaitForSeconds(attackAnimDuration);
         }
-        yield return new WaitForSeconds(stats.cooldown);
         if (hitEnemy != null)
         {
             IWeaponHit.HitEnemy(
@@ -39,7 +39,7 @@ public class CollisionWeapon : Weapon
                 transform.position
             );
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(stats.cooldown);
 
         if (hitEnemy != null) hitObjects.Remove(hitEnemy);
         else hitObjects.RemoveAll(item => item == null);

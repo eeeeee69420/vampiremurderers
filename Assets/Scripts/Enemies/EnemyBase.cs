@@ -31,9 +31,11 @@ public class EnemyBase : CharacterController
                 attackAnimationDuration = clip.length / 2;
             }
         }
-        foreach (var weapon in enemyData.weapons)
+        for (int i = 0; i < enemyData.weapons.Count; i++)
         {
-            AddWeapon(weapon);
+            AddWeapon(enemyData.weapons[i]);
+            if (enemyData.weapons[i].triggersAttackAnim)
+                weapons[i].attackAnimDuration = attackAnimationDuration;
         }
     }
     public override Vector2 Track()

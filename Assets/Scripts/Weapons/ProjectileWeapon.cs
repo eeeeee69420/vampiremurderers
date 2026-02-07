@@ -14,14 +14,17 @@ public class ProjectileWeapon : Weapon
 
     protected override IEnumerator ActivateWeapon(GameObject hitEnemy = null)
     {
-        if (weaponData.triggersAttackAnim)
-        {
-            controller.characterAnimator.PlayAnimation("Attack");
-        }
         FindTarget();
         remainingCooldown += stats.cooldown;
+
+
         if (target != null || weaponData.targetting == TargettingType.None)
         {
+            if (weaponData.triggersAttackAnim)
+            {
+                controller.characterAnimator.PlayAnimation("Attack");
+                yield return new WaitForSeconds(attackAnimDuration);
+            }
             for (int i = 0; i < stats.amount; i++)
             {
                 float baseAngle = 90f;

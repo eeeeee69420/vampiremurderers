@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public Collider2D[] targets;
     public LayerMask enemyLayer;
     [HideInInspector] public List<GameObject> hitObjects = new();
+    [HideInInspector] public float attackAnimDuration;
 
 
     public virtual void Initiate()

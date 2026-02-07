@@ -24,4 +24,5 @@ public class ProjectileData : ScriptableObject
     public ProjectileMovement movement;
     public float acceleration;
     public float turnSpeed;
+    public bool destroyEnemyProjectiles;
 }
