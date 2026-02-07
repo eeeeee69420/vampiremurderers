@@ -1,20 +1,21 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum UIDirection { Left, Right, Top, Bottom }
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance { get; private set; }
+
     [Header("Animation Settings")]
-    public float enterDuration = 1f;
-    public float exitDuration = 1f;
-    public float entryDelay = 1f;
+    public float enterDuration = 1.25f;
+    public float exitDuration = .75f;
+    public float entryDelay = .75f;
     public Ease easeIn = Ease.InQuint;
     public Ease easeOut = Ease.OutQuint;
 
     [Header("Menu References")]
-    public RectTransform title;
-    public RectTransform startMenu;
     public RectTransform loadingScreen;
 
     [Header("Position Offsets")]
@@ -22,21 +23,20 @@ public class MenuManager : MonoBehaviour
 
     [Header("Raycast Control")]
     public CanvasGroup globalCanvasGroup;
+    public bool isPaused = false;
 
-    public void Start()
+    void Awake()
     {
-        Sequence s = DOTween.Sequence();
-
-        s.OnStart(() => SetRaycasts(false));
-
-        s.Append(Exit(loadingScreen, UIDirection.Top));
-        s.Append(Enter(title, UIDirection.Top));
-        s.Append(Enter(startMenu, UIDirection.Left));
-
-        s.OnComplete(() => SetRaycasts(true));
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // --- Original Helper Methods ---
     public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom, entryDelay);
     public void OpenFromTop(RectTransform menu) => Enter(menu, UIDirection.Top, entryDelay);
     public void OpenFromLeft(RectTransform menu) => Enter(menu, UIDirection.Left, entryDelay);
@@ -75,12 +75,12 @@ public class MenuManager : MonoBehaviour
             });
     }
 
-    private void SetRaycasts(bool canInteract)
+    public void SetRaycasts(bool canInteract)
     {
         globalCanvasGroup.blocksRaycasts = canInteract;
     }
 
-    private Vector2 GetPosForDirection(UIDirection dir)
+    public Vector2 GetPosForDirection(UIDirection dir)
     {
         return dir switch
         {
@@ -90,5 +90,16 @@ public class MenuManager : MonoBehaviour
             UIDirection.Bottom => new Vector2(0, -screenOffset.y),
             _ => Vector2.zero
         };
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }

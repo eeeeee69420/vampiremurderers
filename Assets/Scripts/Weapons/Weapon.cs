@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public CharacterStats stats = new();
     [HideInInspector] public int level;
     [HideInInspector] public bool tempWeapon = false;
+    [HideInInspector] public bool disabled = false;
 
     [HideInInspector] public CharacterController controller;
     [HideInInspector] public Type StatType = typeof(CharacterStats);
@@ -33,7 +34,7 @@ public class Weapon : MonoBehaviour
     public virtual void FixedUpdate()
     {
         remainingCooldown -= Time.fixedDeltaTime;
-        if (remainingCooldown <= 0)
+        if (remainingCooldown <= 0 && !disabled)
             StartCoroutine(ActivateWeapon());
     }
     protected virtual IEnumerator ActivateWeapon(GameObject hitEnemy = null)

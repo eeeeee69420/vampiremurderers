@@ -138,6 +138,8 @@ public class CharacterController : MonoBehaviour
         dead = true;
         hp = 0;
         characterAnimator.PlayAnimation("Death");
+        foreach (var weapon in weapons)
+            weapon.disabled = true;
         yield return new WaitForSeconds(2f);
         if (gameObject.layer == 6)
             SceneManager.LoadScene("TestLevel");
@@ -245,7 +247,7 @@ public class CharacterController : MonoBehaviour
     {
 
     }
-    public virtual void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
+    public virtual void AddWeapon(WeaponData weaponData, bool tempWeapon = false, bool disabled = false)
     {
         Type behaviorType = WeaponBehaviors.behaviorMap[weaponData.weaponBehavior];
         Weapon newWeapon = (Weapon)gameObject.AddComponent(behaviorType);
@@ -255,6 +257,8 @@ public class CharacterController : MonoBehaviour
         newWeapon.enemyLayer = LayerMask.GetMask("Player");
         if (tempWeapon)
             newWeapon.tempWeapon = true;
+        if (disabled)
+            newWeapon.disabled = true;
     }
     public void RemoveWeapon(Weapon weapon)
     {

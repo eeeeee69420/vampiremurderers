@@ -10,7 +10,7 @@ public class CollisionWeapon : Weapon
     {
         if (((1 << collision.gameObject.layer) & enemyLayer.value) != 0)
         {
-            if (!hitObjects.Contains(collision.gameObject))
+            if (!hitObjects.Contains(collision.gameObject) && !disabled)
             {
                 hitObjects.Add(collision.gameObject);
                 StartCoroutine(ActivateWeapon(collision.gameObject));

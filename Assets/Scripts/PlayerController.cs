@@ -47,7 +47,7 @@ public class PlayerController : CharacterController
             characterAnimator.animator.SetBool("isMoving", false);
         return direction;
     }
-    public override void AddWeapon(WeaponData weaponData, bool tempWeapon = false)
+    public override void AddWeapon(WeaponData weaponData, bool tempWeapon = false, bool disabled = false)
     {
         bool isNewWeapon = true;
         for (int i = 0; i < weapons.Count; i++)
@@ -71,6 +71,8 @@ public class PlayerController : CharacterController
             newWeapon.enemyLayer = LayerMask.GetMask("Enemy");
             if (tempWeapon)
                 newWeapon.tempWeapon = true;
+            if (disabled)
+                newWeapon.disabled = true;
         }
         UpdateWeapons();
     }
@@ -147,10 +149,10 @@ public class PlayerController : CharacterController
     public void PickUpItem(RewardContainer rewards)
     {
         AddXp(rewards.xpAmount);
-        if (rewards.weapon != null)
-            AddWeapon(rewards.weapon);
-        if (rewards.passive != null)
-            AddPassive(rewards.passive);
+        if (rewards.weapon != null || rewards.passive != null)
+        {
+            ((GameMenu)MenuManager.Instance).ItemPickup(this, rewards.weapon, rewards.passive);
+        }
     }
     public void AddXp(float xpAmount)
     {

@@ -14280,9 +14280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542fc4635a934e24b9b50d31d0955de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
-  enterDuration: 2
-  exitDuration: 1
-  entryDelay: 1
+  enterDuration: 1.25
+  exitDuration: 0.75
+  entryDelay: 0.75
   easeIn: 14
   easeOut: 15
   title: {fileID: 323256288}

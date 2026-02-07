@@ -20,7 +20,7 @@ public class PivotWeapon : ProjectileWeapon
         remainingCooldown -= Time.deltaTime;
         if (remainingCooldown < 0)
             remainingCooldown = 0;
-        if (remainingCooldown <= 0)
+        if (remainingCooldown <= 0 && !disabled)
         {
             StartCoroutine(ActivateWeapon());
         }

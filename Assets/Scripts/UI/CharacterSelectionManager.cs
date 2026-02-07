@@ -15,7 +15,6 @@ public class CharacterSelectionManager : MonoBehaviour
     public List<CharacterData> characters;
 
     [Header("Display UI")]
-    public RectTransform startButton;
     public RectTransform descriptionPanel;
     private bool isPanelVisible = false;
     public float transitionDuration;
