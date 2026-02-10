@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPassive", menuName = "Game/Passive")]
 public class PassiveData : ScriptableObject
 {
-    public string passiveName;
+    public string displayName;
     public Sprite icon;
 
     public StatType affectedStat;

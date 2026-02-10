@@ -230,7 +230,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 180}
-  m_SizeDelta: {x: 384, y: 180}
+  m_SizeDelta: {x: 480, y: 168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104687117
 MonoBehaviour:
@@ -768,14 +768,14 @@ MonoBehaviour:
   entryDelay: 0.75
   easeIn: 14
   easeOut: 15
-  loadingScreen: {fileID: 0}
+  loadingScreen: {fileID: 604142776}
   screenOffset: {x: 320, y: 180}
-  globalCanvasGroup: {fileID: 0}
+  globalCanvasGroup: {fileID: 806518745}
   isPaused: 0
-  itemMenu: {fileID: 0}
-  itemIcon: {fileID: 0}
-  itemName: {fileID: 0}
-  itemDescription: {fileID: 0}
+  itemMenu: {fileID: 104687116}
+  itemIcon: {fileID: 613955548}
+  itemName: {fileID: 169077002}
+  itemDescription: {fileID: 491402133}
   takeButton: {fileID: 0}
   passButton: {fileID: 0}
   levelUpMenu: {fileID: 0}
@@ -1715,9 +1715,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.055555556
+    width: 0.33333334
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 50
@@ -22871,10 +22871,10 @@ RectTransform:
   - {fileID: 491402132}
   m_Father: {fileID: 104687116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32}
-  m_SizeDelta: {x: 364, y: 96}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -58}
+  m_SizeDelta: {x: 460, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817700599
 MonoBehaviour:

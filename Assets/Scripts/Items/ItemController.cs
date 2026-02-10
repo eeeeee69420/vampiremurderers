@@ -60,7 +60,12 @@ public class ItemController : MonoBehaviour
     {
         if (collision.gameObject.layer == 6 && attracted && dist <= 0.2f)
         {
-            collision.GetComponent<PlayerController>().PickUpItem(rewardContainer);
+            PlayerController player = collision.GetComponent<PlayerController>();
+            player.AddXp(rewardContainer.xpAmount);
+            if (rewardContainer.weapon != null || rewardContainer.passive != null)
+            {
+                ((GameMenu)MenuManager.Instance).ItemPickup(player, rewardContainer.weapon, rewardContainer.passive);
+            }
             Destroy(gameObject);
         }
     }

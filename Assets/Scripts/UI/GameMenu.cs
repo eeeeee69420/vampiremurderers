@@ -37,9 +37,21 @@ public class GameMenu : MenuManager
             itemIcon.sprite = weapon.icon;
             itemName.text = weapon.displayName;
             itemDescription.text = GenerateWeaponDescription(player, weapon);
-            takeButton.onClick.RemoveAllListeners();
-            takeButton.onClick.AddListener();
         }
+        if (passive != null)
+        {
+            itemIcon.sprite = passive.icon;
+            itemName.text = passive.displayName;
+            itemDescription.text = GeneratePassiveDescription(player, passive);
+        }
+        takeButton.onClick.RemoveAllListeners();
+        takeButton.onClick.AddListener(() => player.PickUpItem(weapon, passive));
+        takeButton.onClick.AddListener(() => ExitToTop(itemMenu));
+        takeButton.onClick.AddListener(() => Resume());
+    }
+    public string GeneratePassiveDescription(PlayerController player, PassiveData passive)
+    {
+        return FormatStatLine(passive.affectedStat, passive.bonusPerLevel);
     }
     public string GenerateWeaponDescription(PlayerController player, WeaponData weapon)
     {

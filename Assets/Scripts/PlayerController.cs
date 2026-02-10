@@ -146,13 +146,10 @@ public class PlayerController : CharacterController
                 passiveIcon.color = Color.clear;
         }
     }
-    public void PickUpItem(RewardContainer rewards)
+    public void PickUpItem(WeaponData weapon = null, PassiveData passive = null)
     {
-        AddXp(rewards.xpAmount);
-        if (rewards.weapon != null || rewards.passive != null)
-        {
-            ((GameMenu)MenuManager.Instance).ItemPickup(this, rewards.weapon, rewards.passive);
-        }
+        if (weapon != null) { AddWeapon(weapon); }
+        if (passive != null) { AddPassive(passive);  }
     }
     public void AddXp(float xpAmount)
     {
