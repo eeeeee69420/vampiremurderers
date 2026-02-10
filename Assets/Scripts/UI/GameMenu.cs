@@ -36,35 +36,63 @@ public class GameMenu : MenuManager
         {
             itemIcon.sprite = weapon.icon;
             itemName.text = weapon.displayName;
-
+            itemDescription.text = GenerateWeaponDescription(player, weapon);
+            takeButton.onClick.RemoveAllListeners();
+            takeButton.onClick.AddListener();
         }
     }
     public string GenerateWeaponDescription(PlayerController player, WeaponData weapon)
     {
+        Weapon currentWeapon = player.weapons.Find(w => w.weaponData == weapon);
+
+        if (currentWeapon == null)
+        {
+            return weapon.description;
+        }
+        if (currentWeapon.level >= weapon.LevelStats.Count)
+        {
+            return "Max Level";
+        }
         string description = "";
-        bool found = false;
-        foreach (var playerWeapon in player.weapons)
+        var nextLevelData = weapon.LevelStats[currentWeapon.level];
+
+        foreach (var upgrade in nextLevelData.statIncreases)
         {
-            if (playerWeapon.weaponData == weapon)
-            {
-                found = true;
-                if (playerWeapon.level >= weapon.LevelStats.Count)
-                {
-                    description = "Max Level";
-                }
-                else
-                {
-                    foreach (var statIncrease in weapon.LevelStats[playerWeapon.level].statIncreases)
-                    {
-                        description += "";
-                    }
-                }
-            }
+            if (description != "") description += "\n";
+
+            description += FormatStatLine(upgrade.stat, upgrade.amount);
         }
-        if (!found)
-        {
-            description = weapon.description;
-        }
+
         return description;
+    }
+
+    private string FormatStatLine(StatType stat, float amount)
+    {
+        string trend = amount >= 0 ? "Increases" : "Decreases";
+        float absoluteAmount = Mathf.Abs(amount);
+
+        bool isPercentage = IsStatPercentage(stat);
+        string valueSuffix = isPercentage ? $"{(absoluteAmount * 100)}%" : $"{absoluteAmount}";
+
+        return $"{trend} {InsertSpaces(stat.ToString())} by {valueSuffix}";
+    }
+
+    private bool IsStatPercentage(StatType stat)
+    {
+        switch (stat)
+        {
+            case StatType.HpMax:
+            case StatType.Armor:
+            case StatType.Amount:
+            case StatType.Revives:
+            case StatType.Pierce:
+                return false;
+            default:
+                return true;
+        }
+    }
+    private string InsertSpaces(string text)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(text, "([a-z])([A-Z])", "$1 $2");
     }
 }
