@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 public class LobbyMenu : MenuManager
 {
     public RectTransform title;
-    public RectTransform startMenu;
 
-    public void Start()
+    void Start()
     {
-        Sequence s = DOTween.Sequence();
+        if (loadingScreen != null) Exit(loadingScreen, UIDirection.Top);
 
-        s.OnStart(() => SetRaycasts(false));
-
-        s.Append(Exit(loadingScreen, UIDirection.Top));
-        s.Append(Enter(title, UIDirection.Top));
-        s.Append(Enter(startMenu, UIDirection.Left));
-
-        s.OnComplete(() => SetRaycasts(true));
+        if (startMenu != null)
+        {
+            activeMenu = startMenu;
+            foreach (var part in activeMenu.parts)
+            {
+                Enter(part.rect, part.entryDirection, entryDelay);
+            }
+        }
     }
 }

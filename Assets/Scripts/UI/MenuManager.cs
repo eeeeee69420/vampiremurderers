@@ -1,51 +1,88 @@
+using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public enum UIDirection { Left, Right, Top, Bottom }
+
+[System.Serializable]
+public class MenuPart
+{
+    public RectTransform rect;
+    public UIDirection entryDirection;
+    public UIDirection exitDirection;
+}
+
+[System.Serializable]
+public class MenuState
+{
+    public string menuName;
+    public List<MenuPart> parts;
+}
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
 
-    [Header("Animation Settings")]
     public float enterDuration = 1.25f;
     public float exitDuration = .75f;
     public float entryDelay = .75f;
     public Ease easeIn = Ease.InQuint;
     public Ease easeOut = Ease.OutQuint;
 
-    [Header("Menu References")]
     public RectTransform loadingScreen;
 
-    [Header("Position Offsets")]
     public Vector2 screenOffset = new(320, 180);
 
-    [Header("Raycast Control")]
     public CanvasGroup globalCanvasGroup;
     public bool isPaused = false;
 
+    public Stack<MenuState> menuHistory = new();
+    public MenuState activeMenu;
+    public MenuState startMenu;
+
+
     void Awake()
     {
-        if (Instance == null)
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+
+    public void NavigateTo(MenuState nextMenu)
+    {
+        if (activeMenu != null)
         {
-            Instance = this;
+            menuHistory.Push(activeMenu);
+            foreach (var part in activeMenu.parts)
+            {
+                Exit(part.rect, part.exitDirection);
+            }
         }
-        else
+
+        activeMenu = nextMenu;
+
+        foreach (var part in activeMenu.parts)
         {
-            Destroy(gameObject);
+            Enter(part.rect, part.entryDirection, entryDelay);
         }
     }
 
-    public void OpenFromBottom(RectTransform menu) => Enter(menu, UIDirection.Bottom, entryDelay);
-    public void OpenFromTop(RectTransform menu) => Enter(menu, UIDirection.Top, entryDelay);
-    public void OpenFromLeft(RectTransform menu) => Enter(menu, UIDirection.Left, entryDelay);
-    public void OpenFromRight(RectTransform menu) => Enter(menu, UIDirection.Right, entryDelay);
+    public void GoBack()
+    {
+        if (menuHistory.Count == 0) return;
+        foreach (var part in activeMenu.parts)
+        {
+            Exit(part.rect, part.entryDirection);
+        }
 
-    public void ExitToBottom(RectTransform menu) => Exit(menu, UIDirection.Bottom);
-    public void ExitToTop(RectTransform menu) => Exit(menu, UIDirection.Top);
-    public void ExitToLeft(RectTransform menu) => Exit(menu, UIDirection.Left);
-    public void ExitToRight(RectTransform menu) => Exit(menu, UIDirection.Right);
+        activeMenu = menuHistory.Pop();
+        foreach (var part in activeMenu.parts)
+        {
+            Enter(part.rect, part.exitDirection, entryDelay);
+        }
+    }
+
 
     public Tween Enter(RectTransform menu, UIDirection from, float delay = 0f)
     {
@@ -57,6 +94,7 @@ public class MenuManager : MonoBehaviour
         return menu.DOAnchorPos(Vector2.zero, enterDuration)
             .SetEase(easeOut)
             .SetDelay(delay)
+            .SetUpdate(UpdateType.Late, true)
             .OnStart(() => SetRaycasts(false))
             .OnComplete(() => SetRaycasts(true));
     }
@@ -67,6 +105,7 @@ public class MenuManager : MonoBehaviour
 
         return menu.DOAnchorPos(GetPosForDirection(to), exitDuration)
             .SetEase(easeIn)
+            .SetUpdate(UpdateType.Late, true)
             .OnStart(() => SetRaycasts(false))
             .OnComplete(() =>
             {
@@ -77,7 +116,19 @@ public class MenuManager : MonoBehaviour
 
     public void SetRaycasts(bool canInteract)
     {
-        globalCanvasGroup.blocksRaycasts = canInteract;
+        if (globalCanvasGroup != null) globalCanvasGroup.blocksRaycasts = canInteract;
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     public Vector2 GetPosForDirection(UIDirection dir)
@@ -91,15 +142,41 @@ public class MenuManager : MonoBehaviour
             _ => Vector2.zero
         };
     }
-    public void Pause()
+    void Start()
     {
-        Time.timeScale = 0f;
-        isPaused = true;
+        StartCoroutine(InitMenuSequence());
     }
 
-    public void Resume()
+    private IEnumerator InitMenuSequence()
     {
-        Time.timeScale = 1f;
-        isPaused = false;
+
+        yield return new WaitForEndOfFrame();
+        if (loadingScreen != null)
+        {
+            loadingScreen.gameObject.SetActive(true);
+            loadingScreen.anchoredPosition = Vector2.zero;
+            Exit(loadingScreen, UIDirection.Top);
+        }
+        if (startMenu.parts.Count != 0)
+        {
+            activeMenu = startMenu;
+            foreach (var part in activeMenu.parts)
+            {
+                Enter(part.rect, part.entryDirection, entryDelay);
+            }
+        }
+    }
+    public void LoadScene(string sceneName)
+    {
+        loadingScreen.gameObject.SetActive(true);
+        loadingScreen.anchoredPosition = GetPosForDirection(UIDirection.Top);
+
+        loadingScreen.DOAnchorPos(Vector2.zero, enterDuration)
+            .SetEase(easeOut)
+            .SetUpdate(true)
+            .OnComplete(() =>
+            {
+                SceneManager.LoadScene(sceneName);
+            });
     }
 }

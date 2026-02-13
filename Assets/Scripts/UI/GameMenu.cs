@@ -15,10 +15,6 @@ public class GameMenu : MenuManager
     public Button passButton;
 
     public RectTransform levelUpMenu;
-    public void Start()
-    {
-        Exit(loadingScreen, UIDirection.Top);
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,7 +27,7 @@ public class GameMenu : MenuManager
     {
         if (weapon == null && passive == null) { return; }
         Pause();
-        OpenFromTop(itemMenu);
+        Enter(itemMenu, UIDirection.Top);
         if (weapon != null)
         {
             itemIcon.sprite = weapon.icon;
@@ -46,8 +42,12 @@ public class GameMenu : MenuManager
         }
         takeButton.onClick.RemoveAllListeners();
         takeButton.onClick.AddListener(() => player.PickUpItem(weapon, passive));
-        takeButton.onClick.AddListener(() => ExitToTop(itemMenu));
-        takeButton.onClick.AddListener(() => Resume());
+        takeButton.onClick.AddListener(() => ExitPickupMenu());
+    }
+    public void ExitPickupMenu()
+    {
+        Exit(itemMenu, UIDirection.Top);
+        Resume();
     }
     public string GeneratePassiveDescription(PlayerController player, PassiveData passive)
     {
@@ -91,17 +91,11 @@ public class GameMenu : MenuManager
 
     private bool IsStatPercentage(StatType stat)
     {
-        switch (stat)
+        return stat switch
         {
-            case StatType.HpMax:
-            case StatType.Armor:
-            case StatType.Amount:
-            case StatType.Revives:
-            case StatType.Pierce:
-                return false;
-            default:
-                return true;
-        }
+            StatType.HpMax or StatType.Armor or StatType.Amount or StatType.Revives or StatType.Pierce => false,
+            _ => true,
+        };
     }
     private string InsertSpaces(string text)
     {

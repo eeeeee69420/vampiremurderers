@@ -2262,8 +2262,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 208513399}
-  - {fileID: 323256288}
-  - {fileID: 363267650}
+  - {fileID: 1174772920}
   - {fileID: 1165015861}
   - {fileID: 291072100}
   - {fileID: 323497351}
@@ -2870,6 +2869,7 @@ GameObject:
   - component: {fileID: 287486610}
   - component: {fileID: 287486609}
   - component: {fileID: 287486608}
+  - component: {fileID: 287486611}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2942,16 +2942,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1991394016}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromTop
-        m_Mode: 2
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 323497351}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TestLevel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &287486609
@@ -2992,6 +2992,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287486606}
   m_CullTransparentMesh: 1
+--- !u!114 &287486611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287486606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483f01d9dc490ff4aaea47323175a38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuLink
+  targetMenu:
+    menuName: Loading Screen
+    parts:
+    - rect: {fileID: 323497351}
+      entryDirection: 2
+      exitDirection: 2
 --- !u!1 &291072099
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,7 +3379,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1644311083}
-  m_Father: {fileID: 210556900}
+  m_Father: {fileID: 1174772920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3686,13 +3704,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363267649}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1092028206}
-  m_Father: {fileID: 210556900}
+  m_Father: {fileID: 1174772920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7842,6 +7860,7 @@ GameObject:
   - component: {fileID: 949795619}
   - component: {fileID: 949795618}
   - component: {fileID: 949795617}
+  - component: {fileID: 949795620}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7914,37 +7933,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ExitToRight
-        m_Mode: 2
+      - m_Target: {fileID: 949795620}
+        m_TargetAssemblyTypeName: MenuLink, Assembly-CSharp
+        m_MethodName: TriggerNavigation
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 363267650}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ExitToTop
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 323256288}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromLeft
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1165015861}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7988,6 +7983,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949795615}
   m_CullTransparentMesh: 1
+--- !u!114 &949795620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949795615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483f01d9dc490ff4aaea47323175a38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuLink
+  targetMenu:
+    menuName: Level Select
+    parts:
+    - rect: {fileID: 1165015861}
+      entryDirection: 0
+      exitDirection: 1
 --- !u!1 &963330651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8208,25 +8221,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1991394016}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ExitToLeft
-        m_Mode: 2
+        m_MethodName: GoBack
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 291072100}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromRight
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1165015861}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9596,6 +9597,43 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1174772919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174772920}
+  m_Layer: 5
+  m_Name: StartMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1174772920
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174772919}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 323256288}
+  - {fileID: 363267650}
+  m_Father: {fileID: 210556900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1174879059
 GameObject:
   m_ObjectHideFlags: 0
@@ -12334,37 +12372,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1991394016}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ExitToLeft
-        m_Mode: 2
+        m_MethodName: GoBack
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1165015861}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromTop
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 323256288}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromRight
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 363267650}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14350,20 +14364,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991394011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95bb561481fbe34a8396d5fb3a684e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 542fc4635a934e24b9b50d31d0955de1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LobbyMenu
-  enterDuration: 1.25
-  exitDuration: 0.75
-  entryDelay: 0.75
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  enterDuration: 1.5
+  exitDuration: 1
+  entryDelay: 1
   easeIn: 14
   easeOut: 15
   loadingScreen: {fileID: 323497351}
   screenOffset: {x: 320, y: 180}
   globalCanvasGroup: {fileID: 210556901}
   isPaused: 0
-  title: {fileID: 323256288}
-  startMenu: {fileID: 363267650}
+  activeMenu:
+    menuName: 
+    parts: []
+  startMenu:
+    menuName: Start Menu
+    parts:
+    - rect: {fileID: 323256288}
+      entryDirection: 2
+      exitDirection: 2
+    - rect: {fileID: 363267650}
+      entryDirection: 0
+      exitDirection: 1
 --- !u!1 &1991822924
 GameObject:
   m_ObjectHideFlags: 0
@@ -14576,6 +14600,7 @@ GameObject:
   - component: {fileID: 2014240648}
   - component: {fileID: 2014240651}
   - component: {fileID: 2014240649}
+  - component: {fileID: 2014240652}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -14649,25 +14674,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ExitToRight
-        m_Mode: 2
+      - m_Target: {fileID: 2014240652}
+        m_TargetAssemblyTypeName: MenuLink, Assembly-CSharp
+        m_MethodName: TriggerNavigation
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1165015861}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenFromLeft
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 291072100}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14681,6 +14694,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014240647}
   m_CullTransparentMesh: 1
+--- !u!114 &2014240652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014240647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483f01d9dc490ff4aaea47323175a38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuLink
+  targetMenu:
+    menuName: Character Select
+    parts:
+    - rect: {fileID: 291072100}
+      entryDirection: 0
+      exitDirection: 1
 --- !u!1 &2034228322
 GameObject:
   m_ObjectHideFlags: 0
