@@ -775,6 +775,12 @@ MonoBehaviour:
   screenOffset: {x: 320, y: 180}
   globalCanvasGroup: {fileID: 806518745}
   isPaused: 0
+  activeMenu:
+    menuName: 
+    parts: []
+  startMenu:
+    menuName: 
+    parts: []
   itemMenu: {fileID: 104687116}
   itemIcon: {fileID: 613955548}
   itemName: {fileID: 169077002}
@@ -22418,7 +22424,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447943366}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 254850256}
+        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+        m_MethodName: ExitPickupMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1447943366
 MonoBehaviour:
   m_ObjectHideFlags: 0
