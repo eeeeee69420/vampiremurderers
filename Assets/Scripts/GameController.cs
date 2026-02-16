@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
@@ -35,7 +36,6 @@ public class GameController : MonoBehaviour
         hitScreen = GameObject.Find("HitScreen");
         UpdateHPBar();
     }
-    [SerializeField]
     public void HitScreenAnim()
     {
         if (hitScreen != null)
