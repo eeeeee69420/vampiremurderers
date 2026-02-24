@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77dabbc3ca48b164c9e61c01a89313a4, type: 3}
-  m_Name: Damage
+  m_Name: Health Regen
   m_EditorClassIdentifier: 
-  displayName: Anvil
-  icon: {fileID: -8607154822986795083, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-  affectedStat: 4
-  bonusPerLevel: 0.1
+  displayName: Regeneration Tinkture
+  icon: {fileID: 6535887574299762660, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
+  affectedStat: 1
+  bonusPerLevel: 0.2
   maxLevel: 5

@@ -39,9 +39,10 @@ MonoBehaviour:
   - statIncreases:
     - stat: 10
       amount: 1
-  displayName: 
+  displayName: Fire Wand
   icon: {fileID: -1809702614, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-  description: 
+  description: Shoots several large fireball projectiles piercing multiple enemies
+    and inflicting burn.
   weaponBehavior: 1
   targetting: 1
   statusConditions:
@@ -56,3 +57,4 @@ MonoBehaviour:
   projectileSpreadType: 0
   spreadAmount: 0
   spreadAngle: 0
+  triggersAttackAnim: 0

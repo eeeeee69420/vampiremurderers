@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77dabbc3ca48b164c9e61c01a89313a4, type: 3}
-  m_Name: Damage
-  m_EditorClassIdentifier: 
-  displayName: Anvil
-  icon: {fileID: -8607154822986795083, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-  affectedStat: 4
-  bonusPerLevel: 0.1
-  maxLevel: 5
+  m_Name: Amount
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveData
+  displayName: Quiver
+  icon: {fileID: -968420424, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
+  affectedStat: 10
+  bonusPerLevel: 1
+  maxLevel: 2

@@ -33,7 +33,10 @@ MonoBehaviour:
     pierce: 60
     lifesteal: 0
   LevelStats: []
+  displayName: Longsword
   icon: {fileID: -984709256, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}
+  description: Summons longswords that spin around far from the user dealing medium
+    damage and knockback.
   weaponBehavior: 2
   targetting: 0
   statusConditions:
@@ -43,3 +46,8 @@ MonoBehaviour:
   projectileFiringType: 0
   radius: 2.5
   amountDelay: 0.1
+  amountAngle: 0
+  projectileSpreadType: 0
+  spreadAmount: 0
+  spreadAngle: 0
+  triggersAttackAnim: 0

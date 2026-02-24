@@ -14,7 +14,7 @@ public class Database : MonoBehaviour
 [System.Serializable]
 public class Passive
 {
-    public PassiveData data;
+    public PassiveData passiveData;
     public int level = 0;
 }
 
@@ -51,7 +51,7 @@ public class CharacterStats
     public float duration = 0;
     public float projectileSpeed = 0;
     public int amount = 0;
-    public float growth = 0;
+    public int detection = 50;
     public float revives = 0;
     public float greed = 0;
     public float luck = 0;
@@ -74,7 +74,7 @@ public class CharacterStats
             duration = this.duration,
             projectileSpeed = this.projectileSpeed,
             amount = this.amount,
-            growth = this.growth,
+            detection = this.detection,
             revives = this.revives,
             greed = this.greed,
             luck = this.luck,
@@ -99,7 +99,7 @@ public class CharacterStats
             duration = this.duration * (buffs.duration + 1),
             projectileSpeed = this.projectileSpeed * (buffs.projectileSpeed + 1),
             amount = this.amount + buffs.amount,
-            growth = this.growth + buffs.growth,
+            detection = this.detection - buffs.detection,
             revives = this.revives + buffs.revives,
             greed = this.greed * (buffs.greed + 1),
             luck = this.luck * (buffs.luck + 1),
@@ -124,7 +124,7 @@ public class CharacterStats
             case StatType.Duration: duration *= (buffValue + 1); break;
             case StatType.ProjectileSpeed: projectileSpeed *= (buffValue + 1); break;
             case StatType.Amount: amount += (int)buffValue; break;
-            case StatType.Growth: growth *= (buffValue + 1); break;
+            case StatType.Detection: detection -= (int)buffValue; break;
             case StatType.Revives: revives += (int)buffValue; break;
             case StatType.Greed: greed *= (buffValue + 1); break;
             case StatType.Luck: luck *= (buffValue + 1); break;
@@ -149,7 +149,7 @@ public class CharacterStats
             duration = buffs1.duration + buffs2.duration,
             projectileSpeed = buffs1.projectileSpeed + buffs2.projectileSpeed,
             amount = buffs1.amount + buffs2.amount,
-            growth = buffs1.growth + buffs2.growth,
+            detection = buffs1.detection + buffs2.detection,
             revives = buffs1.revives + buffs2.revives,
             greed = buffs1.greed + buffs2.greed,
             luck = buffs1.luck + buffs2.luck,
@@ -174,7 +174,7 @@ public class CharacterStats
             case StatType.Duration: duration += buffValue; break;
             case StatType.ProjectileSpeed: projectileSpeed += buffValue; break;
             case StatType.Amount: amount += (int)buffValue; break;
-            case StatType.Growth: growth += buffValue; break;
+            case StatType.Detection: detection += (int)buffValue; break;
             case StatType.Revives: revives += (int)buffValue; break;
             case StatType.Greed: greed += buffValue; break;
             case StatType.Luck: luck += buffValue; break;
@@ -198,7 +198,7 @@ public enum StatType //All additive stats are framed as % reduction, so 15% fast
     Duration, //Additive
     ProjectileSpeed, //Additive
     Amount, //Flat
-    Growth, //Additive
+    Detection, //Additive
     Revives, //Flat
     Greed, //Flat
     Luck, //Flat

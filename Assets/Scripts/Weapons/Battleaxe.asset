@@ -39,7 +39,10 @@ MonoBehaviour:
   - statIncreases:
     - stat: 10
       amount: 1
+  displayName: Battleaxe
   icon: {fileID: -1773150384, guid: 3806583b629e09e48949304910a6ed24, type: 3}
+  description: Shoots a large battleaxe dealing heavy damage, knockback, and applying
+    Crush.
   weaponBehavior: 1
   targetting: 4
   statusConditions:
@@ -50,3 +53,8 @@ MonoBehaviour:
   projectileFiringType: 1
   radius: 0
   amountDelay: 0.5
+  amountAngle: 0
+  projectileSpreadType: 0
+  spreadAmount: 0
+  spreadAngle: 0
+  triggersAttackAnim: 0

@@ -39,9 +39,9 @@ MonoBehaviour:
   - statIncreases:
     - stat: 10
       amount: 1
-  displayName: 
+  displayName: Arcane Tome
   icon: {fileID: 2513915395042741297, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
-  description: 
+  description: Fires large magic projectiles in every direction periodically.
   weaponBehavior: 1
   targetting: 0
   statusConditions:
@@ -55,3 +55,4 @@ MonoBehaviour:
   projectileSpreadType: 0
   spreadAmount: 0
   spreadAngle: 0
+  triggersAttackAnim: 0

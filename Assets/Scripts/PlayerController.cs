@@ -82,7 +82,7 @@ public class PlayerController : CharacterController
             bool isNewPassive = true;
             for (int i = 0; i < Passives.Count; i++)
             {
-                if (Passives[i].data == passiveData && Passives[i].level <= passiveData.maxLevel)
+                if (Passives[i].passiveData == passiveData && Passives[i].level <= passiveData.maxLevel)
                 {
                     isNewPassive = false;
                     LevelPassive(Passives[i]);
@@ -92,9 +92,10 @@ public class PlayerController : CharacterController
             {
                 Passive newPassive = new()
                 {
-                    data = passiveData
+                    passiveData = passiveData
                 };
                 Passives.Add(newPassive);
+                newPassive.level = 1;
                 UpdatePassives();
             }
         }
@@ -102,7 +103,7 @@ public class PlayerController : CharacterController
     public void LevelPassive(Passive passive)
     {
         passive.level++;
-        buffs.MergeBuff(passive.data.bonusPerLevel, passive.data.affectedStat);
+        buffs.MergeBuff(passive.passiveData.bonusPerLevel, passive.passiveData.affectedStat);
         RefreshStats();
     }
     public void UpdateWeapons()
@@ -139,7 +140,7 @@ public class PlayerController : CharacterController
         {
             if (PassiveIcons.IndexOf(passiveIcon) < Passives.Count && passiveIcon != null)
             {
-                passiveIcon.sprite = Passives[PassiveIcons.IndexOf(passiveIcon)].data.icon;
+                passiveIcon.sprite = Passives[PassiveIcons.IndexOf(passiveIcon)].passiveData.icon;
                 passiveIcon.color = Color.white;
             }
             else
@@ -164,7 +165,7 @@ public class PlayerController : CharacterController
     public override void RefreshStats()
     {
         foreach (var passive in Passives)
-            buffs.MergeBuff(passive.level * passive.data.bonusPerLevel, passive.data.affectedStat);
+            buffs.MergeBuff(passive.level * passive.passiveData.bonusPerLevel, passive.passiveData.affectedStat);
         stats = characterData.stats.ApplyBuffs(buffs);
         foreach (var weapon in weapons)
             weapon.RefreshStats();

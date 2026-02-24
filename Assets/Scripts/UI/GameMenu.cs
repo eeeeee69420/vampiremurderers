@@ -1,9 +1,10 @@
+using DG.Tweening;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using DG.Tweening;
-using TMPro;
 using UnityEngine.UI;
-using System.Linq;
 
 public class GameMenu : MenuManager
 {
@@ -25,21 +26,37 @@ public class GameMenu : MenuManager
     }
     public void ItemPickup(PlayerController player, WeaponData weapon = null, PassiveData passive = null)
     {
-        if (weapon == null && passive == null) { return; }
+        if (weapon == null && passive == null) return;
+
         Pause();
         Enter(itemMenu, UIDirection.Top);
+
+        bool isMaxed = false;
+        bool isFull = false;
+
         if (weapon != null)
         {
             itemIcon.sprite = weapon.icon;
             itemName.text = weapon.displayName;
             itemDescription.text = GenerateWeaponDescription(player, weapon);
+
+            Weapon current = player.weapons.Find(w => w.weaponData == weapon);
+            isMaxed = (itemDescription.text == "Max Level");
+            isFull = (current == null && player.weapons.Count >= 6);
         }
-        if (passive != null)
+        else if (passive != null)
         {
             itemIcon.sprite = passive.icon;
             itemName.text = passive.displayName;
             itemDescription.text = GeneratePassiveDescription(player, passive);
+
+            Passive current = player.Passives.Find(p => p.passiveData == passive);
+            isMaxed = (itemDescription.text == "Max Level");
+            isFull = (current == null && player.Passives.Count >= 6);
         }
+
+        takeButton.interactable = !isMaxed && !isFull;
+
         takeButton.onClick.RemoveAllListeners();
         takeButton.onClick.AddListener(() => player.PickUpItem(weapon, passive));
         takeButton.onClick.AddListener(() => ExitPickupMenu());
@@ -51,12 +68,17 @@ public class GameMenu : MenuManager
     }
     public string GeneratePassiveDescription(PlayerController player, PassiveData passive)
     {
+        Passive currentPassive = player.Passives.Find(p => p.passiveData == passive);
+        if (currentPassive != null && currentPassive.level >= passive.maxLevel)
+        {
+            return "Max Level";
+        }
         return FormatStatLine(passive.affectedStat, passive.bonusPerLevel);
     }
+
     public string GenerateWeaponDescription(PlayerController player, WeaponData weapon)
     {
         Weapon currentWeapon = player.weapons.Find(w => w.weaponData == weapon);
-
         if (currentWeapon == null)
         {
             return weapon.description;
@@ -71,10 +93,8 @@ public class GameMenu : MenuManager
         foreach (var upgrade in nextLevelData.statIncreases)
         {
             if (description != "") description += "\n";
-
             description += FormatStatLine(upgrade.stat, upgrade.amount);
         }
-
         return description;
     }
 
@@ -86,7 +106,7 @@ public class GameMenu : MenuManager
         bool isPercentage = IsStatPercentage(stat);
         string valueSuffix = isPercentage ? $"{(absoluteAmount * 100)}%" : $"{absoluteAmount}";
 
-        return $"{trend} {InsertSpaces(stat.ToString())} by {valueSuffix}";
+        return $" - {trend} {InsertSpaces(stat.ToString())} by {valueSuffix}.";
     }
 
     private bool IsStatPercentage(StatType stat)

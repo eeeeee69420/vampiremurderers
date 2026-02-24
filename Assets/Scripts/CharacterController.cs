@@ -20,6 +20,7 @@ public class CharacterController : MonoBehaviour
     [HideInInspector] public CharacterStats buffs = new();
     [HideInInspector] public List<Weapon> weapons = new();
     [HideInInspector] public float mass;
+    [HideInInspector] public int revivesUsed;
 
     [HideInInspector] public List<StatusCondition> statusConditions = new();
     [HideInInspector] public List<StatusStates> statusStates = new();
@@ -79,7 +80,7 @@ public class CharacterController : MonoBehaviour
     }
     public void LifeSteal()
     {
-        int lifesteal = UnityEngine.Random.Range(1, 100);
+        float lifesteal = UnityEngine.Random.Range(0f, 1f);
         if (lifesteal <= stats.lifesteal)
         {
             hp += 1;

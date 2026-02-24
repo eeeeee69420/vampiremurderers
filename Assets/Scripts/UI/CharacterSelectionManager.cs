@@ -42,7 +42,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public TextMeshProUGUI durationText;
     public TextMeshProUGUI projectileSpeedText;
     public TextMeshProUGUI amountText;
-    public TextMeshProUGUI growthText;
+    public TextMeshProUGUI detectionText;
     public TextMeshProUGUI revivesText;
     public TextMeshProUGUI greedText;
     public TextMeshProUGUI luckText;
@@ -82,7 +82,7 @@ public class CharacterSelectionManager : MonoBehaviour
         // Movement & Utility
         UpdateStatRow(moveSpeedText, stats.moveSpeed, 1.5f, true);
         UpdateStatRow(luckText, stats.luck, 0f, true, "P0");
-        UpdateStatRow(growthText, stats.growth, 0f, true, "P0");
+        UpdateStatRow(detectionText, stats.detection, 0f, true, "P0");
         UpdateStatRow(greedText, stats.greed, 0f, true, "P0");
         UpdateStatRow(revivesText, stats.revives, 0f, true, "N0");
 
