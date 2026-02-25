@@ -8,8 +8,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 public class PlayerController : CharacterController
 {
+    [SerializeField] private InputActionReference moveAction;
+    private void OnEnable() => moveAction.action.Enable();
+    private void OnDisable() => moveAction.action.Disable();
     [HideInInspector] public float inputX;
     [HideInInspector] public float inputY;
 
@@ -36,15 +40,14 @@ public class PlayerController : CharacterController
     }
     public override Vector2 Track()
     {
-        inputX = Input.GetAxis("Horizontal");
-        inputY = Input.GetAxis("Vertical");
-        Vector2 direction = new(inputX, inputY);
-        if (direction.magnitude > 1)
-            direction = direction.normalized;
-        if (direction.magnitude > 0.2)
-            characterAnimator.animator.SetBool("isMoving", true);
-        else
-            characterAnimator.animator.SetBool("isMoving", false);
+        Vector2 direction = moveAction.action.ReadValue<Vector2>();
+
+        if (direction.sqrMagnitude > 1)
+            direction.Normalize();
+
+        bool isMoving = direction.sqrMagnitude > 0.04f;
+        characterAnimator.animator.SetBool("isMoving", isMoving);
+
         return direction;
     }
     public override void AddWeapon(WeaponData weaponData, bool tempWeapon = false, bool disabled = false)

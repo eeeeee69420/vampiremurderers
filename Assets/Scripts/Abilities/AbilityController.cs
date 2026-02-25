@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class AbilityController : MonoBehaviour
@@ -17,6 +18,11 @@ public class AbilityController : MonoBehaviour
     public Image abilityIcon;
     public Image abilityIconOverlay;
     public TextMeshProUGUI abilityText;
+
+    [SerializeField] private InputActionReference abilityAction;
+    private void OnEnable() => abilityAction.action.Enable();
+    private void OnDisable() => abilityAction.action.Disable();
+
     private void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -28,24 +34,26 @@ public class AbilityController : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
         if (cooldown < 0) cooldown = 0;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        bool isSpaceHeld = abilityAction.action.IsPressed();
+        if (isSpaceHeld && !durating && cooldown == 0)
         {
-            if (!durating && cooldown == 0)
-                ActivateAbility();
-            else if (durating)
-                DeactivateAbility();
+            ActivateAbility();
         }
-
         if (durating && cooldown <= 0)
         {
             DeactivateAbility();
         }
 
-        if (!durating)
-            abilityIconOverlay.fillAmount = cooldown / (abilityData.cooldown / (1 + controller.stats.duration));
-        if (durating)
-            abilityIconOverlay.fillAmount = cooldown / (abilityData.duration * (1 + controller.stats.duration));
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        float totalTime = durating
+            ? (abilityData.duration * (1 + controller.stats.duration))
+            : (abilityData.cooldown / (1 + controller.stats.duration));
+
+        abilityIconOverlay.fillAmount = cooldown / totalTime;
         abilityText.text = cooldown > 0 ? cooldown.ToString("F0") : "";
     }
     protected virtual void ActivateAbility()

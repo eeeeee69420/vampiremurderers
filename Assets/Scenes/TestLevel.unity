@@ -1804,9 +1804,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055555556
-    width: 0.33333334
-    height: 0.3333333
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 50
@@ -24694,6 +24694,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100355462}
     - target: {fileID: 5096340085538168510, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: abilityAction
+      value: 
+      objectReference: {fileID: 812153793797256274, guid: 0be06cbb76090f443bfbebe0f2ed651a, type: 3}
+    - target: {fileID: 5096340085538168510, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: abilityIconOverlay
       value: 
       objectReference: {fileID: 1026790115}
@@ -24709,6 +24713,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: -1178610039956878780, guid: 0be06cbb76090f443bfbebe0f2ed651a, type: 3}
     - target: {fileID: 5795592620552621474, guid: 208f14e3d27ea9e48a04813a23524735, type: 3}
       propertyPath: characterData
       value: 
