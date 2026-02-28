@@ -11,10 +11,26 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> enemies;
     public List<GameObject> disabledEnemies;
 
+    public float spawnTime;
+    public float remainingSpawnTime;
+    public EnemyData meleeEnemy;
+    public EnemyData rangedEnemy;
+    public float spawnDistance;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+    private void FixedUpdate()
+    {
+        remainingSpawnTime -= Time.fixedDeltaTime;
+        if (remainingSpawnTime <= 0)
+        {
+            remainingSpawnTime += spawnTime;
+            float angle = Random.Range(0f, Mathf.PI * 2);
+            InstantiateEnemy((Random.value < 0.9f) ? meleeEnemy : rangedEnemy, new Vector3(Mathf.Cos(angle) * spawnDistance, Mathf.Sin(angle) * spawnDistance, 0));
+        }
     }
     public GameObject InstantiateEnemy(EnemyData enemyData, Vector3 position, Transform parent = null)
     {

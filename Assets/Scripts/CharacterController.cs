@@ -144,7 +144,8 @@ public class CharacterController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (gameObject.layer == 6)
             SceneManager.LoadScene("TestLevel");
-        Destroy(gameObject);
+        if (gameObject.layer == 8)
+            EnemyManager.Instance.DisableEnemy(gameObject);
     }
     public IEnumerator AddStatus(StatusCondition status, CharacterController owner = null)
     {
