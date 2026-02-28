@@ -24,7 +24,7 @@ MonoBehaviour:
     duration: 3
     projectileSpeed: 4
     amount: 1
-    growth: 0
+    detection: 50
     revives: 0
     greed: 0
     luck: 0
@@ -34,11 +34,25 @@ MonoBehaviour:
     lifesteal: 0
   LevelStats:
   - statIncreases:
+    - stat: 10
+      amount: 1
+  - statIncreases:
     - stat: 9
-      amount: 0.5
+      amount: 0.25
+  - statIncreases:
+    - stat: 5
+      amount: 0.2
   - statIncreases:
     - stat: 10
       amount: 1
+  - statIncreases:
+    - stat: 17
+      amount: 1
+  - statIncreases:
+    - stat: 10
+      amount: 2
+    - stat: 4
+      amount: 0.15
   displayName: Bow
   icon: {fileID: -690421435, guid: 3511fd43067a55f439e6c8135cd99ea1, type: 3}
   description: Shoots arrows at the nearest enemy, dealing medium damage and knocking
@@ -56,3 +70,4 @@ MonoBehaviour:
   projectileSpreadType: 0
   spreadAmount: 0
   spreadAngle: 0
+  triggersAttackAnim: 0
