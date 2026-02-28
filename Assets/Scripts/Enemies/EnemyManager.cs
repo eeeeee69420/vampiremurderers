@@ -17,7 +17,9 @@ public class EnemyManager : MonoBehaviour
     public EnemyData meleeEnemy;
     public EnemyData rangedEnemy;
     public float spawnDistance;
+
     public List<RewardContainer> lootTable;
+    public float itemSpawnChance = .9f;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class EnemyManager : MonoBehaviour
             InstantiateEnemy((Random.value < 0.9f) ? meleeEnemy : rangedEnemy, new Vector3(Mathf.Cos(angle) * spawnDistance, Mathf.Sin(angle) * spawnDistance, 0));
             if(spawnTime > 0.5f)
             {
-                spawnTime *= 0.99f;
+                spawnTime *= 0.98f;
             }
         }
     }
@@ -73,15 +75,20 @@ public class EnemyManager : MonoBehaviour
     }
     public void DisableEnemy(GameObject enemy)
     {
-        if (Random.value >= .90f)
+        if (Random.value <= itemSpawnChance)
         {
-            GameObject newItem = Instantiate(universalItemPrefab, enemy.transform);
+            GameObject newItem = Instantiate(universalItemPrefab);
+            newItem.transform.SetLocalPositionAndRotation(enemy.transform.position, Quaternion.identity);
             RewardContainer rewardContainer = lootTable[Random.Range(0, lootTable.Count - 1)];
             newItem.GetComponent<ItemController>().rewardContainer = rewardContainer;
             if (rewardContainer.weapon != null)
                 newItem.GetComponentInChildren<SpriteRenderer>().sprite = rewardContainer.weapon.icon;
             if (rewardContainer.passive != null)
                 newItem.GetComponentInChildren<SpriteRenderer>().sprite = rewardContainer.passive.icon;
+            if (itemSpawnChance > 0.2f)
+            {
+                itemSpawnChance *= .85f;
+            }
         }
         enemy.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         enemy.transform.localScale = Vector3.one;
@@ -99,5 +106,8 @@ public class EnemyManager : MonoBehaviour
         }
 
         disabledEnemies.Add(enemy);
+
+        //IMPORTANT DELETE LATER
+        Destroy(enemy);
     }
 }
