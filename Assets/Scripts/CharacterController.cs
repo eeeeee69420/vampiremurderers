@@ -8,7 +8,6 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEditor.ShaderData;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class CharacterController : MonoBehaviour
 {
@@ -43,9 +42,7 @@ public class CharacterController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         if (!dead && !statusStates.Contains(StatusStates.Immobilized))
-        {
             Move();
-        }
         UpdateStatuses();
     }
     public virtual void Update()
@@ -139,8 +136,6 @@ public class CharacterController : MonoBehaviour
     {
         var layersToExclude = new List<int> { 6, 8, 9 };
         GetComponent<CircleCollider2D>().excludeLayers = layersToExclude.Aggregate(0, (acc, layer) => acc | (1 << layer));
-        foreach (var weapon in GetComponentsInChildren<Weapon>())
-        { Destroy(weapon); }
         dead = true;
         hp = 0;
         characterAnimator.PlayAnimation("Death");
@@ -148,7 +143,7 @@ public class CharacterController : MonoBehaviour
             weapon.disabled = true;
         yield return new WaitForSeconds(2f);
         if (gameObject.layer == 6)
-            SceneManager.LoadScene("StartMenu");
+            SceneManager.LoadScene("TestLevel");
         if (gameObject.layer == 8)
             EnemyManager.Instance.DisableEnemy(gameObject);
     }

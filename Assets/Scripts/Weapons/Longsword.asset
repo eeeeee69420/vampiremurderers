@@ -24,7 +24,7 @@ MonoBehaviour:
     duration: 8
     projectileSpeed: 3
     amount: 3
-    detection: 50
+    growth: 0
     revives: 0
     greed: 0
     luck: 0
@@ -32,27 +32,7 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 60
     lifesteal: 0
-  LevelStats:
-  - statIncreases:
-    - stat: 8
-      amount: 0.2
-  - statIncreases:
-    - stat: 10
-      amount: 1
-  - statIncreases:
-    - stat: 4
-      amount: 0.15
-  - statIncreases:
-    - stat: 10
-      amount: 1
-  - statIncreases:
-    - stat: 8
-      amount: 0.2
-  - statIncreases:
-    - stat: 4
-      amount: 0.3
-    - stat: 10
-      amount: 1
+  LevelStats: []
   displayName: Longsword
   icon: {fileID: -984709256, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}
   description: Summons longswords that spin around far from the user dealing medium

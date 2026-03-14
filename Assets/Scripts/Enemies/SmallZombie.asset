@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Small Zombie
   stats:
-    hpmax: 30
+    hpmax: 100
     hpregen: 0
     armor: 0
     moveSpeed: 0.75
@@ -25,7 +25,7 @@ MonoBehaviour:
     duration: 0
     projectileSpeed: 0
     amount: 0
-    detection: 50
+    growth: 0
     revives: 0
     greed: 0
     luck: 0
@@ -39,4 +39,3 @@ MonoBehaviour:
   statusEffectPrefab: {fileID: 5713583185037948662, guid: 639d623d30cd4494aab35f35f8cb2146, type: 3}
   weapons:
   - {fileID: 11400000, guid: 9287aa7f243378940be0760e9a920dd3, type: 2}
-  preferredDistance: 0
