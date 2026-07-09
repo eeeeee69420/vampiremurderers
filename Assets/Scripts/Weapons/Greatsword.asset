@@ -24,7 +24,7 @@ MonoBehaviour:
     duration: 12
     projectileSpeed: 5
     amount: 3
-    growth: 0
+    detection: 50
     revives: 0
     greed: 0
     luck: 0
@@ -32,7 +32,25 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 40
     lifesteal: 0
-  LevelStats: []
+  LevelStats:
+  - statIncreases:
+    - stat: 10
+      amount: 1
+  - statIncreases:
+    - stat: 8
+      amount: 0.3
+  - statIncreases:
+    - stat: 10
+      amount: 1
+  - statIncreases:
+    - stat: 4
+      amount: 0.3
+  - statIncreases:
+    - stat: 10
+      amount: 1
+  - statIncreases:
+    - stat: 4
+      amount: 0.3
   displayName: Greatsword
   icon: {fileID: 1309666659, guid: 0097ff79d3c188a448ccdd5f9643582d, type: 3}
   description: Summons greatswords that spin around close to the user dealing high

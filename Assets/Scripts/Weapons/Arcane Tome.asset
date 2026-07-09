@@ -18,13 +18,13 @@ MonoBehaviour:
     armor: 0
     moveSpeed: 0
     damage: 40
-    cooldown: 10
+    cooldown: 5
     abilityCooldown: 0
     area: 1
     duration: 1
     projectileSpeed: 3
     amount: 8
-    growth: 0
+    detection: 50
     revives: 0
     greed: 0
     luck: 0
@@ -34,11 +34,25 @@ MonoBehaviour:
     lifesteal: 0
   LevelStats:
   - statIncreases:
-    - stat: 9
-      amount: 0.5
+    - stat: 10
+      amount: 1
+  - statIncreases:
+    - stat: 5
+      amount: 0.15
+  - statIncreases:
+    - stat: 4
+      amount: 0.15
   - statIncreases:
     - stat: 10
       amount: 1
+  - statIncreases:
+    - stat: 5
+      amount: 0.2
+  - statIncreases:
+    - stat: 10
+      amount: 1
+    - stat: 4
+      amount: 0.2
   displayName: Arcane Tome
   icon: {fileID: 2513915395042741297, guid: 09f59eef03929ba4a8384d797ce9e647, type: 3}
   description: Fires large magic projectiles in every direction periodically.

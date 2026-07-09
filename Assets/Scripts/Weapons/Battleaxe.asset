@@ -24,7 +24,7 @@ MonoBehaviour:
     duration: 5
     projectileSpeed: 3
     amount: 1
-    growth: 0
+    detection: 50
     revives: 0
     greed: 0
     luck: 0
@@ -34,11 +34,23 @@ MonoBehaviour:
     lifesteal: 0
   LevelStats:
   - statIncreases:
-    - stat: 9
-      amount: 0.5
+    - stat: 4
+      amount: 0.2
   - statIncreases:
-    - stat: 10
-      amount: 1
+    - stat: 17
+      amount: 5
+  - statIncreases:
+    - stat: 7
+      amount: 0.15
+  - statIncreases:
+    - stat: 4
+      amount: 0.3
+  - statIncreases:
+    - stat: 17
+      amount: 5
+  - statIncreases:
+    - stat: 4
+      amount: 0.4
   displayName: Battleaxe
   icon: {fileID: -1773150384, guid: 3806583b629e09e48949304910a6ed24, type: 3}
   description: Shoots a large battleaxe dealing heavy damage, knockback, and applying

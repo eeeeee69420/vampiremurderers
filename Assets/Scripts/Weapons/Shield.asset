@@ -17,14 +17,14 @@ MonoBehaviour:
     hpregen: 0
     armor: 0
     moveSpeed: 0
-    damage: 10
-    cooldown: 25
+    damage: 40
+    cooldown: 9999
     abilityCooldown: 0
     area: 1
-    duration: 15
+    duration: 9999
     projectileSpeed: 5
     amount: 1
-    growth: 0
+    detection: 50
     revives: 0
     greed: 0
     luck: 0
@@ -32,7 +32,25 @@ MonoBehaviour:
     criticalDamage: 0
     pierce: 0
     lifesteal: 0
-  LevelStats: []
+  LevelStats:
+  - statIncreases:
+    - stat: 4
+      amount: 0.2
+  - statIncreases:
+    - stat: 7
+      amount: 0.15
+  - statIncreases:
+    - stat: 4
+      amount: 0.2
+  - statIncreases:
+    - stat: 10
+      amount: 1
+  - statIncreases:
+    - stat: 7
+      amount: 0.2
+  - statIncreases:
+    - stat: 4
+      amount: 0.3
   displayName: Shield
   icon: {fileID: 295925704, guid: 01019794a5127e84fa15b3c985a5ac9a, type: 3}
   description: Follows your movement, knocking back enemies and destroying projectiles.
@@ -49,3 +67,4 @@ MonoBehaviour:
   projectileSpreadType: 0
   spreadAmount: 0
   spreadAngle: 0
+  triggersAttackAnim: 0
