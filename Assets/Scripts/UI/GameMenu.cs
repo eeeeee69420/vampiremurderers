@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -59,11 +60,12 @@ public class GameMenu : MenuManager
 
         takeButton.onClick.RemoveAllListeners();
         takeButton.onClick.AddListener(() => player.PickUpItem(weapon, passive));
-        takeButton.onClick.AddListener(() => ExitPickupMenu());
+        takeButton.onClick.AddListener(() => StartCoroutine(ExitPickupMenu()));
     }
-    public void ExitPickupMenu()
+    public IEnumerator ExitPickupMenu()
     {
         Exit(itemMenu, UIDirection.Top);
+        yield return new WaitForSecondsRealtime(1f);
         Resume();
     }
     public string GeneratePassiveDescription(PlayerController player, PassiveData passive)

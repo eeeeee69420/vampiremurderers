@@ -6600,7 +6600,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 832816711}
   m_HandleRect: {fileID: 832816710}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14402,7 +14402,7 @@ MonoBehaviour:
   durationText: {fileID: 388030695}
   projectileSpeedText: {fileID: 1909585404}
   amountText: {fileID: 246177912}
-  detectionText: {fileID: 0}
+  detectionText: {fileID: 1497996331}
   revivesText: {fileID: 735774378}
   greedText: {fileID: 858132648}
   luckText: {fileID: 135257864}
