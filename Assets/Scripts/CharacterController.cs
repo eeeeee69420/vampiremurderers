@@ -261,6 +261,7 @@ public class CharacterController : MonoBehaviour
             newWeapon.tempWeapon = true;
         if (disabled)
             newWeapon.disabled = true;
+        newWeapon.controller = this;
     }
     public void RemoveWeapon(Weapon weapon)
     {
