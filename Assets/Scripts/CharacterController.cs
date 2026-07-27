@@ -134,6 +134,8 @@ public class CharacterController : MonoBehaviour
     {
         var layersToExclude = new List<int> { 6, 8, 9 };
         GetComponent<CircleCollider2D>().excludeLayers = layersToExclude.Aggregate(0, (acc, layer) => acc | (1 << layer));
+        if (gameObject.layer == 6)
+            body.linearVelocity = Vector2.zero;
         foreach (var weapon in GetComponentsInChildren<Weapon>())
         { Destroy(weapon); }
         dead = true;
